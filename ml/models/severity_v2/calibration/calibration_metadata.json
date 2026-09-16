@@ -1,0 +1,23 @@
+{
+  "calibration_version": "v2.0-out-of-fold",
+  "method": "sigmoid",
+  "sample_count": 336,
+  "raw_v2_brier": 0.7316,
+  "calibrated_v2_brier": 0.6959,
+  "raw_v2_logloss": 1.3225,
+  "calibrated_v2_logloss": 1.2631,
+  "sigmoid_brier": 0.6959,
+  "isotonic_brier": 0.7027,
+  "feature_ordering": [
+    "disaster_type_code",
+    "seismic_magnitude",
+    "seismic_depth_km",
+    "cyclone_max_wind_knots",
+    "cyclone_min_pressure_mb",
+    "hazard_intensity_index",
+    "country_population",
+    "population_density_sqkm",
+    "log_population_exposure"
+  ],
+  "leak_prevention_verified": true
+}

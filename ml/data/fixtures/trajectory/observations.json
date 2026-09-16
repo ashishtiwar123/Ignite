@@ -1,0 +1,170 @@
+{
+    "scenarios": [
+        {
+            "id": "scenario_1",
+            "description": "Clearly improving incident",
+            "candidate_id": "c1",
+            "observations": [
+                {
+                    "observation_id": "obs1",
+                    "incident_candidate_id": "c1",
+                    "observed_at": "2023-09-16T10:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {"water_level": 5.0},
+                    "source": "USGS",
+                    "source_record_id": "r1"
+                },
+                {
+                    "observation_id": "obs2",
+                    "incident_candidate_id": "c1",
+                    "observed_at": "2023-09-16T22:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {"water_level": 4.0},
+                    "source": "USGS",
+                    "source_record_id": "r2"
+                }
+            ]
+        },
+        {
+            "id": "scenario_2",
+            "description": "Stable incident",
+            "candidate_id": "c2",
+            "observations": [
+                {
+                    "observation_id": "obs3",
+                    "incident_candidate_id": "c2",
+                    "observed_at": "2023-09-16T10:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {"water_level": 5.0},
+                    "source": "USGS",
+                    "source_record_id": "r3"
+                },
+                {
+                    "observation_id": "obs4",
+                    "incident_candidate_id": "c2",
+                    "observed_at": "2023-09-16T22:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {"water_level": 5.2},
+                    "source": "USGS",
+                    "source_record_id": "r4"
+                }
+            ]
+        },
+        {
+            "id": "scenario_3",
+            "description": "Worsening incident",
+            "candidate_id": "c3",
+            "observations": [
+                {
+                    "observation_id": "obs5",
+                    "incident_candidate_id": "c3",
+                    "observed_at": "2023-09-16T10:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {"water_level": 5.0},
+                    "source": "USGS",
+                    "source_record_id": "r5"
+                },
+                {
+                    "observation_id": "obs6",
+                    "incident_candidate_id": "c3",
+                    "observed_at": "2023-09-16T22:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {"water_level": 6.0},
+                    "source": "USGS",
+                    "source_record_id": "r6"
+                }
+            ]
+        },
+        {
+            "id": "scenario_4",
+            "description": "Rapidly worsening incident",
+            "candidate_id": "c4",
+            "observations": [
+                {
+                    "observation_id": "obs7",
+                    "incident_candidate_id": "c4",
+                    "observed_at": "2023-09-16T10:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {"water_level": 5.0},
+                    "source": "USGS",
+                    "source_record_id": "r7"
+                },
+                {
+                    "observation_id": "obs8",
+                    "incident_candidate_id": "c4",
+                    "observed_at": "2023-09-16T22:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {"water_level": 8.0},
+                    "source": "USGS",
+                    "source_record_id": "r8"
+                }
+            ]
+        },
+        {
+            "id": "scenario_5",
+            "description": "Insufficient observations",
+            "candidate_id": "c5",
+            "observations": [
+                {
+                    "observation_id": "obs9",
+                    "incident_candidate_id": "c5",
+                    "observed_at": "2023-09-16T10:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {"water_level": 5.0},
+                    "source": "USGS",
+                    "source_record_id": "r9"
+                }
+            ]
+        },
+        {
+            "id": "scenario_6",
+            "description": "Missing intensity",
+            "candidate_id": "c6",
+            "observations": [
+                {
+                    "observation_id": "obs10",
+                    "incident_candidate_id": "c6",
+                    "observed_at": "2023-09-16T10:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {},
+                    "source": "USGS",
+                    "source_record_id": "r10"
+                },
+                {
+                    "observation_id": "obs11",
+                    "incident_candidate_id": "c6",
+                    "observed_at": "2023-09-16T22:00:00Z",
+                    "hazard_type": "Flood",
+                    "intensity_features": {},
+                    "source": "USGS",
+                    "source_record_id": "r11"
+                }
+            ]
+        },
+        {
+            "id": "scenario_7",
+            "description": "Multiple hazards (Cyclone)",
+            "candidate_id": "c7",
+            "observations": [
+                {
+                    "observation_id": "obs12",
+                    "incident_candidate_id": "c7",
+                    "observed_at": "2023-09-16T10:00:00Z",
+                    "hazard_type": "Cyclone",
+                    "intensity_features": {"wind_speed": 110.0},
+                    "source": "NOAA",
+                    "source_record_id": "r12"
+                },
+                {
+                    "observation_id": "obs13",
+                    "incident_candidate_id": "c7",
+                    "observed_at": "2023-09-16T22:00:00Z",
+                    "hazard_type": "Cyclone",
+                    "intensity_features": {"wind_speed": 150.0},
+                    "source": "NOAA",
+                    "source_record_id": "r13"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+candidate_model,macro_f1,weighted_f1,accuracy,brier_score,sample_count,cv_folds,replacement_recommended,rationale
+HistGradientBoosting (V2 Production),0.2794,0.3139,0.3244,0.7316,336,5,False,Secondary benchmark audit. Differences within margin of error; HistGradientBoosting retained.
+RandomForest,0.2335,0.3051,0.3423,0.7228,336,5,False,Secondary benchmark audit. Differences within margin of error; HistGradientBoosting retained.
+ExtraTrees,0.2036,0.2762,0.3452,0.7203,336,5,False,Secondary benchmark audit. Differences within margin of error; HistGradientBoosting retained.
+XGBoost,0.3175,0.3551,0.369,0.7657,336,5,False,Secondary benchmark audit. Differences within margin of error; HistGradientBoosting retained.

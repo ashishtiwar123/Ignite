@@ -1,0 +1,5 @@
+model_name,macro_f1,weighted_f1,accuracy
+XGBoost_Classifier,0.2398,0.2995,0.3929
+RandomForest_Classifier,0.2111,0.2806,0.375
+ExtraTrees_Classifier,0.1665,0.2476,0.378
+HistGradientBoosting_Classifier,0.2497,0.3045,0.3839

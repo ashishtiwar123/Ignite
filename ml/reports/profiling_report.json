@@ -1,0 +1,65 @@
+{
+  "profiled_at_utc": "2026-09-16T07:08:04.937130",
+  "datasets": {
+    "usgs_earthquakes": {
+      "source": "USGS Earthquake API",
+      "status": "ACCESSIBLE",
+      "total_records": 500,
+      "null_counts": {
+        "magnitude": 0,
+        "place": 0,
+        "time": 0,
+        "coordinates": 0,
+        "depth": 0
+      },
+      "null_percentages": {
+        "magnitude": 0.0,
+        "place": 0.0,
+        "time": 0.0,
+        "coordinates": 0.0,
+        "depth": 0.0
+      },
+      "metrics": {
+        "min_magnitude": 4.5,
+        "max_magnitude": 6.7,
+        "avg_magnitude": 4.84,
+        "earliest_event_utc": "2026-08-19T00:56:23.460000",
+        "latest_event_utc": "2026-09-15T23:46:59.464000"
+      },
+      "spatial_resolution": "Point (Latitude, Longitude, Depth)",
+      "temporal_resolution": "Real-Time (Millisecond Timestamps)"
+    },
+    "gdacs_alerts": {
+      "source": "GDACS Disaster Alert API",
+      "status": "ACCESSIBLE",
+      "total_records": 246,
+      "null_counts": {
+        "title": 0,
+        "event_type": 0,
+        "alert_level": 0,
+        "country": 2,
+        "point": 0
+      },
+      "null_percentages": {
+        "title": 0.0,
+        "event_type": 0.0,
+        "alert_level": 0.0,
+        "country": 0.8130081300813009,
+        "point": 0.0
+      },
+      "event_type_distribution": {
+        "TC": 3,
+        "WF": 213,
+        "EQ": 2,
+        "FL": 15,
+        "DR": 13
+      },
+      "alert_level_distribution": {
+        "Green": 240,
+        "Orange": 6
+      },
+      "spatial_resolution": "Point / Country Polygon",
+      "temporal_resolution": "Near Real-Time (Daily Alerts)"
+    }
+  }
+}

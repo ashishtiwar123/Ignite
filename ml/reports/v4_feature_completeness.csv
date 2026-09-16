@@ -1,0 +1,32 @@
+disaster_type,total_emdat_records,matched_records,match_rate_pct
+Air,445,0,0.0
+Animal incident,1,0,0.0
+Chemical spill,22,0,0.0
+Collapse (Industrial),158,0,0.0
+Collapse (Miscellaneous),167,0,0.0
+Drought,424,0,0.0
+Earthquake,693,68,9.81
+Epidemic,893,0,0.0
+Explosion (Industrial),470,0,0.0
+Explosion (Miscellaneous),169,0,0.0
+Extreme temperature,606,0,0.0
+Fire (Industrial),114,0,0.0
+Fire (Miscellaneous),452,0,0.0
+Flood,4247,0,0.0
+Gas leak,36,0,0.0
+Glacial lake outburst flood,8,0,0.0
+Impact,1,0,0.0
+Industrial accident (General),102,0,0.0
+Infestation,29,0,0.0
+Mass movement (dry),14,0,0.0
+Mass movement (wet),493,0,0.0
+Miscellaneous accident (General),199,0,0.0
+Oil spill,6,0,0.0
+Poisoning,21,0,0.0
+Radiation,2,0,0.0
+Rail,253,0,0.0
+Road,2238,0,0.0
+Storm,2850,276,9.68
+Volcanic activity,133,0,0.0
+Water,1174,0,0.0
+Wildfire,344,0,0.0

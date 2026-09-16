@@ -1,0 +1,5 @@
+macro_f1: V1=0.2497, V2=0.2794, diff=+0.0297, 95% CI=[-0.0269, +0.0859], Result=NOT DEMONSTRATED
+weighted_f1: V1=0.3045, V2=0.3139, diff=+0.0093, 95% CI=[-0.0447, +0.0642], Result=NOT DEMONSTRATED
+high_recall: V1=0.0000, V2=0.1594, diff=+0.1594, 95% CI=[+0.0758, +0.2500], Result=SUPPORTED BY THIS TEST
+critical_recall: V1=0.1389, V2=0.1389, diff=+0.0000, 95% CI=[-0.1143, +0.1111], Result=NOT DEMONSTRATED
+brier: V1=0.7115, V2=0.7316, diff=+0.0201, 95% CI=[-0.0066, +0.0469], Result=NOT DEMONSTRATED

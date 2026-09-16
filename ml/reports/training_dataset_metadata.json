@@ -1,0 +1,24 @@
+{
+  "dataset_version": "v2.0-candidate-historical",
+  "created_at_utc": "2026-09-16T07:27:06.497281",
+  "total_records": 13,
+  "total_features_count": 6,
+  "total_outcomes_count": 6,
+  "hazard_counts": {
+    "EARTHQUAKE": 6,
+    "FLOOD": 2,
+    "CYCLONE": 1,
+    "DROUGHT": 1,
+    "WILDFIRE": 1,
+    "LANDSLIDE": 2
+  },
+  "sources_integrated": [
+    "EM-DAT",
+    "DesInventar",
+    "USGS",
+    "GDACS"
+  ],
+  "schema_version": "v2.0",
+  "prediction_boundary": "STRICT_T0_GUARDRAIL",
+  "model_training_status": "READY_FOR_PHASE_2C_AUDIT"
+}

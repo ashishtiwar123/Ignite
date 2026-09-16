@@ -1,0 +1,6 @@
+metric,v1_metric,v2_metric,observed_difference,ci_95_lower,ci_95_upper,bootstrap_iterations,random_seed,statistical_significance,methodology
+macro_f1,0.2497,0.2794,0.0297,-0.0269,0.0859,10000,42,NOT DEMONSTRATED,paired_bootstrap_percentile
+weighted_f1,0.3045,0.3139,0.0093,-0.0447,0.0642,10000,42,NOT DEMONSTRATED,paired_bootstrap_percentile
+high_recall,0.0,0.1594,0.1594,0.0758,0.25,10000,42,SUPPORTED BY THIS TEST,paired_bootstrap_percentile
+critical_recall,0.1389,0.1389,0.0,-0.1143,0.1111,10000,42,NOT DEMONSTRATED,paired_bootstrap_percentile
+brier,0.7115,0.7316,0.0201,-0.0066,0.0469,10000,42,NOT DEMONSTRATED,paired_bootstrap_percentile

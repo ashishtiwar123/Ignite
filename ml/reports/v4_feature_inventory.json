@@ -1,0 +1,76 @@
+{
+  "total_training_rows": 336,
+  "columns": [
+    "incident_id",
+    "emdat_dis_no",
+    "disaster_type",
+    "disaster_subgroup",
+    "country",
+    "iso3",
+    "region",
+    "location",
+    "start_date",
+    "observation_timestamp",
+    "feature_availability_class",
+    "predictor_features_x",
+    "hazard_source",
+    "hazard_event_id",
+    "observed_outcomes_y",
+    "match_method",
+    "match_score",
+    "match_confidence",
+    "temporal_distance_hours",
+    "spatial_distance_km",
+    "provenance"
+  ],
+  "disaster_types": {
+    "Storm": 270,
+    "Earthquake": 66
+  },
+  "hazard_sources": {
+    "NOAA_IBTrACS": 270,
+    "USGS": 66
+  },
+  "target_stats": {
+    "count": {
+      "deaths": 283.0,
+      "injured": 203.0,
+      "affected": 307.0,
+      "homeless": 39.0,
+      "total_affected": 325.0,
+      "damage_usd_thousands": 200.0
+    },
+    "min": {
+      "deaths": 1.0,
+      "injured": 1.0,
+      "affected": 11.0,
+      "homeless": 12.0,
+      "total_affected": 8.0,
+      "damage_usd_thousands": 5.0
+    },
+    "mean": {
+      "deaths": 878.017667844523,
+      "injured": 1110.064039408867,
+      "affected": 844578.306188925,
+      "homeless": 22686.74358974359,
+      "total_affected": 801217.4338461539,
+      "damage_usd_thousands": 594497.1446
+    },
+    "50%": {
+      "deaths": 13.0,
+      "injured": 24.0,
+      "affected": 83908.0,
+      "homeless": 2100.0,
+      "total_affected": 64000.0,
+      "damage_usd_thousands": 20000.0
+    },
+    "max": {
+      "deaths": 138366.0,
+      "injured": 107000.0,
+      "affected": 16078181.0,
+      "homeless": 342165.0,
+      "total_affected": 16107000.0,
+      "damage_usd_thousands": 34000000.0
+    }
+  }
+}

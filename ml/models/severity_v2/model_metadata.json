@@ -1,0 +1,33 @@
+{
+  "model_version": "severity_v2",
+  "training_dataset_version": "v5.0-exposure-enriched",
+  "selected_model": "HistGradientBoosting_Classifier",
+  "selected_feature_config": "Model B (V1 + Exposure)",
+  "primary_metric": "macro_f1",
+  "primary_metric_value": 0.2794,
+  "supported_hazards": [
+    "Earthquake",
+    "Storm"
+  ],
+  "unsupported_hazards": [
+    "Flood",
+    "Wildfire",
+    "Landslide",
+    "Drought",
+    "Epidemic",
+    "Extreme temperature"
+  ],
+  "feature_list": [
+    "disaster_type_code",
+    "seismic_magnitude",
+    "seismic_depth_km",
+    "cyclone_max_wind_knots",
+    "cyclone_min_pressure_mb",
+    "hazard_intensity_index",
+    "country_population",
+    "population_density_sqkm",
+    "log_population_exposure"
+  ],
+  "sample_count": 336,
+  "training_timestamp_utc": "2026-09-16T09:10:10.827305+00:00"
+}

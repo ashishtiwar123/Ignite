@@ -1,0 +1,67 @@
+{
+  "provenance_system": "PS20 Dataset Lineage Tracker v3.0",
+  "generated_at_utc": "2026-09-16T08:12:00Z",
+  "dataset_version": "v3.0-scale-reconciled",
+  "total_candidate_rows": 17354,
+  "training_eligible_rows": 13959,
+  "representative_lineage_examples": [
+    {
+      "training_row_index": 0,
+      "incident_id": "INC-EMDAT-2000-0001-DZA",
+      "hazard_category": "EARTHQUAKE",
+      "country": "Algeria",
+      "iso3": "DZA",
+      "prediction_timestamp_t0": "2000-01-01T00:00:00Z",
+      "canonical_incident": {
+        "canonical_name": "Earthquake in Algeria (2000-01-01)",
+        "matching_method": "PRIMARY_SOURCE_DIRECT_IMPORT",
+        "confidence_score": 1.0
+      },
+      "source_lineage": [
+        {
+          "source_dataset": "EM-DAT",
+          "source_record_id": "2000-0001-DZA",
+          "provenance_classification": "[VERIFIED MANUAL DOWNLOAD]",
+          "source_file": "public_emdat_custom_request_2026-09-16_d55f319e-bbcb-4f8c-89ac-b6188623cbc8.xlsx",
+          "source_file_sha256": "7f1ce93f5f1b5a16fc77f07d58da4aecd1851b95a0ebbde573d144eca23bf107"
+        }
+      ],
+      "observed_outcomes_y": {
+        "deaths": 1.0,
+        "injured": 12.0,
+        "total_affected": 12.0,
+        "total_damage_usd_thousands": None
+      },
+      "training_eligibility": "TRAINING_ELIGIBLE"
+    },
+    {
+      "training_row_index": 16781,
+      "incident_id": "INC-USGS-us6000jllz",
+      "hazard_category": "EARTHQUAKE",
+      "country": "Turkey",
+      "iso3": None,
+      "prediction_timestamp_t0": "2023-02-06T00:00:00Z",
+      "canonical_incident": {
+        "canonical_name": "Earthquake Mw 7.8 - 26 km E of Nurdağı, Turkey",
+        "matching_method": "USGS_HISTORICAL_SEISMIC",
+        "confidence_score": 0.99
+      },
+      "source_lineage": [
+        {
+          "source_dataset": "USGS",
+          "source_record_id": "us6000jllz",
+          "provenance_classification": "[VERIFIED API RETRIEVAL]",
+          "source_file": "usgs_historical_earthquakes.json",
+          "source_file_sha256": "02d1daeeda7740b5a7b58f559bdd6a1f1da491703f0933288c4212d8156c91e9"
+        }
+      ],
+      "observed_outcomes_y": {
+        "deaths": None,
+        "injured": None,
+        "total_affected": None,
+        "total_damage_usd_thousands": None
+      },
+      "training_eligibility": "UNLABELED"
+    }
+  ]
+}

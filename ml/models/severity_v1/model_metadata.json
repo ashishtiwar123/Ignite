@@ -1,0 +1,30 @@
+{
+  "model_version": "severity_v1",
+  "training_dataset_version": "v4.0-verified-matches",
+  "selected_model": "HistGradientBoosting_Classifier",
+  "primary_metric": "macro_f1",
+  "primary_metric_value": 0.2497,
+  "supported_hazards": [
+    "Earthquake",
+    "Storm"
+  ],
+  "unsupported_hazards": [
+    "Flood",
+    "Wildfire",
+    "Landslide",
+    "Drought",
+    "Epidemic",
+    "Extreme temperature"
+  ],
+  "feature_list": [
+    "disaster_type_code",
+    "seismic_magnitude",
+    "seismic_depth_km",
+    "cyclone_max_wind_knots",
+    "cyclone_min_pressure_mb",
+    "hazard_intensity_index"
+  ],
+  "target_definition": "Ordinal Severity Class (0: Low, 1: Moderate, 2: High, 3: Critical) derived from Impact Score Y",
+  "sample_count": 336,
+  "training_timestamp_utc": "2026-09-16T08:32:39.660872+00:00"
+}

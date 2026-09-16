@@ -1,0 +1,223 @@
+{
+    "scenarios": [
+        {
+            "id": "scenario_1",
+            "description": "Single valid earthquake",
+            "input": [
+                {
+                    "adapter": "USGS",
+                    "raw_record": {
+                        "id": "usgs1",
+                        "properties": {
+                            "time": 1694860320000, 
+                            "place": "Pune",
+                            "mag": 6.2
+                        },
+                        "geometry": {
+                            "coordinates": [73.85, 18.52, 10.0]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "scenario_2",
+            "description": "Same earthquake from USGS + GDACS",
+            "input": [
+                {
+                    "adapter": "USGS",
+                    "raw_record": {
+                        "id": "usgs2",
+                        "properties": {
+                            "time": 1694860320000,
+                            "place": "Pune",
+                            "mag": 6.2
+                        },
+                        "geometry": {
+                            "coordinates": [73.85, 18.52, 10.0]
+                        }
+                    }
+                },
+                {
+                    "adapter": "GDACS",
+                    "raw_record": {
+                        "eventid": "gdacs2",
+                        "eventtype": "EQ",
+                        "fromdate": "2023-09-16T10:34:00Z",
+                        "latitude": 18.51,
+                        "longitude": 73.84,
+                        "country": "India"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "scenario_3",
+            "description": "Two geographically separated earthquakes",
+            "input": [
+                {
+                    "adapter": "USGS",
+                    "raw_record": {
+                        "id": "usgs3a",
+                        "properties": {
+                            "time": 1694860320000,
+                            "place": "Pune",
+                            "mag": 6.2
+                        },
+                        "geometry": {
+                            "coordinates": [73.85, 18.52, 10.0]
+                        }
+                    }
+                },
+                {
+                    "adapter": "USGS",
+                    "raw_record": {
+                        "id": "usgs3b",
+                        "properties": {
+                            "time": 1694860380000,
+                            "place": "Japan",
+                            "mag": 6.5
+                        },
+                        "geometry": {
+                            "coordinates": [139.69, 35.68, 10.0]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "scenario_4",
+            "description": "Same location but very different timestamps",
+            "input": [
+                {
+                    "adapter": "USGS",
+                    "raw_record": {
+                        "id": "usgs4a",
+                        "properties": {
+                            "time": 1694860320000,
+                            "place": "Pune",
+                            "mag": 6.2
+                        },
+                        "geometry": {
+                            "coordinates": [73.85, 18.52, 10.0]
+                        }
+                    }
+                },
+                {
+                    "adapter": "USGS",
+                    "raw_record": {
+                        "id": "usgs4b",
+                        "properties": {
+                            "time": 1694889120000,
+                            "place": "Pune",
+                            "mag": 5.0
+                        },
+                        "geometry": {
+                            "coordinates": [73.85, 18.52, 10.0]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "scenario_5",
+            "description": "Exact duplicate source record",
+            "input": [
+                {
+                    "adapter": "USGS",
+                    "raw_record": {
+                        "id": "usgs5",
+                        "properties": {
+                            "time": 1694860320000,
+                            "place": "Pune",
+                            "mag": 6.2
+                        },
+                        "geometry": {
+                            "coordinates": [73.85, 18.52, 10.0]
+                        }
+                    }
+                },
+                {
+                    "adapter": "USGS",
+                    "raw_record": {
+                        "id": "usgs5",
+                        "properties": {
+                            "time": 1694860320000,
+                            "place": "Pune",
+                            "mag": 6.2
+                        },
+                        "geometry": {
+                            "coordinates": [73.85, 18.52, 10.0]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "scenario_6",
+            "description": "Invalid latitude",
+            "input": [
+                {
+                    "adapter": "GDACS",
+                    "raw_record": {
+                        "eventid": "gdacs6",
+                        "eventtype": "EQ",
+                        "fromdate": "2023-09-16T10:34:00Z",
+                        "latitude": 95.0,
+                        "longitude": 73.84,
+                        "country": "India"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "scenario_8",
+            "description": "LLM extraction conflict with authoritative structured field",
+            "input": [
+                {
+                    "adapter": "GDACS",
+                    "raw_record": {
+                        "eventid": "gdacs8",
+                        "eventtype": "EQ",
+                        "fromdate": "2023-09-16T10:34:00Z",
+                        "latitude": 18.51,
+                        "longitude": 73.84,
+                        "country": "India",
+                        "severitydata": {"magnitude": 6.1}
+                    }
+                },
+                {
+                    "adapter": "USGS",
+                    "raw_record": {
+                        "id": "usgs8",
+                        "properties": {
+                            "time": 1694860320000,
+                            "place": "Pune",
+                            "mag": 6.4
+                        },
+                        "geometry": {
+                            "coordinates": [73.85, 18.52, 10.0]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "scenario_9",
+            "description": "Unknown hazard terminology",
+            "input": [
+                {
+                    "adapter": "GDACS",
+                    "raw_record": {
+                        "eventid": "gdacs9",
+                        "eventtype": "ALIEN_INVASION",
+                        "fromdate": "2023-09-16T10:34:00Z",
+                        "latitude": 18.51,
+                        "longitude": 73.84,
+                        "country": "India"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,278 @@
+[
+  {
+    "incident_id": "INC-EMDAT-2023-0145-TUR",
+    "canonical_name": "Earthquake in Turkey (2023-02-06)",
+    "hazard_category": "EARTHQUAKE",
+    "event_start": "2023-02-06",
+    "event_end": "2023-02-15",
+    "country": "Turkey",
+    "iso3": "TUR",
+    "adm1": "Gaziantep",
+    "adm2": "Nurdagi",
+    "latitude": null,
+    "longitude": null,
+    "source_records": [
+      {
+        "source": "EM-DAT",
+        "source_id": "2023-0145-TUR"
+      }
+    ],
+    "confidence_score": 0.95,
+    "matching_method": "PRIMARY_SOURCE_DIRECT_IMPORT"
+  },
+  {
+    "incident_id": "INC-EMDAT-2023-0512-LBY",
+    "canonical_name": "Flood in Libya (2023-09-10)",
+    "hazard_category": "FLOOD",
+    "event_start": "2023-09-10",
+    "event_end": "2023-09-15",
+    "country": "Libya",
+    "iso3": "LBY",
+    "adm1": "Derna",
+    "adm2": "Derna City",
+    "latitude": null,
+    "longitude": null,
+    "source_records": [
+      {
+        "source": "EM-DAT",
+        "source_id": "2023-0512-LBY"
+      }
+    ],
+    "confidence_score": 0.95,
+    "matching_method": "PRIMARY_SOURCE_DIRECT_IMPORT"
+  },
+  {
+    "incident_id": "INC-EMDAT-2024-0089-PHL",
+    "canonical_name": "Cyclone in Philippines (2024-07-22)",
+    "hazard_category": "CYCLONE",
+    "event_start": "2024-07-22",
+    "event_end": "2024-07-26",
+    "country": "Philippines",
+    "iso3": "PHL",
+    "adm1": "Luzon",
+    "adm2": "Cagayan",
+    "latitude": null,
+    "longitude": null,
+    "source_records": [
+      {
+        "source": "EM-DAT",
+        "source_id": "2024-0089-PHL"
+      }
+    ],
+    "confidence_score": 0.95,
+    "matching_method": "PRIMARY_SOURCE_DIRECT_IMPORT"
+  },
+  {
+    "incident_id": "INC-EMDAT-2023-0801-SOM",
+    "canonical_name": "Drought in Somalia (2023-01-01)",
+    "hazard_category": "DROUGHT",
+    "event_start": "2023-01-01",
+    "event_end": "2023-12-31",
+    "country": "Somalia",
+    "iso3": "SOM",
+    "adm1": "Bay",
+    "adm2": "Baidoa",
+    "latitude": null,
+    "longitude": null,
+    "source_records": [
+      {
+        "source": "EM-DAT",
+        "source_id": "2023-0801-SOM"
+      }
+    ],
+    "confidence_score": 0.95,
+    "matching_method": "PRIMARY_SOURCE_DIRECT_IMPORT"
+  },
+  {
+    "incident_id": "INC-EMDAT-2024-0210-USA",
+    "canonical_name": "Wildfire in United States (2024-02-26)",
+    "hazard_category": "WILDFIRE",
+    "event_start": "2024-02-26",
+    "event_end": "2024-03-05",
+    "country": "United States",
+    "iso3": "USA",
+    "adm1": "Texas",
+    "adm2": "Hutchinson",
+    "latitude": null,
+    "longitude": null,
+    "source_records": [
+      {
+        "source": "EM-DAT",
+        "source_id": "2024-0210-USA"
+      }
+    ],
+    "confidence_score": 0.95,
+    "matching_method": "PRIMARY_SOURCE_DIRECT_IMPORT"
+  },
+  {
+    "incident_id": "INC-DES-DES-IND-2023-001",
+    "canonical_name": "Flood in Cachar, India (2023-06-18)",
+    "hazard_category": "FLOOD",
+    "event_start": "2023-06-18",
+    "event_end": "2023-06-18",
+    "country": "India",
+    "iso3": "IND",
+    "adm1": "Assam",
+    "adm2": "Cachar",
+    "adm2_pcode": "IND003005",
+    "latitude": null,
+    "longitude": null,
+    "source_records": [
+      {
+        "source": "DesInventar",
+        "source_id": "DES-IND-2023-001"
+      }
+    ],
+    "confidence_score": 0.9,
+    "matching_method": "SUBNATIONAL_PCODE_IMPORT"
+  },
+  {
+    "incident_id": "INC-DES-DES-IND-2023-002",
+    "canonical_name": "Landslide in Mandi, India (2023-08-14)",
+    "hazard_category": "LANDSLIDE",
+    "event_start": "2023-08-14",
+    "event_end": "2023-08-14",
+    "country": "India",
+    "iso3": "IND",
+    "adm1": "Himachal Pradesh",
+    "adm2": "Mandi",
+    "adm2_pcode": "IND002008",
+    "latitude": null,
+    "longitude": null,
+    "source_records": [
+      {
+        "source": "DesInventar",
+        "source_id": "DES-IND-2023-002"
+      }
+    ],
+    "confidence_score": 0.9,
+    "matching_method": "SUBNATIONAL_PCODE_IMPORT"
+  },
+  {
+    "incident_id": "INC-DES-DES-COL-2023-004",
+    "canonical_name": "Landslide in Quetame, Colombia (2023-07-18)",
+    "hazard_category": "LANDSLIDE",
+    "event_start": "2023-07-18",
+    "event_end": "2023-07-18",
+    "country": "Colombia",
+    "iso3": "COL",
+    "adm1": "Cundinamarca",
+    "adm2": "Quetame",
+    "adm2_pcode": "COL015022",
+    "latitude": null,
+    "longitude": null,
+    "source_records": [
+      {
+        "source": "DesInventar",
+        "source_id": "DES-COL-2023-004"
+      }
+    ],
+    "confidence_score": 0.9,
+    "matching_method": "SUBNATIONAL_PCODE_IMPORT"
+  },
+  {
+    "incident_id": "INC-USGS-us7000thr6",
+    "canonical_name": "Earthquake Mw 4.7 - 161 km N of Caluula, Somalia",
+    "hazard_category": "EARTHQUAKE",
+    "event_start": "2026-09-15",
+    "event_end": "2026-09-15",
+    "country": "Somalia",
+    "iso3": null,
+    "adm1": null,
+    "adm2": null,
+    "latitude": 13.4261,
+    "longitude": 50.7581,
+    "source_records": [
+      {
+        "source": "USGS",
+        "source_id": "us7000thr6"
+      }
+    ],
+    "confidence_score": 0.99,
+    "matching_method": "SEISMIC_TELEMETRY_POINT"
+  },
+  {
+    "incident_id": "INC-USGS-us7000thr4",
+    "canonical_name": "Earthquake Mw 4.5 - 17 km WNW of Palora, Ecuador",
+    "hazard_category": "EARTHQUAKE",
+    "event_start": "2026-09-15",
+    "event_end": "2026-09-15",
+    "country": "Ecuador",
+    "iso3": null,
+    "adm1": null,
+    "adm2": null,
+    "latitude": -1.6157,
+    "longitude": -78.094,
+    "source_records": [
+      {
+        "source": "USGS",
+        "source_id": "us7000thr4"
+      }
+    ],
+    "confidence_score": 0.99,
+    "matching_method": "SEISMIC_TELEMETRY_POINT"
+  },
+  {
+    "incident_id": "INC-USGS-us7000thq1",
+    "canonical_name": "Earthquake Mw 4.7 - 89 km NE of Yonakuni, Japan",
+    "hazard_category": "EARTHQUAKE",
+    "event_start": "2026-09-15",
+    "event_end": "2026-09-15",
+    "country": "Japan",
+    "iso3": null,
+    "adm1": null,
+    "adm2": null,
+    "latitude": 25.0376,
+    "longitude": 123.6247,
+    "source_records": [
+      {
+        "source": "USGS",
+        "source_id": "us7000thq1"
+      }
+    ],
+    "confidence_score": 0.99,
+    "matching_method": "SEISMIC_TELEMETRY_POINT"
+  },
+  {
+    "incident_id": "INC-USGS-us7000thni",
+    "canonical_name": "Earthquake Mw 4.5 - 49 km SW of Cach\u00ed, Argentina",
+    "hazard_category": "EARTHQUAKE",
+    "event_start": "2026-09-15",
+    "event_end": "2026-09-15",
+    "country": "Argentina",
+    "iso3": null,
+    "adm1": null,
+    "adm2": null,
+    "latitude": -25.4555,
+    "longitude": -66.4888,
+    "source_records": [
+      {
+        "source": "USGS",
+        "source_id": "us7000thni"
+      }
+    ],
+    "confidence_score": 0.99,
+    "matching_method": "SEISMIC_TELEMETRY_POINT"
+  },
+  {
+    "incident_id": "INC-USGS-us7000thn3",
+    "canonical_name": "Earthquake Mw 4.5 - 55 km SSW of Bengkulu, Indonesia",
+    "hazard_category": "EARTHQUAKE",
+    "event_start": "2026-09-15",
+    "event_end": "2026-09-15",
+    "country": "Indonesia",
+    "iso3": null,
+    "adm1": null,
+    "adm2": null,
+    "latitude": -4.2614,
+    "longitude": 102.0754,
+    "source_records": [
+      {
+        "source": "USGS",
+        "source_id": "us7000thn3"
+      }
+    ],
+    "confidence_score": 0.99,
+    "matching_method": "SEISMIC_TELEMETRY_POINT"
+  }
+]

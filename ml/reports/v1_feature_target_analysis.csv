@@ -1,0 +1,7 @@
+feature,sample_size,pearson_r,pearson_p_value,spearman_rho,spearman_p_value
+disaster_type_code,336,-0.0456,0.4049,0.0124,0.8204
+seismic_magnitude,66,0.0904,0.4703,0.1121,0.3703
+seismic_depth_km,66,-0.1724,0.1662,-0.1552,0.2133
+cyclone_max_wind_knots,270,-0.1336,0.0282,-0.2076,0.0006
+cyclone_min_pressure_mb,270,0.2185,0.0003,0.2338,0.0001
+hazard_intensity_index,336,-0.0554,0.3113,-0.0752,0.1688

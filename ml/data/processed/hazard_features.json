@@ -1,0 +1,262 @@
+[
+  {
+    "incident_id": "INC-EMDAT-2023-0145-TUR",
+    "prediction_timestamp_t0": "2023-02-06T00:00:00Z",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Turkey",
+    "iso3": "TUR",
+    "adm2_pcode": null,
+    "predictor_features_x": {
+      "seismic_magnitude": 6.2,
+      "seismic_depth_km": 10.0,
+      "rain_accum_7d_mm": null,
+      "alert_level": null,
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2023-02-06T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-EMDAT-2023-0512-LBY",
+    "prediction_timestamp_t0": "2023-09-10T00:00:00Z",
+    "hazard_category": "FLOOD",
+    "country": "Libya",
+    "iso3": "LBY",
+    "adm2_pcode": null,
+    "predictor_features_x": {
+      "seismic_magnitude": null,
+      "seismic_depth_km": null,
+      "rain_accum_7d_mm": 185.0,
+      "alert_level": "Orange",
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2023-09-10T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-EMDAT-2024-0089-PHL",
+    "prediction_timestamp_t0": "2024-07-22T00:00:00Z",
+    "hazard_category": "CYCLONE",
+    "country": "Philippines",
+    "iso3": "PHL",
+    "adm2_pcode": null,
+    "predictor_features_x": {
+      "seismic_magnitude": null,
+      "seismic_depth_km": null,
+      "rain_accum_7d_mm": null,
+      "alert_level": "Red",
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2024-07-22T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-EMDAT-2023-0801-SOM",
+    "prediction_timestamp_t0": "2023-01-01T00:00:00Z",
+    "hazard_category": "DROUGHT",
+    "country": "Somalia",
+    "iso3": "SOM",
+    "adm2_pcode": null,
+    "predictor_features_x": {
+      "seismic_magnitude": null,
+      "seismic_depth_km": null,
+      "rain_accum_7d_mm": null,
+      "alert_level": null,
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2023-01-01T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-EMDAT-2024-0210-USA",
+    "prediction_timestamp_t0": "2024-02-26T00:00:00Z",
+    "hazard_category": "WILDFIRE",
+    "country": "United States",
+    "iso3": "USA",
+    "adm2_pcode": null,
+    "predictor_features_x": {
+      "seismic_magnitude": null,
+      "seismic_depth_km": null,
+      "rain_accum_7d_mm": null,
+      "alert_level": "Green",
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2024-02-26T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-DES-DES-IND-2023-001",
+    "prediction_timestamp_t0": "2023-06-18T00:00:00Z",
+    "hazard_category": "FLOOD",
+    "country": "India",
+    "iso3": "IND",
+    "adm2_pcode": "IND003005",
+    "predictor_features_x": {
+      "seismic_magnitude": null,
+      "seismic_depth_km": null,
+      "rain_accum_7d_mm": 185.0,
+      "alert_level": "Orange",
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2023-06-18T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-DES-DES-IND-2023-002",
+    "prediction_timestamp_t0": "2023-08-14T00:00:00Z",
+    "hazard_category": "LANDSLIDE",
+    "country": "India",
+    "iso3": "IND",
+    "adm2_pcode": "IND002008",
+    "predictor_features_x": {
+      "seismic_magnitude": null,
+      "seismic_depth_km": null,
+      "rain_accum_7d_mm": null,
+      "alert_level": null,
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2023-08-14T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-DES-DES-COL-2023-004",
+    "prediction_timestamp_t0": "2023-07-18T00:00:00Z",
+    "hazard_category": "LANDSLIDE",
+    "country": "Colombia",
+    "iso3": "COL",
+    "adm2_pcode": "COL015022",
+    "predictor_features_x": {
+      "seismic_magnitude": null,
+      "seismic_depth_km": null,
+      "rain_accum_7d_mm": null,
+      "alert_level": null,
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2023-07-18T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-USGS-us7000thr6",
+    "prediction_timestamp_t0": "2026-09-15T00:00:00Z",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Somalia",
+    "iso3": null,
+    "adm2_pcode": null,
+    "predictor_features_x": {
+      "seismic_magnitude": 5.2,
+      "seismic_depth_km": 10.0,
+      "rain_accum_7d_mm": null,
+      "alert_level": null,
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2026-09-15T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-USGS-us7000thr4",
+    "prediction_timestamp_t0": "2026-09-15T00:00:00Z",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Ecuador",
+    "iso3": null,
+    "adm2_pcode": null,
+    "predictor_features_x": {
+      "seismic_magnitude": 5.2,
+      "seismic_depth_km": 10.0,
+      "rain_accum_7d_mm": null,
+      "alert_level": null,
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2026-09-15T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-USGS-us7000thq1",
+    "prediction_timestamp_t0": "2026-09-15T00:00:00Z",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Japan",
+    "iso3": null,
+    "adm2_pcode": null,
+    "predictor_features_x": {
+      "seismic_magnitude": 5.2,
+      "seismic_depth_km": 10.0,
+      "rain_accum_7d_mm": null,
+      "alert_level": null,
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2026-09-15T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-USGS-us7000thni",
+    "prediction_timestamp_t0": "2026-09-15T00:00:00Z",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Argentina",
+    "iso3": null,
+    "adm2_pcode": null,
+    "predictor_features_x": {
+      "seismic_magnitude": 5.2,
+      "seismic_depth_km": 10.0,
+      "rain_accum_7d_mm": null,
+      "alert_level": null,
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2026-09-15T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  },
+  {
+    "incident_id": "INC-USGS-us7000thn3",
+    "prediction_timestamp_t0": "2026-09-15T00:00:00Z",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Indonesia",
+    "iso3": null,
+    "adm2_pcode": null,
+    "predictor_features_x": {
+      "seismic_magnitude": 5.2,
+      "seismic_depth_km": 10.0,
+      "rain_accum_7d_mm": null,
+      "alert_level": null,
+      "inform_country_risk_baseline": 6.5,
+      "population_density_sqkm": 250.0
+    },
+    "temporal_guardrail": {
+      "max_allowed_feature_date": "2026-09-15T00:00:00Z",
+      "is_temporally_valid": true
+    }
+  }
+]

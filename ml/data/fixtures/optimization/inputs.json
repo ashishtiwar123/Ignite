@@ -1,0 +1,136 @@
+{
+    "scenarios": [
+        {
+            "id": "scenario_1",
+            "description": "Single incident, sufficient inventory",
+            "input": {
+                "incidents": [
+                    {
+                        "priority_assessment_id": "pa_1",
+                        "verified_incident_id": "v_inc_1",
+                        "priority_score": 85.0,
+                        "priority_level": "CRITICAL",
+                        "explanation": "Test"
+                    }
+                ],
+                "requirements": [
+                    {
+                        "requirement_id": "req_1",
+                        "verified_incident_id": "v_inc_1",
+                        "resource_type": "Potable Water",
+                        "category": "WATER",
+                        "quantity": 10000.0,
+                        "unit": "Liters",
+                        "status": "CALCULATED",
+                        "rule_id": "WASH",
+                        "explanation": "Test"
+                    }
+                ],
+                "inventory": [
+                    {
+                        "inventory_id": "inv_1",
+                        "location_id": "wh_1",
+                        "resource_type": "Potable Water",
+                        "category": "WATER",
+                        "quantity_available": 20000.0,
+                        "unit": "Liters"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "scenario_2",
+            "description": "Multi-incident contention, scarcity prioritizes critical",
+            "input": {
+                "incidents": [
+                    {
+                        "priority_assessment_id": "pa_low",
+                        "verified_incident_id": "v_inc_low",
+                        "priority_score": 30.0,
+                        "priority_level": "MEDIUM",
+                        "explanation": "Test"
+                    },
+                    {
+                        "priority_assessment_id": "pa_crit",
+                        "verified_incident_id": "v_inc_crit",
+                        "priority_score": 90.0,
+                        "priority_level": "CRITICAL",
+                        "explanation": "Test"
+                    }
+                ],
+                "requirements": [
+                    {
+                        "requirement_id": "req_low",
+                        "verified_incident_id": "v_inc_low",
+                        "resource_type": "Cereal",
+                        "category": "FOOD",
+                        "quantity": 50.0,
+                        "unit": "Metric Tons",
+                        "status": "CALCULATED",
+                        "rule_id": "FOOD",
+                        "explanation": "Test"
+                    },
+                    {
+                        "requirement_id": "req_crit",
+                        "verified_incident_id": "v_inc_crit",
+                        "resource_type": "Cereal",
+                        "category": "FOOD",
+                        "quantity": 100.0,
+                        "unit": "Metric Tons",
+                        "status": "CALCULATED",
+                        "rule_id": "FOOD",
+                        "explanation": "Test"
+                    }
+                ],
+                "inventory": [
+                    {
+                        "inventory_id": "inv_food",
+                        "location_id": "wh_central",
+                        "resource_type": "Cereal",
+                        "category": "FOOD",
+                        "quantity_available": 120.0,
+                        "unit": "Metric Tons"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "scenario_3",
+            "description": "Incompatible units are separated",
+            "input": {
+                "incidents": [
+                    {
+                        "priority_assessment_id": "pa_1",
+                        "verified_incident_id": "v_inc_1",
+                        "priority_score": 50.0,
+                        "priority_level": "HIGH",
+                        "explanation": "Test"
+                    }
+                ],
+                "requirements": [
+                    {
+                        "requirement_id": "req_1",
+                        "verified_incident_id": "v_inc_1",
+                        "resource_type": "Potable Water",
+                        "category": "WATER",
+                        "quantity": 100.0,
+                        "unit": "Gallons",
+                        "status": "CALCULATED",
+                        "rule_id": "WASH",
+                        "explanation": "Test"
+                    }
+                ],
+                "inventory": [
+                    {
+                        "inventory_id": "inv_1",
+                        "location_id": "wh_1",
+                        "resource_type": "Potable Water",
+                        "category": "WATER",
+                        "quantity_available": 1000.0,
+                        "unit": "Liters"
+                    }
+                ]
+            }
+        }
+    ]
+}

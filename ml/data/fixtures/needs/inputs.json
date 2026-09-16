@@ -1,0 +1,75 @@
+{
+    "scenarios": [
+        {
+            "id": "scenario_1",
+            "description": "High-severity earthquake with known population",
+            "input": {
+                "verified_incident_id": "v_eq_1",
+                "hazard_type": "Earthquake",
+                "severity_score": 4.5,
+                "trajectory": "RAPIDLY_WORSENING",
+                "affected_population": 10000,
+                "displaced_population": 2500,
+                "duration_days": 7
+            }
+        },
+        {
+            "id": "scenario_2",
+            "description": "Moderate cyclone with known population",
+            "input": {
+                "verified_incident_id": "v_cyc_1",
+                "hazard_type": "Cyclone",
+                "severity_score": 3.0,
+                "trajectory": "STABLE",
+                "affected_population": 5000,
+                "displaced_population": 1000
+            }
+        },
+        {
+            "id": "scenario_3",
+            "description": "Missing affected population",
+            "input": {
+                "verified_incident_id": "v_miss_1",
+                "hazard_type": "Flood",
+                "severity_score": 3.5,
+                "trajectory": "WORSENING",
+                "displaced_population": 500
+            }
+        },
+        {
+            "id": "scenario_4",
+            "description": "Missing displaced population",
+            "input": {
+                "verified_incident_id": "v_miss_2",
+                "hazard_type": "Earthquake",
+                "severity_score": 3.5,
+                "trajectory": "WORSENING",
+                "affected_population": 1000
+            }
+        },
+        {
+            "id": "scenario_5",
+            "description": "Zero population explicitly provided",
+            "input": {
+                "verified_incident_id": "v_zero_1",
+                "hazard_type": "Wildfire",
+                "severity_score": 2.0,
+                "trajectory": "IMPROVING",
+                "affected_population": 0,
+                "displaced_population": 0
+            }
+        },
+        {
+            "id": "scenario_6",
+            "description": "Unknown hazard and low severity",
+            "input": {
+                "verified_incident_id": "v_unk_1",
+                "hazard_type": "UNKNOWN",
+                "severity_score": 1.0,
+                "trajectory": "IMPROVING",
+                "affected_population": 100,
+                "displaced_population": 0
+            }
+        }
+    ]
+}

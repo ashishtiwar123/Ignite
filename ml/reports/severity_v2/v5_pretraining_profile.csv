@@ -1,0 +1,14 @@
+feature_name,total_rows,non_null_count,null_count,null_pct,unique_count
+seismic_magnitude,336,66,270,80.36,23
+seismic_depth_km,336,66,270,80.36,40
+seismic_latitude,336,66,270,80.36,66
+seismic_longitude,336,66,270,80.36,66
+cyclone_max_wind_knots,336,270,66,19.64,5
+cyclone_min_pressure_mb,336,270,66,19.64,6
+cyclone_season,336,270,66,19.64,3
+country_population,336,336,0,0.0,111
+population_density_sqkm,336,336,0,0.0,91
+urban_population_pct,336,336,0,0.0,111
+poverty_headcount_pct,336,195,141,41.96,43
+log_population_exposure,336,336,0,0.0,110
+hazard_x_exposure_interaction,336,336,0,0.0,1

@@ -1,0 +1,81 @@
+{
+    "scenarios": [
+        {
+            "id": "scenario_1",
+            "description": "Critical + rapidly worsening + high urgency",
+            "input": {
+                "verified_incident_id": "v_crit_1",
+                "verification_status": "VERIFIED",
+                "severity_score": 4.8,
+                "trajectory": "RAPIDLY_WORSENING",
+                "affected_population": 50000,
+                "medical_urgency": "CRITICAL",
+                "rescue_urgency": "CRITICAL"
+            }
+        },
+        {
+            "id": "scenario_2",
+            "description": "High + stable",
+            "input": {
+                "verified_incident_id": "v_high_1",
+                "verification_status": "VERIFIED",
+                "severity_score": 3.8,
+                "trajectory": "STABLE",
+                "affected_population": 10000,
+                "medical_urgency": "MODERATE",
+                "rescue_urgency": "MODERATE"
+            }
+        },
+        {
+            "id": "scenario_3",
+            "description": "Missing population",
+            "input": {
+                "verified_incident_id": "v_miss_pop",
+                "verification_status": "VERIFIED",
+                "severity_score": 3.0,
+                "trajectory": "WORSENING",
+                "medical_urgency": "HIGH",
+                "rescue_urgency": "LOW"
+            }
+        },
+        {
+            "id": "scenario_4",
+            "description": "Needs verification gating",
+            "input": {
+                "verified_incident_id": "v_unverified",
+                "verification_status": "NEEDS_VERIFICATION",
+                "severity_score": 5.0,
+                "trajectory": "RAPIDLY_WORSENING",
+                "affected_population": 100000,
+                "medical_urgency": "CRITICAL",
+                "rescue_urgency": "CRITICAL"
+            }
+        },
+        {
+            "id": "scenario_5_a",
+            "description": "Tie breaker A (Critical rescue)",
+            "input": {
+                "verified_incident_id": "v_tie_a",
+                "verification_status": "VERIFIED",
+                "severity_score": 2.5,
+                "trajectory": "STABLE",
+                "affected_population": 100,
+                "medical_urgency": "LOW",
+                "rescue_urgency": "CRITICAL"
+            }
+        },
+        {
+            "id": "scenario_5_b",
+            "description": "Tie breaker B (Non-critical rescue, larger pop)",
+            "input": {
+                "verified_incident_id": "v_tie_b",
+                "verification_status": "VERIFIED",
+                "severity_score": 2.5,
+                "trajectory": "STABLE",
+                "affected_population": 100000,
+                "medical_urgency": "HIGH",
+                "rescue_urgency": "HIGH"
+            }
+        }
+    ]
+}

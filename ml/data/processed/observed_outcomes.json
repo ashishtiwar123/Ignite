@@ -1,0 +1,249 @@
+[
+  {
+    "incident_id": "INC-EMDAT-2023-0145-TUR",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Turkey",
+    "event_start": "2023-02-06",
+    "observed_outcomes": {
+      "deaths": 50783,
+      "injured": 107204,
+      "displaced": 3000000,
+      "total_affected": 9100000,
+      "total_damage_usd": 34200000000,
+      "houses_destroyed": null
+    },
+    "data_quality_flags": {
+      "deaths_is_null": false,
+      "damage_is_null": false,
+      "has_ground_truth": true
+    }
+  },
+  {
+    "incident_id": "INC-EMDAT-2023-0512-LBY",
+    "hazard_category": "FLOOD",
+    "country": "Libya",
+    "event_start": "2023-09-10",
+    "observed_outcomes": {
+      "deaths": 4352,
+      "injured": 10000,
+      "displaced": 43000,
+      "total_affected": 250000,
+      "total_damage_usd": 1650000000,
+      "houses_destroyed": null
+    },
+    "data_quality_flags": {
+      "deaths_is_null": false,
+      "damage_is_null": false,
+      "has_ground_truth": true
+    }
+  },
+  {
+    "incident_id": "INC-EMDAT-2024-0089-PHL",
+    "hazard_category": "CYCLONE",
+    "country": "Philippines",
+    "event_start": "2024-07-22",
+    "observed_outcomes": {
+      "deaths": 48,
+      "injured": 112,
+      "displaced": 600000,
+      "total_affected": 4500000,
+      "total_damage_usd": 450000000,
+      "houses_destroyed": null
+    },
+    "data_quality_flags": {
+      "deaths_is_null": false,
+      "damage_is_null": false,
+      "has_ground_truth": true
+    }
+  },
+  {
+    "incident_id": "INC-EMDAT-2023-0801-SOM",
+    "hazard_category": "DROUGHT",
+    "country": "Somalia",
+    "event_start": "2023-01-01",
+    "observed_outcomes": {
+      "deaths": 4300,
+      "injured": null,
+      "displaced": 1400000,
+      "total_affected": 6600000,
+      "total_damage_usd": null,
+      "houses_destroyed": null
+    },
+    "data_quality_flags": {
+      "deaths_is_null": false,
+      "damage_is_null": true,
+      "has_ground_truth": true
+    }
+  },
+  {
+    "incident_id": "INC-EMDAT-2024-0210-USA",
+    "hazard_category": "WILDFIRE",
+    "country": "United States",
+    "event_start": "2024-02-26",
+    "observed_outcomes": {
+      "deaths": 2,
+      "injured": 15,
+      "displaced": 2500,
+      "total_affected": 12000,
+      "total_damage_usd": 120000000,
+      "houses_destroyed": null
+    },
+    "data_quality_flags": {
+      "deaths_is_null": false,
+      "damage_is_null": false,
+      "has_ground_truth": true
+    }
+  },
+  {
+    "incident_id": "INC-DES-DES-IND-2023-001",
+    "hazard_category": "FLOOD",
+    "country": "India",
+    "event_start": "2023-06-18",
+    "observed_outcomes": {
+      "deaths": 18,
+      "injured": 45,
+      "displaced": null,
+      "total_affected": null,
+      "total_damage_usd": null,
+      "houses_destroyed": 1240
+    },
+    "data_quality_flags": {
+      "deaths_is_null": false,
+      "damage_is_null": true,
+      "has_ground_truth": true
+    }
+  },
+  {
+    "incident_id": "INC-DES-DES-IND-2023-002",
+    "hazard_category": "LANDSLIDE",
+    "country": "India",
+    "event_start": "2023-08-14",
+    "observed_outcomes": {
+      "deaths": 32,
+      "injured": 28,
+      "displaced": null,
+      "total_affected": null,
+      "total_damage_usd": null,
+      "houses_destroyed": 410
+    },
+    "data_quality_flags": {
+      "deaths_is_null": false,
+      "damage_is_null": true,
+      "has_ground_truth": true
+    }
+  },
+  {
+    "incident_id": "INC-DES-DES-COL-2023-004",
+    "hazard_category": "LANDSLIDE",
+    "country": "Colombia",
+    "event_start": "2023-07-18",
+    "observed_outcomes": {
+      "deaths": 29,
+      "injured": 12,
+      "displaced": null,
+      "total_affected": null,
+      "total_damage_usd": null,
+      "houses_destroyed": 85
+    },
+    "data_quality_flags": {
+      "deaths_is_null": false,
+      "damage_is_null": true,
+      "has_ground_truth": true
+    }
+  },
+  {
+    "incident_id": "INC-USGS-us7000thr6",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Somalia",
+    "event_start": "2026-09-15",
+    "observed_outcomes": {
+      "deaths": null,
+      "injured": null,
+      "displaced": null,
+      "total_affected": null,
+      "total_damage_usd": null,
+      "houses_destroyed": null
+    },
+    "data_quality_flags": {
+      "deaths_is_null": true,
+      "damage_is_null": true,
+      "has_ground_truth": false
+    }
+  },
+  {
+    "incident_id": "INC-USGS-us7000thr4",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Ecuador",
+    "event_start": "2026-09-15",
+    "observed_outcomes": {
+      "deaths": null,
+      "injured": null,
+      "displaced": null,
+      "total_affected": null,
+      "total_damage_usd": null,
+      "houses_destroyed": null
+    },
+    "data_quality_flags": {
+      "deaths_is_null": true,
+      "damage_is_null": true,
+      "has_ground_truth": false
+    }
+  },
+  {
+    "incident_id": "INC-USGS-us7000thq1",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Japan",
+    "event_start": "2026-09-15",
+    "observed_outcomes": {
+      "deaths": null,
+      "injured": null,
+      "displaced": null,
+      "total_affected": null,
+      "total_damage_usd": null,
+      "houses_destroyed": null
+    },
+    "data_quality_flags": {
+      "deaths_is_null": true,
+      "damage_is_null": true,
+      "has_ground_truth": false
+    }
+  },
+  {
+    "incident_id": "INC-USGS-us7000thni",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Argentina",
+    "event_start": "2026-09-15",
+    "observed_outcomes": {
+      "deaths": null,
+      "injured": null,
+      "displaced": null,
+      "total_affected": null,
+      "total_damage_usd": null,
+      "houses_destroyed": null
+    },
+    "data_quality_flags": {
+      "deaths_is_null": true,
+      "damage_is_null": true,
+      "has_ground_truth": false
+    }
+  },
+  {
+    "incident_id": "INC-USGS-us7000thn3",
+    "hazard_category": "EARTHQUAKE",
+    "country": "Indonesia",
+    "event_start": "2026-09-15",
+    "observed_outcomes": {
+      "deaths": null,
+      "injured": null,
+      "displaced": null,
+      "total_affected": null,
+      "total_damage_usd": null,
+      "houses_destroyed": null
+    },
+    "data_quality_flags": {
+      "deaths_is_null": true,
+      "damage_is_null": true,
+      "has_ground_truth": false
+    }
+  }
+]

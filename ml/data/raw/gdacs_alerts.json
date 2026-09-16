@@ -1,0 +1,2462 @@
+[
+  {
+    "title": "Green notification for tropical cyclone TWENTYFOUR-26. Population affected by Category 1 (120 km/h) wind speeds or higher is 97355 .",
+    "description": "From 15/09/2026 to 16/09/2026, a Tropical Depression (maximum wind speed of 120 km/h) TWENTYFOUR-26 was active in NWPacific. The cyclone affects these countries: Japan (vulnerability Low). Estimated population affected by category 1 (120 km/h) wind speeds or higher is 97355 .",
+    "pub_date": "Tue, 15 Sep 2026 14:22:03 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=TC&eventid=1001322",
+    "point": "15 148.7",
+    "event_type": "TC",
+    "alert_level": "Green",
+    "country": "Japan"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 15/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 23:00:43 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032001",
+    "point": "-14.717124638253022 132.30575246332151",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green earthquake (Magnitude 5.6M, Depth:162.179km) in Indonesia 14/09/2026 10:58 UTC, 330 thousand in MMI III.",
+    "description": "On 9/14/2026 10:58:03 AM, an earthquake occurred in Indonesia potentially affecting 330 thousand in MMI III. The earthquake had Magnitude 5.6M, Depth:162.179km.",
+    "pub_date": "Mon, 14 Sep 2026 11:14:13 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1565203",
+    "point": "2.4223 128.1704",
+    "event_type": "EQ",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green earthquake (Magnitude 5.5M, Depth:10km) in South Of Java, Indonesia 14/09/2026 09:27 UTC, [unknown].",
+    "description": "On 9/14/2026 9:27:38 AM, an earthquake occurred in South Of Java, Indonesia potentially affecting [unknown]. The earthquake had Magnitude 5.5M, Depth:10km.",
+    "pub_date": "Mon, 14 Sep 2026 09:46:43 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1565193",
+    "point": "-8.5419 105.8726",
+    "event_type": "EQ",
+    "alert_level": "Green",
+    "country": "South Of Java, Indonesia"
+  },
+  {
+    "title": "Green flood alert in Sri Lanka",
+    "description": "On 14/09/2026, a flood started in Sri Lanka, lasting until 16/09/2026 (last update). The flood caused 0 deaths and 25 displaced .",
+    "pub_date": "Wed, 16 Sep 2026 05:56:43 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104160",
+    "point": "7.214308 80.6400801",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Sri Lanka"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 14/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:00:59 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031988",
+    "point": "-21.390623751308087 132.67470328847139",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 14/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:00:26 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031989",
+    "point": "-17.946889374812134 130.77101573939206",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green notification for tropical cyclone FIFTEEN-E-26. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).",
+    "description": "From 13/09/2026 to 16/09/2026, a Tropical Depression (maximum wind speed of 56 km/h) FIFTEEN-E-26 was active in EastPacific. The cyclone affects these countries: [unknown] (vulnerability [unknown]). Estimated population affected by category 1 (120 km/h) wind speeds or higher is 0  (0 in tropical storm).",
+    "pub_date": "Sun, 13 Sep 2026 20:58:31 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=TC&eventid=1001321",
+    "point": "15.5 -125.8",
+    "event_type": "TC",
+    "alert_level": "Green",
+    "country": ""
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 13/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:01:24 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031990",
+    "point": "-12.806672575910914 132.16383989644228",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 13/09/2026, a forest fire started in Namibia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 03:01:15 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031966",
+    "point": "-19.278341323243421 16.96934501699598",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 13/09/2026, a forest fire started in Angola,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 03:01:30 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031968",
+    "point": "-15.375103306216781 14.389984761555285",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Botswana",
+    "description": "On 13/09/2026, a forest fire started in Botswana,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:01:32 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031965",
+    "point": "-20.200850603323964 22.624948765783081",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Botswana"
+  },
+  {
+    "title": "Green forest fire notification in Spain",
+    "description": "On 13/09/2026, a forest fire started in Spain,  until 14/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:00:51 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031998",
+    "point": "36.520196332205629 -5.0618519154380159",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Spain"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 13/09/2026, a forest fire started in Namibia,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 03:01:05 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031967",
+    "point": "-19.336441958033252 16.7276235211292",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green flood alert in India",
+    "description": "On 12/09/2026, a flood started in India, lasting until 14/09/2026 (last update). The flood caused 2 deaths and 0 displaced .",
+    "pub_date": "Mon, 14 Sep 2026 06:28:51 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104154",
+    "point": "27.4185174 88.1808338",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "India"
+  },
+  {
+    "title": "Green flood alert in Kenya",
+    "description": "On 12/09/2026, a flood started in Kenya, lasting until 14/09/2026 (last update). The flood caused 0 deaths and 1 displaced .",
+    "pub_date": "Tue, 15 Sep 2026 10:43:12 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104159",
+    "point": "-4.0346285 39.6643337",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Kenya"
+  },
+  {
+    "title": "Green flood alert in Nepal",
+    "description": "On 12/09/2026, a flood started in Nepal, lasting until 14/09/2026 (last update). The flood caused 1 deaths and 0 displaced .",
+    "pub_date": "Tue, 15 Sep 2026 06:03:48 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104157",
+    "point": "28.8698359 82.1688479",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Nepal"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 12/09/2026, a forest fire started in Namibia,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 15:01:46 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031934",
+    "point": "-19.344285235639152 16.64073302272255",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 12/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 23:01:55 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032002",
+    "point": "-8.6063772264935547 -44.466506060211955",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 12/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:01:49 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031991",
+    "point": "-20.249377438259504 129.78772986269794",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 12/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 23:02:23 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032003",
+    "point": "-7.2113798337402253 -46.13738437682931",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 12/09/2026, a forest fire started in Zambia,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:02:18 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031969",
+    "point": "-13.524624092780478 31.215687634987198",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in The Democratic Republic of Congo",
+    "description": "On 12/09/2026, a forest fire started in The Democratic Republic of Congo,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:02:25 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031970",
+    "point": "-4.8659723914942914 17.076535486885913",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "The Democratic Republic of Congo"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 12/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 07:01:06 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031957",
+    "point": "-17.786305102520807 123.83777068998397",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 12/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 15:01:30 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031958",
+    "point": "-11.36457858220794 -46.819877362200288",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 12/09/2026, a forest fire started in Namibia,  until 13/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 07:01:12 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031935",
+    "point": "-19.010826514308196 16.853097248466593",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green flood alert in Croatia",
+    "description": "On 11/09/2026, a flood started in Croatia, lasting until 13/09/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+    "pub_date": "Sun, 13 Sep 2026 10:35:34 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104153",
+    "point": "43.5116383 16.4399659",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Croatia"
+  },
+  {
+    "title": "Green flood alert in Maldives",
+    "description": "On 11/09/2026, a flood started in Maldives, lasting until 13/09/2026 (last update). The flood caused 0 deaths and 8 displaced .",
+    "pub_date": "Mon, 14 Sep 2026 06:58:22 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104155",
+    "point": "-0.6126532 73.0954683",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Maldives"
+  },
+  {
+    "title": "Green forest fire notification in Croatia",
+    "description": "On 11/09/2026, a forest fire started in Croatia,  until 13/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:02:22 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031999",
+    "point": "43.30439009591241 16.500685019615311",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Croatia"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 11/09/2026, a forest fire started in Mozambique,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 23:03:16 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031971",
+    "point": "-16.721886391067855 36.47831958624635",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 11/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:02:46 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031972",
+    "point": "-17.47343806901835 20.234094434241925",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 11/09/2026, a forest fire started in Mozambique,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:03:08 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031973",
+    "point": "-15.410710134368662 39.18442782525166",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 11/09/2026, a forest fire started in Zambia,  until 14/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 03:01:33 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031940",
+    "point": "-17.301883026563374 23.634267294707602",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 11/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 23:01:43 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031952",
+    "point": "-13.315996222020635 -51.671851739032711",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 11/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:02:34 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032004",
+    "point": "-15.673010924225562 37.162851910338595",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 11/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:02:40 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032005",
+    "point": "-14.695208808366235 26.519596279617442",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 11/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:02:58 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032006",
+    "point": "-16.568398166930887 37.442996002317543",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 11/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:03:08 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032007",
+    "point": "-16.815445920300832 36.189088498368747",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 11/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:03:20 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032008",
+    "point": "-16.677498203124475 35.744473377362809",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 11/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:02:28 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032009",
+    "point": "-18.665087139447582 33.901028535320563",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 11/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 15:01:46 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031959",
+    "point": "-9.3889172720409384 -50.138942372197157",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green flood alert in Slovenia",
+    "description": "On 10/09/2026, a flood started in Slovenia, lasting until 12/09/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+    "pub_date": "Sat, 12 Sep 2026 06:26:17 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104152",
+    "point": "45.5282292 13.8372426",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Slovenia"
+  },
+  {
+    "title": "Green flood alert in Bangladesh",
+    "description": "On 10/09/2026, a flood started in Bangladesh, lasting until 12/09/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+    "pub_date": "Mon, 14 Sep 2026 06:59:11 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104156",
+    "point": "23.9479142 88.9763818",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Bangladesh"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 10/09/2026, a forest fire started in Australia,  until 13/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 11:02:02 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031916",
+    "point": "-17.959900094881746 123.93755985983265",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 23:04:43 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031974",
+    "point": "-16.584007890352563 36.45970605320958",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 23:05:08 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031976",
+    "point": "-16.580349490234273 35.962839542566648",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 23:05:02 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031977",
+    "point": "-16.687066447077548 36.116034297086969",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Botswana",
+    "description": "On 10/09/2026, a forest fire started in Botswana,  until 14/09/2026.",
+    "pub_date": "Fri, 11 Sep 2026 23:00:55 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031898",
+    "point": "-23.621151150229107 24.321183634949868",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Botswana"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 10/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:01:51 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031900",
+    "point": "-10.929671009114854 31.80602842182029",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 10/09/2026, a forest fire started in Namibia,  until 14/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 07:01:44 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031920",
+    "point": "-18.127147740412479 20.540735522243676",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 10/09/2026, a forest fire started in Namibia,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 03:02:22 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031921",
+    "point": "-18.526855101205115 19.3416783636868",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 10/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:04:31 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031993",
+    "point": "-2.6797895837794248 -57.543182082927594",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 10/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:04:38 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031992",
+    "point": "-21.464497128009707 128.5005262465103",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 10/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:03:43 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032010",
+    "point": "-14.270801622208694 26.74779295291486",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 10/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:03:54 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032011",
+    "point": "-13.116620856463705 30.731584998631671",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:04:09 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032012",
+    "point": "-16.325811418028692 37.264373105106181",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:04:19 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032013",
+    "point": "-15.426395973115261 37.765704733986325",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 10/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:04:38 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032014",
+    "point": "-13.237561957696441 30.930114750543762",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:04:45 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032015",
+    "point": "-16.430440998289981 35.678499512090646",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:05:05 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032016",
+    "point": "-15.466912622744834 38.135667737169733",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:05:39 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032017",
+    "point": "-16.664119910254779 36.130703112791551",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 07:03:32 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032018",
+    "point": "-15.662341498718567 38.193568061361155",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 10/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 11:01:30 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031915",
+    "point": "-20.507755885340117 123.71520908569137",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 10/09/2026, a forest fire started in Zambia,  until 14/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 15:02:47 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031941",
+    "point": "-10.859927604313306 31.907818188814243",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 19:01:49 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031942",
+    "point": "-15.682502038699583 39.05722511643885",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 14/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 19:02:28 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031943",
+    "point": "-16.607590544760949 36.411851380709443",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 10/09/2026, a forest fire started in Angola,  until 15/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 15:02:33 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031944",
+    "point": "-16.330552250926711 18.598278360852362",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 10/09/2026, a forest fire started in Mozambique,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:04:19 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031975",
+    "point": "-16.388306467438841 36.122439405304426",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green notification for tropical cyclone NORBERT-26. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).",
+    "description": "From 09/09/2026 to 15/09/2026, a Tropical Depression (maximum wind speed of 102 km/h) NORBERT-26 was active in CentralPacific. The cyclone affects these countries: [unknown] (vulnerability [unknown]). Estimated population affected by category 1 (120 km/h) wind speeds or higher is 0  (0 in tropical storm).",
+    "pub_date": "Wed, 09 Sep 2026 21:06:56 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=TC&eventid=1001320",
+    "point": "20.5 -143.1",
+    "event_type": "TC",
+    "alert_level": "Green",
+    "country": ""
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 09/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:06:38 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032019",
+    "point": "-11.061077768872881 31.715781174795854",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 09/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:06:59 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032020",
+    "point": "-13.192908328102872 30.488832196896926",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 09/09/2026, a forest fire started in Angola,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:07:11 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032021",
+    "point": "-16.989684698299548 19.297384827141421",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 09/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 23:08:48 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032022",
+    "point": "-9.7703647850372359 -47.08654737659397",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 09/09/2026, a forest fire started in Angola,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:07:30 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032023",
+    "point": "-12.294940973012002 18.094528122876007",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 09/09/2026, a forest fire started in Namibia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 03:04:39 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031978",
+    "point": "-18.400592037349522 20.788194098801124",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 09/09/2026, a forest fire started in Zambia,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:05:36 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031979",
+    "point": "-10.894529152912126 31.613989219381395",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 09/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 23:04:01 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031953",
+    "point": "-15.045970631930052 -48.5032450099933",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 09/09/2026, a forest fire started in Namibia,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 03:02:41 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031922",
+    "point": "-18.24683604914804 20.44886219508081",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 09/09/2026, a forest fire started in Angola,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 03:03:22 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031923",
+    "point": "-16.546709304435705 20.555626854016673",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 09/09/2026, a forest fire started in Indonesia,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 03:02:28 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031925",
+    "point": "-8.2973022190072978 118.09753863617438",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 09/09/2026, a forest fire started in Namibia,  until 15/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 23:01:12 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031888",
+    "point": "-19.0401623539205 16.67186131381559",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 09/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 19:01:06 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031879",
+    "point": "-15.729829342452291 18.795546782331769",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 09/09/2026, a forest fire started in Indonesia,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 23:08:44 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031980",
+    "point": "-3.2240236639637279 114.03797243909054",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 09/09/2026, a forest fire started in Brazil,  until 14/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 19:03:40 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031936",
+    "point": "-10.531053915534317 -51.341285666917052",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in The Democratic Republic of Congo",
+    "description": "On 09/09/2026, a forest fire started in The Democratic Republic of Congo,  until 14/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 07:03:14 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031946",
+    "point": "-7.1418546994737619 29.888630147636025",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "The Democratic Republic of Congo"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 09/09/2026, a forest fire started in Zambia,  until 14/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 15:03:47 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031960",
+    "point": "-11.067944959925846 31.706731853627662",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 09/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 03:02:47 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031924",
+    "point": "-15.509297177373913 29.964876603605514",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 09/09/2026, a forest fire started in Angola,  until 13/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:07:16 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031945",
+    "point": "-13.823090084234334 19.953397048604423",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 09/09/2026, a forest fire started in Namibia,  until 13/09/2026.",
+    "pub_date": "Fri, 11 Sep 2026 03:01:07 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031892",
+    "point": "-18.718411591471714 20.51369701136673",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 09/09/2026, a forest fire started in Angola,  until 12/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 03:02:11 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031901",
+    "point": "-16.572919118148228 20.612289196817262",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Botswana",
+    "description": "On 09/09/2026, a forest fire started in Botswana,  until 12/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:01:59 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031902",
+    "point": "-20.102240754174492 21.643380870648087",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Botswana"
+  },
+  {
+    "title": "Green forest fire notification in Sudan",
+    "description": "On 08/09/2026, a forest fire started in Sudan,  until 12/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:08:19 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031926",
+    "point": "8.8391555847724685 32.435337332321353",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Sudan"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 08/09/2026, a forest fire started in Angola,  until 13/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:08:00 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031947",
+    "point": "-12.3728073431033 20.554718859213711",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Namibia",
+    "description": "On 08/09/2026, a forest fire started in Namibia,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 03:03:57 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031927",
+    "point": "-18.044609312951248 23.486278593020121",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Namibia"
+  },
+  {
+    "title": "Green forest fire notification in The Democratic Republic of Congo, Zambia",
+    "description": "On 08/09/2026, a forest fire started in The Democratic Republic of Congo, Zambia,  until 13/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 19:01:15 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031852",
+    "point": "-12.479921758962121 29.759069967585738",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "The Democratic Republic of Congo, Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 08/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Fri, 11 Sep 2026 07:02:41 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031894",
+    "point": "-10.667689951312031 -46.073674100981549",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 08/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 07:04:34 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031948",
+    "point": "-15.529877736899557 29.955552889593729",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 08/09/2026, a forest fire started in Indonesia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 03:06:07 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031981",
+    "point": "-3.3994764643732416 126.81087005570896",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 08/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:07:28 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031982",
+    "point": "-7.9920069273579575 15.069152332086006",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Papua New Guinea",
+    "description": "On 08/09/2026, a forest fire started in Papua New Guinea,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 07:06:52 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031961",
+    "point": "-5.64456556360241 149.58006754501923",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Papua New Guinea"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 08/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:09:30 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032024",
+    "point": "-15.667072270962469 37.899518144225866",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 08/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:09:03 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032025",
+    "point": "-13.339397301687391 30.461723368785069",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 08/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:08:49 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032026",
+    "point": "-11.157165376272603 31.947063622966155",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 08/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:08:25 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032027",
+    "point": "-13.09319675231224 30.840316556891629",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 08/09/2026, a forest fire started in Angola,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:08:13 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032028",
+    "point": "-13.749014536959086 17.362034817410109",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 08/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:07:21 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031994",
+    "point": "-7.1182254336241879 -42.116107210476805",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 07/09/2026, a forest fire started in Indonesia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 11:07:27 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031995",
+    "point": "-2.8132577918424539 105.13762903920049",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 07/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:10:35 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032029",
+    "point": "-10.722896535632914 31.700560059351012",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 07/09/2026, a forest fire started in Indonesia,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:09:44 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032030",
+    "point": "-3.2588759979217872 133.91377918634143",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 07/09/2026, a forest fire started in Indonesia,  until 15/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 11:08:33 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031962",
+    "point": "-2.6980728069920419 115.11302690727943",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 07/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 19:05:15 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031937",
+    "point": "-12.729319617785404 131.98013398692342",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 07/09/2026, a forest fire started in Zambia,  until 14/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 07:06:18 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031949",
+    "point": "-10.853503525035615 30.861473573949468",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 07/09/2026, a forest fire started in Brazil,  until 14/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 07:03:12 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031912",
+    "point": "-6.7252827403565618 -45.472419004932952",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 07/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 07:02:34 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031862",
+    "point": "-15.361920805198571 134.46996507799307",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 07/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 23:04:13 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031889",
+    "point": "-10.263419090787018 -45.269196401292049",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 07/09/2026, a forest fire started in Angola,  until 13/09/2026.",
+    "pub_date": "Fri, 11 Sep 2026 07:03:43 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031881",
+    "point": "-13.901179695162877 16.731262628258989",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 07/09/2026, a forest fire started in Brazil,  until 14/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 07:02:41 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031817",
+    "point": "-9.7453740102422621 -43.464047031482522",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Kazakhstan",
+    "description": "On 07/09/2026, a forest fire started in Kazakhstan,  until 13/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 19:04:03 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031880",
+    "point": "49.142254440335329 74.531059951194678",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Kazakhstan"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 07/09/2026, a forest fire started in Australia,  until 13/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 11:05:44 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031867",
+    "point": "-16.291395026283254 136.95410718666525",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 07/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:04:01 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031914",
+    "point": "-17.231375502913593 23.170630428262786",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 07/09/2026, a forest fire started in Zambia,  until 12/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:04:16 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031903",
+    "point": "-10.85946554018593 30.855416521602006",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 07/09/2026, a forest fire started in Zambia,  until 12/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 07:03:24 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031904",
+    "point": "-13.149186394644818 31.104242557425824",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 06/09/2026, a forest fire started in Zambia,  until 12/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:06:21 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031905",
+    "point": "-10.909248092622915 31.46410150334447",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 06/09/2026, a forest fire started in Brazil,  until 12/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 11:09:56 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031869",
+    "point": "-10.739335880464832 -45.93969102325331",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 06/09/2026, a forest fire started in Angola,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 15:06:55 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031928",
+    "point": "-11.464017260166862 17.410705925454941",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 06/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 11:09:42 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031863",
+    "point": "-10.013326829891019 29.280910384338771",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Papua New Guinea",
+    "description": "On 06/09/2026, a forest fire started in Papua New Guinea,  until 15/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 11:08:40 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031868",
+    "point": "-8.8580872881814567 141.39262925439911",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Papua New Guinea"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 06/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 19:06:05 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031853",
+    "point": "-17.400589102257381 130.68358325365784",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 06/09/2026, a forest fire started in Angola,  until 13/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:10:28 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031950",
+    "point": "-13.498712283387084 16.952741085510006",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 06/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 07:09:24 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031986",
+    "point": "-15.556680132429126 -53.824468761662473",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 06/09/2026, a forest fire started in Indonesia,  until 15/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 15:08:34 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031963",
+    "point": "-3.574961847481176 126.75911559692938",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 06/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 15:08:41 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031964",
+    "point": "-14.822630454505353 134.53255864428172",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 06/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:12:11 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032031",
+    "point": "-14.425932540403611 36.434542654736454",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 06/09/2026, a forest fire started in Indonesia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 11:09:34 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031996",
+    "point": "-2.864451800644793 111.49429326753665",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 05/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 15:07:41 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031847",
+    "point": "-11.307654168371387 30.789393314422956",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 05/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 15:06:29 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031827",
+    "point": "-10.405829720875818 29.771723895298141",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 05/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 15:09:32 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031929",
+    "point": "-13.131938343281186 31.112368407969079",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 05/09/2026, a forest fire started in Angola,  until 15/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 03:01:50 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031731",
+    "point": "-17.262120716317447 20.552135637136995",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Congo",
+    "description": "On 05/09/2026, a forest fire started in Congo,  until 12/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 23:07:13 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031882",
+    "point": "-4.0481254841754959 13.7504565365255",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Congo"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 05/09/2026, a forest fire started in Zambia,  until 12/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 19:04:01 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031784",
+    "point": "-11.532228458674556 30.815474364499011",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 05/09/2026, a forest fire started in Zambia,  until 12/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 15:06:37 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031786",
+    "point": "-11.49174873936002 31.092896656625037",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 05/09/2026, a forest fire started in Angola,  until 12/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:07:34 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031906",
+    "point": "-11.394433654935233 14.911499866269885",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 05/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 11:12:19 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031828",
+    "point": "-11.40945296855503 30.919601472364445",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 05/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 07:04:13 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031846",
+    "point": "-11.02676416477348 29.390421443571125",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Papua New Guinea",
+    "description": "On 04/09/2026, a forest fire started in Papua New Guinea,  until 13/09/2026.",
+    "pub_date": "Wed, 16 Sep 2026 03:18:49 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031938",
+    "point": "-7.8945431725781257 141.65895889439608",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Papua New Guinea"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 04/09/2026, a forest fire started in Indonesia,  until 13/09/2026.",
+    "pub_date": "Sun, 06 Sep 2026 03:03:31 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031724",
+    "point": "-2.9860312599598173 111.07285583044987",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 04/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 11:06:37 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031736",
+    "point": "-10.704021861056672 31.426516594732089",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Islamic Republic of Iran",
+    "description": "On 04/09/2026, a forest fire started in Islamic Republic of Iran,  until 12/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 19:12:14 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031883",
+    "point": "29.874989965269652 51.252465977811781",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Islamic Republic of Iran"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 04/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 15:14:22 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031951",
+    "point": "-17.208092917703976 18.593127599005978",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 04/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 15:07:49 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031788",
+    "point": "-17.135545137291544 20.636539005026492",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 04/09/2026, a forest fire started in Australia,  until 14/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 23:08:57 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031891",
+    "point": "-27.821884188021546 152.25764793313942",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 04/09/2026, a forest fire started in Mozambique,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 15:10:41 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031930",
+    "point": "-15.475312743087853 39.039910853856689",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 04/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 15:12:47 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031907",
+    "point": "-9.49606734626799 29.79699108721152",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 04/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:09:35 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031908",
+    "point": "-6.9774161796127343 15.090954750848107",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 04/09/2026, a forest fire started in Angola,  until 15/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:09:20 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031909",
+    "point": "-14.566740719965159 16.661734330370134",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 04/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 15:05:33 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031772",
+    "point": "-15.969757413563773 130.51780989445862",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 04/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 19:11:04 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031939",
+    "point": "-13.918555509769929 136.6363885069137",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 04/09/2026, a forest fire started in Mozambique,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:17:31 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031983",
+    "point": "-15.667564731954348 39.988401371910065",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 04/09/2026, a forest fire started in Brazil,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 23:14:39 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031954",
+    "point": "-2.9143554055399958 -50.431938915924022",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green flood alert in Vietnam",
+    "description": "On 03/09/2026, a flood started in Vietnam, lasting until 05/09/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+    "pub_date": "Sat, 05 Sep 2026 06:09:30 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104141",
+    "point": "10.6310535 107.0004214",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Vietnam"
+  },
+  {
+    "title": "Green forest fire notification in Tanzania",
+    "description": "On 03/09/2026, a forest fire started in Tanzania,  until 12/09/2026.",
+    "pub_date": "Sun, 06 Sep 2026 19:04:55 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031738",
+    "point": "-7.7506637816634205 34.333769064500387",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Tanzania"
+  },
+  {
+    "title": "Green forest fire notification in Tanzania",
+    "description": "On 03/09/2026, a forest fire started in Tanzania,  until 12/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 15:27:31 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031773",
+    "point": "-5.9630176667803809 31.975323458953692",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Tanzania"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 03/09/2026, a forest fire started in Australia,  until 13/09/2026.",
+    "pub_date": "Sat, 05 Sep 2026 19:04:54 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031679",
+    "point": "-15.990236522129358 136.03434118386002",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 03/09/2026, a forest fire started in Australia,  until 14/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 15:26:03 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031769",
+    "point": "-18.184326017934175 137.91684089704404",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 03/09/2026, a forest fire started in Australia,  until 14/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 19:14:40 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031858",
+    "point": "-12.657589932037748 132.9455611624773",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 03/09/2026, a forest fire started in Zambia,  until 14/09/2026.",
+    "pub_date": "Fri, 11 Sep 2026 19:13:32 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031884",
+    "point": "-10.171333504775511 29.299665155191462",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 03/09/2026, a forest fire started in Australia,  until 14/09/2026.",
+    "pub_date": "Sun, 06 Sep 2026 11:01:16 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031728",
+    "point": "-18.180362159436559 138.09442899695435",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 03/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 03:05:52 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031739",
+    "point": "-16.704204204949239 16.984072140992676",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Russian Federation",
+    "description": "On 03/09/2026, a forest fire started in Russian Federation,  until 15/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 23:16:21 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031955",
+    "point": "58.2380344919093 138.16980041065642",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Russian Federation"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 03/09/2026, a forest fire started in Indonesia,  until 15/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:12:42 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031917",
+    "point": "-2.7300182284969718 110.76332137922992",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 03/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:20:07 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031984",
+    "point": "-13.414535758986288 17.028449344549632",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 03/09/2026, a forest fire started in Mozambique,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:19:31 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031985",
+    "point": "-16.671739756981584 35.900066198657193",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 03/09/2026, a forest fire started in Australia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 13:17:23 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031997",
+    "point": "-15.703150980259061 144.80669880341421",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 03/09/2026, a forest fire started in Indonesia,  until 15/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 23:23:05 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032000",
+    "point": "-3.8444559496853716 105.2434625781315",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green flood alert in Brazil",
+    "description": "On 02/09/2026, a flood started in Brazil, lasting until 12/09/2026 (last update). The flood caused 0 deaths and 293 displaced .",
+    "pub_date": "Fri, 11 Sep 2026 04:08:35 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104148",
+    "point": "-22.945043 -47.312182",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 02/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 15:18:17 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031832",
+    "point": "-9.2981740934128858 29.965388622693389",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 02/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 03:15:25 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031931",
+    "point": "-11.348842272479795 17.39925587504991",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 02/09/2026, a forest fire started in Zambia,  until 15/09/2026.",
+    "pub_date": "Fri, 11 Sep 2026 19:16:36 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031885",
+    "point": "-10.052309188676107 31.75063652819389",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in The Democratic Republic of Congo",
+    "description": "On 02/09/2026, a forest fire started in The Democratic Republic of Congo,  until 13/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 15:17:13 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031874",
+    "point": "-7.785757592420862 30.220330894972829",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "The Democratic Republic of Congo"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 02/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 15:17:49 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031875",
+    "point": "-10.436514493044438 30.924624637968687",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 02/09/2026, a forest fire started in Indonesia,  until 13/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 19:17:32 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031876",
+    "point": "-7.8769748160223489 140.72366764915185",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 02/09/2026, a forest fire started in Australia,  until 14/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 15:43:50 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031770",
+    "point": "-15.712955492204538 130.57365667957171",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 02/09/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 15:16:03 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031831",
+    "point": "-11.327360532403599 30.996873989552171",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Tanzania",
+    "description": "On 02/09/2026, a forest fire started in Tanzania,  until 14/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:23:00 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031987",
+    "point": "-6.9742697045602924 33.973633787488581",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Tanzania"
+  },
+  {
+    "title": "Green forest fire notification in Papua New Guinea",
+    "description": "On 02/09/2026, a forest fire started in Papua New Guinea,  until 14/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:16:58 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031918",
+    "point": "-9.06590436371912 141.18901156735581",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Papua New Guinea"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 01/09/2026, a forest fire started in Indonesia,  until 13/09/2026.",
+    "pub_date": "Mon, 14 Sep 2026 07:21:52 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031956",
+    "point": "-8.185101414908976 140.32478552663619",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 01/09/2026, a forest fire started in Angola,  until 12/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 15:21:56 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031836",
+    "point": "-7.05300289115689 14.989881661049102",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Tanzania",
+    "description": "On 01/09/2026, a forest fire started in Tanzania,  until 12/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 19:30:55 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031839",
+    "point": "-7.1772688550108734 31.915442561222122",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Tanzania"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 01/09/2026, a forest fire started in Angola,  until 12/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 15:17:28 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031794",
+    "point": "-6.0477621519511633 14.150580086262439",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 01/09/2026, a forest fire started in Indonesia,  until 15/09/2026.",
+    "pub_date": "Fri, 11 Sep 2026 23:21:07 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031910",
+    "point": "-2.6524354905833669 114.31401538340545",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in The Democratic Republic of Congo",
+    "description": "On 01/09/2026, a forest fire started in The Democratic Republic of Congo,  until 12/09/2026.",
+    "pub_date": "Tue, 15 Sep 2026 15:25:54 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031932",
+    "point": "-4.7521354045405362 14.327845460253368",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "The Democratic Republic of Congo"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 01/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 15:22:43 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031933",
+    "point": "-7.7691062272763718 14.983134336360003",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in The Democratic Republic of Congo, Congo",
+    "description": "On 01/09/2026, a forest fire started in The Democratic Republic of Congo, Congo,  until 11/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 15:18:37 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031796",
+    "point": "-4.72896881987484 14.411651539413105",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Congo, The Democratic Republic of Congo"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 01/09/2026, a forest fire started in Angola,  until 14/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 15:20:42 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031834",
+    "point": "-8.0684126821406483 16.058664696239994",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 01/09/2026, a forest fire started in Indonesia,  until 13/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 19:30:10 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031838",
+    "point": "-0.50083236830935518 112.11525147694411",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in The Democratic Republic of Congo",
+    "description": "On 01/09/2026, a forest fire started in The Democratic Republic of Congo,  until 12/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 15:46:10 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031746",
+    "point": "-3.8001881830021089 17.302550462084564",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "The Democratic Republic of Congo"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 01/09/2026, a forest fire started in Indonesia,  until 13/09/2026.",
+    "pub_date": "Sun, 06 Sep 2026 07:08:10 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031701",
+    "point": "-2.9305501206922813 105.26743583610804",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 01/09/2026, a forest fire started in Australia,  until 13/09/2026.",
+    "pub_date": "Fri, 04 Sep 2026 09:03:48 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031579",
+    "point": "-30.257325545833353 152.33241549128215",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in The Democratic Republic of Congo",
+    "description": "On 01/09/2026, a forest fire started in The Democratic Republic of Congo,  until 10/09/2026.",
+    "pub_date": "Sat, 05 Sep 2026 15:16:42 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031606",
+    "point": "-4.6203005340843317 19.122891005767045",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "The Democratic Republic of Congo"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 31/08/2026, a forest fire started in Angola,  until 12/09/2026.",
+    "pub_date": "Fri, 04 Sep 2026 19:13:46 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031613",
+    "point": "-16.954885708722617 18.959220450891735",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 31/08/2026, a forest fire started in Angola,  until 12/09/2026.",
+    "pub_date": "Sat, 05 Sep 2026 19:17:10 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031705",
+    "point": "-13.819488914393615 16.56105016855102",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 31/08/2026, a forest fire started in Zambia,  until 11/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 07:26:55 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031840",
+    "point": "-9.5983640504981818 31.322036002013434",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 31/08/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 15:23:28 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031802",
+    "point": "-10.232007339703786 29.367460489427412",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 31/08/2026, a forest fire started in Australia,  until 13/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 19:38:03 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031825",
+    "point": "-14.113942872272663 143.27888004048884",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 31/08/2026, a forest fire started in Zambia,  until 11/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 15:37:26 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031848",
+    "point": "-10.312404445689381 30.411927803951603",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in The Democratic Republic of Congo",
+    "description": "On 31/08/2026, a forest fire started in The Democratic Republic of Congo,  until 13/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 15:28:30 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031887",
+    "point": "-4.6812668506247785 17.001023236587582",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "The Democratic Republic of Congo"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 31/08/2026, a forest fire started in Indonesia,  until 13/09/2026.",
+    "pub_date": "Fri, 11 Sep 2026 19:29:39 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031896",
+    "point": "-2.3560836968661225 113.33523685489864",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 31/08/2026, a forest fire started in Zambia,  until 13/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 15:26:53 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031877",
+    "point": "-10.275618549949348 28.887739573558193",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Congo",
+    "description": "On 31/08/2026, a forest fire started in Congo,  until 12/09/2026.",
+    "pub_date": "Fri, 11 Sep 2026 19:29:33 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031886",
+    "point": "-4.134761405624916 13.938422180789145",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Congo"
+  },
+  {
+    "title": "Green forest fire notification in The Democratic Republic of Congo",
+    "description": "On 31/08/2026, a forest fire started in The Democratic Republic of Congo,  until 15/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 19:26:50 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031804",
+    "point": "-5.4743856831946962 14.946045663920229",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "The Democratic Republic of Congo"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 30/08/2026, a forest fire started in Indonesia,  until 14/09/2026.",
+    "pub_date": "Fri, 11 Sep 2026 19:33:32 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031897",
+    "point": "-3.1905914100225332 111.84090727249239",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 30/08/2026, a forest fire started in Indonesia,  until 14/09/2026.",
+    "pub_date": "Sun, 13 Sep 2026 07:36:15 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031919",
+    "point": "-7.78193275549111 139.14929065188022",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 30/08/2026, a forest fire started in Indonesia,  until 13/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 19:35:01 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031870",
+    "point": "-3.2038442555410764 126.88144376113576",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 30/08/2026, a forest fire started in Australia,  until 13/09/2026.",
+    "pub_date": "Sun, 06 Sep 2026 23:29:43 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031765",
+    "point": "-18.300814094876539 130.77353616681847",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 30/08/2026, a forest fire started in Angola,  until 13/09/2026.",
+    "pub_date": "Sat, 12 Sep 2026 03:38:01 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031911",
+    "point": "-11.28215862175716 17.293017202341812",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 30/08/2026, a forest fire started in Angola,  until 13/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 20:09:49 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031842",
+    "point": "-7.939176021631976 16.069850414717138",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Mozambique",
+    "description": "On 30/08/2026, a forest fire started in Mozambique,  until 12/09/2026.",
+    "pub_date": "Sun, 06 Sep 2026 15:12:43 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031707",
+    "point": "-15.425412491448755 37.879069837445613",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Mozambique"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 30/08/2026, a forest fire started in Angola,  until 12/09/2026.",
+    "pub_date": "Fri, 04 Sep 2026 17:12:36 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031565",
+    "point": "-7.1703581700448789 15.949442515757237",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in T\u00fcrkiye",
+    "description": "On 30/08/2026, a forest fire started in T\u00fcrkiye,  until 12/09/2026.",
+    "pub_date": "Mon, 07 Sep 2026 16:21:34 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031776",
+    "point": "37.227318254513108 35.99633581176959",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "T\u00fcrkiye"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 30/08/2026, a forest fire started in Australia,  until 12/09/2026.",
+    "pub_date": "Thu, 03 Sep 2026 07:05:38 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031481",
+    "point": "-16.537828394290734 134.2854020693814",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Brazil",
+    "description": "On 29/08/2026, a forest fire started in Brazil,  until 13/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 20:25:59 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031767",
+    "point": "-13.371888777192563 -51.354560896317331",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 29/08/2026, a forest fire started in Zambia,  until 12/09/2026.",
+    "pub_date": "Sat, 05 Sep 2026 11:37:11 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031636",
+    "point": "-10.81955914183458 31.303603664281276",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green forest fire notification in Indonesia",
+    "description": "On 29/08/2026, a forest fire started in Indonesia,  until 13/09/2026.",
+    "pub_date": "Sat, 05 Sep 2026 11:34:19 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031674",
+    "point": "-3.207557613880399 113.79529701325845",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Indonesia"
+  },
+  {
+    "title": "Green forest fire notification in Angola",
+    "description": "On 29/08/2026, a forest fire started in Angola,  until 12/09/2026.",
+    "pub_date": "Sun, 06 Sep 2026 03:48:06 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031726",
+    "point": "-13.616148561391139 16.595421484080976",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Angola"
+  },
+  {
+    "title": "Green forest fire notification in Tanzania",
+    "description": "On 29/08/2026, a forest fire started in Tanzania,  until 13/09/2026.",
+    "pub_date": "Tue, 08 Sep 2026 03:43:11 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031813",
+    "point": "-7.6830186536605973 32.183893267251847",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Tanzania"
+  },
+  {
+    "title": "Green forest fire notification in Australia",
+    "description": "On 29/08/2026, a forest fire started in Australia,  until 13/09/2026.",
+    "pub_date": "Wed, 09 Sep 2026 19:49:30 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031860",
+    "point": "-30.025648916118438 152.12800779873331",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Australia"
+  },
+  {
+    "title": "Green forest fire notification in Papua New Guinea",
+    "description": "On 29/08/2026, a forest fire started in Papua New Guinea,  until 13/09/2026.",
+    "pub_date": "Thu, 10 Sep 2026 11:53:54 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031871",
+    "point": "-8.9237280445306588 141.11716761160287",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Papua New Guinea"
+  },
+  {
+    "title": "Green forest fire notification in Zambia",
+    "description": "On 28/08/2026, a forest fire started in Zambia,  until 12/09/2026.",
+    "pub_date": "Thu, 03 Sep 2026 15:18:57 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1031511",
+    "point": "-9.9487038974969284 29.829850771550365",
+    "event_type": "WF",
+    "alert_level": "Green",
+    "country": "Zambia"
+  },
+  {
+    "title": "Green flood alert in Thailand",
+    "description": "On 18/08/2026, a flood started in Thailand, lasting until 14/09/2026 (last update). The flood caused 2 deaths and 169 displaced .",
+    "pub_date": "Thu, 27 Aug 2026 09:43:25 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104122",
+    "point": "18.7077228 99.5696331",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Thailand"
+  },
+  {
+    "title": "Green flood alert in Mexico",
+    "description": "On 17/08/2026, a flood started in Mexico, lasting until 10/09/2026 (last update). The flood caused 8 deaths and 8 displaced .",
+    "pub_date": "Tue, 18 Aug 2026 12:27:42 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104099",
+    "point": "19.7027116 -101.1923818",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Mexico"
+  },
+  {
+    "title": "Orange flood alert in China",
+    "description": "On 31/07/2026, a flood started in China, lasting until 13/09/2026 (last update). The flood caused 4 deaths and 399045 displaced .",
+    "pub_date": "Fri, 07 Aug 2026 18:46:26 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104081",
+    "point": "47.2320486 126.9798582",
+    "event_type": "FL",
+    "alert_level": "Orange",
+    "country": "China"
+  },
+  {
+    "title": "Green flood alert in Italy",
+    "description": "On 26/07/2026, a flood started in Italy, lasting until 12/09/2026 (last update). The flood caused 1 deaths and 842 displaced .",
+    "pub_date": "Wed, 02 Sep 2026 04:41:15 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104053",
+    "point": "38.6748544 16.0985276",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "Italy"
+  },
+  {
+    "title": "Drought is on going in Central African Republic, Cameroon, Niger, Nigeria, Chad",
+    "description": "The  Drought notification level is Green.",
+    "pub_date": "Mon, 14 Sep 2026 14:38:38 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1027567",
+    "point": "9.924 15.933",
+    "event_type": "DR",
+    "alert_level": "Green",
+    "country": "Central African Republic, Cameroon, Niger, Nigeria, Chad"
+  },
+  {
+    "title": "Drought is on going in Democratic Republic of Congo, Kenya, Tanzania, Uganda",
+    "description": "The  Drought notification level is Orange.",
+    "pub_date": "Wed, 29 Jul 2026 12:47:44 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1027465",
+    "point": "0.938 33.813",
+    "event_type": "DR",
+    "alert_level": "Orange",
+    "country": "Democratic Republic of Congo, Kenya, Tanzania, Uganda"
+  },
+  {
+    "title": "Green flood alert in United States",
+    "description": "On 19/05/2026, a flood started in United States, lasting until 12/09/2026 (last update). The flood caused 26 deaths and 1810 displaced .",
+    "pub_date": "Thu, 21 May 2026 06:15:32 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103888",
+    "point": "41.1190078 -73.3711356",
+    "event_type": "FL",
+    "alert_level": "Green",
+    "country": "United States"
+  },
+  {
+    "title": "Drought is on going in China, Kyrgyzstan, Kazakhstan, Mongolia, Russia",
+    "description": "The  Drought notification level is Green.",
+    "pub_date": "Tue, 14 Jul 2026 14:07:56 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1027491",
+    "point": "48.077 82.572",
+    "event_type": "DR",
+    "alert_level": "Green",
+    "country": "China, Kyrgyzstan, Kazakhstan, Mongolia, Russia"
+  },
+  {
+    "title": "Drought is on going in The Bahamas, Belize, Cuba, Dominican Republic, Guatemala, Honduras, Haiti, Mexico, Nicaragua, El Salvador",
+    "description": "The  Drought notification level is Orange.",
+    "pub_date": "Fri, 03 Jul 2026 12:57:40 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1027449",
+    "point": "15.778 -90.382",
+    "event_type": "DR",
+    "alert_level": "Orange",
+    "country": "The Bahamas, Belize, Cuba, Dominican Republic, Guatemala, Honduras, Haiti, Mexico, Nicaragua, El Salvador"
+  },
+  {
+    "title": "Drought is on going in Eritrea, Ethiopia, Kenya, Somalia",
+    "description": "The  Drought notification level is Orange.",
+    "pub_date": "Fri, 03 Jul 2026 12:57:44 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1027450",
+    "point": "11.015 39.528",
+    "event_type": "DR",
+    "alert_level": "Orange",
+    "country": "Eritrea, Ethiopia, Kenya, Somalia"
+  },
+  {
+    "title": "Drought is on going in Brazil, Colombia, Costa Rica, , Guyana, Panama, Suriname, Venezuela",
+    "description": "The  Drought notification level is Green.",
+    "pub_date": "Fri, 03 Jul 2026 12:57:35 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1023877",
+    "point": "7.273 -67.747",
+    "event_type": "DR",
+    "alert_level": "Green",
+    "country": "Brazil, Colombia, Costa Rica, , Guyana, Panama, Suriname, Venezuela"
+  },
+  {
+    "title": "Drought is on going in India",
+    "description": "The  Drought notification level is Green.",
+    "pub_date": "Mon, 31 Aug 2026 08:22:42 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1027575",
+    "point": "11.937 76.525",
+    "event_type": "DR",
+    "alert_level": "Green",
+    "country": "India"
+  },
+  {
+    "title": "Drought is on going in United States",
+    "description": "The  Drought notification level is Green.",
+    "pub_date": "Thu, 30 Apr 2026 13:07:44 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1018546",
+    "point": "42.679 -105.66",
+    "event_type": "DR",
+    "alert_level": "Green",
+    "country": "United States"
+  },
+  {
+    "title": "Drought is on going in Democratic Republic of Congo, Republic of Congo, Gabon",
+    "description": "The  Drought notification level is Green.",
+    "pub_date": "Wed, 04 Feb 2026 09:58:20 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1018344",
+    "point": "-2.349 13.234",
+    "event_type": "DR",
+    "alert_level": "Green",
+    "country": "Democratic Republic of Congo, Republic of Congo, Gabon"
+  },
+  {
+    "title": "Drought is on going in Austria, Bosnia & Herzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, San Marino, Ukraine, , ",
+    "description": "The  Drought notification level is Orange.",
+    "pub_date": "Wed, 11 Feb 2026 09:57:31 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1018332",
+    "point": "48.009 10.879",
+    "event_type": "DR",
+    "alert_level": "Orange",
+    "country": "Austria, Bosnia & Herzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, San Marino, Ukraine, , "
+  },
+  {
+    "title": "Drought is on going in Madagascar",
+    "description": "The  Drought notification level is Orange.",
+    "pub_date": "Thu, 30 Apr 2026 13:07:35 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1018431",
+    "point": "-19.34 47.017",
+    "event_type": "DR",
+    "alert_level": "Orange",
+    "country": "Madagascar"
+  },
+  {
+    "title": "Drought is on going in Brazil",
+    "description": "The  Drought notification level is Green.",
+    "pub_date": "Fri, 03 Jul 2026 12:57:24 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1027448",
+    "point": "-6.723 -46.046",
+    "event_type": "DR",
+    "alert_level": "Green",
+    "country": "Brazil"
+  },
+  {
+    "title": "Drought is on going in Australia, Indonesia, Cambodia, Papua New Guinea, Philippines, Thailand, Vietnam",
+    "description": "The  Drought notification level is Green.",
+    "pub_date": "Thu, 30 Apr 2026 13:07:47 GMT",
+    "link": "https://www.gdacs.org/report.aspx?eventtype=DR&eventid=1018545",
+    "point": "12.147 104.517",
+    "event_type": "DR",
+    "alert_level": "Green",
+    "country": "Australia, Indonesia, Cambodia, Papua New Guinea, Philippines, Thailand, Vietnam"
+  }
+]

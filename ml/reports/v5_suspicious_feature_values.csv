@@ -1,0 +1,5 @@
+feature,total_non_null,unique_values,most_frequent_value,most_frequent_count,most_frequent_pct,is_suspicious_constant
+country_population,336,111,94384250.0,14,4.17,False
+population_density_sqkm,336,91,385.321122178623,34,10.12,False
+urban_population_pct,336,111,44.3356772609527,14,4.17,False
+poverty_headcount_pct,195,43,15.5,34,17.44,False

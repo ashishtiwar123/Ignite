@@ -1,0 +1,324 @@
+{
+    "scenarios": [
+        {
+            "id": "scenario_1",
+            "description": "Strongly corroborated earthquake",
+            "candidate": {
+                "incident_id": "c1",
+                "hazard_type": "Earthquake",
+                "centroid_latitude": 18.52,
+                "centroid_longitude": 73.85,
+                "first_observed_at": "2023-09-16T10:32:00Z",
+                "report_ids": ["r1", "r2", "r3"]
+            },
+            "reports": [
+                {
+                    "report_id": "r1",
+                    "source": "USGS",
+                    "source_record_id": "usgs1",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z",
+                    "magnitude": 6.2
+                },
+                {
+                    "report_id": "r2",
+                    "source": "GDACS",
+                    "source_record_id": "gdacs1",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.51,
+                    "longitude": 73.84,
+                    "observed_at": "2023-09-16T10:34:00Z",
+                    "magnitude": 6.2
+                },
+                {
+                    "report_id": "r3",
+                    "source": "EM-DAT",
+                    "source_record_id": "emdat1",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.53,
+                    "longitude": 73.86,
+                    "observed_at": "2023-09-16T10:30:00Z",
+                    "magnitude": 6.1
+                }
+            ]
+        },
+        {
+            "id": "scenario_2",
+            "description": "Single-source earthquake (Insufficient corroboration)",
+            "candidate": {
+                "incident_id": "c2",
+                "hazard_type": "Earthquake",
+                "centroid_latitude": 18.52,
+                "centroid_longitude": 73.85,
+                "first_observed_at": "2023-09-16T10:32:00Z",
+                "report_ids": ["r4"]
+            },
+            "reports": [
+                {
+                    "report_id": "r4",
+                    "source": "USGS",
+                    "source_record_id": "usgs2",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z",
+                    "magnitude": 6.2
+                }
+            ]
+        },
+        {
+            "id": "scenario_3",
+            "description": "Conflicting evidence",
+            "candidate": {
+                "incident_id": "c3",
+                "hazard_type": "Earthquake",
+                "centroid_latitude": 18.52,
+                "centroid_longitude": 73.85,
+                "first_observed_at": "2023-09-16T10:32:00Z",
+                "report_ids": ["r5", "r6"],
+                "conflicting_information": [{"field": "magnitude", "values": [{"source": "USGS", "value": 6.2}, {"source": "NEWS", "value": 8.5}]}]
+            },
+            "reports": [
+                {
+                    "report_id": "r5",
+                    "source": "USGS",
+                    "source_record_id": "usgs3",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z",
+                    "magnitude": 6.2
+                },
+                {
+                    "report_id": "r6",
+                    "source": "NEWS",
+                    "source_record_id": "news1",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z",
+                    "magnitude": 8.5
+                }
+            ]
+        },
+        {
+            "id": "scenario_4",
+            "description": "Duplicate evidence from same source family",
+            "candidate": {
+                "incident_id": "c4",
+                "hazard_type": "Earthquake",
+                "centroid_latitude": 18.52,
+                "centroid_longitude": 73.85,
+                "first_observed_at": "2023-09-16T10:32:00Z",
+                "report_ids": ["r7", "r8"]
+            },
+            "reports": [
+                {
+                    "report_id": "r7",
+                    "source": "USGS",
+                    "source_record_id": "usgs4a",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z",
+                    "magnitude": 6.2
+                },
+                {
+                    "report_id": "r8",
+                    "source": "USGS",
+                    "source_record_id": "usgs4b",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:34:00Z",
+                    "magnitude": 6.2
+                }
+            ]
+        },
+        {
+            "id": "scenario_5",
+            "description": "Temporal mismatch",
+            "candidate": {
+                "incident_id": "c5",
+                "hazard_type": "Earthquake",
+                "centroid_latitude": 18.52,
+                "centroid_longitude": 73.85,
+                "first_observed_at": "2023-09-16T10:32:00Z",
+                "report_ids": ["r9", "r10"]
+            },
+            "reports": [
+                {
+                    "report_id": "r9",
+                    "source": "USGS",
+                    "source_record_id": "usgs5",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z"
+                },
+                {
+                    "report_id": "r10",
+                    "source": "GDACS",
+                    "source_record_id": "gdacs5",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-17T15:00:00Z"
+                }
+            ]
+        },
+        {
+            "id": "scenario_6",
+            "description": "Spatial mismatch",
+            "candidate": {
+                "incident_id": "c6",
+                "hazard_type": "Earthquake",
+                "centroid_latitude": 18.52,
+                "centroid_longitude": 73.85,
+                "first_observed_at": "2023-09-16T10:32:00Z",
+                "report_ids": ["r11", "r12"]
+            },
+            "reports": [
+                {
+                    "report_id": "r11",
+                    "source": "USGS",
+                    "source_record_id": "usgs6",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z"
+                },
+                {
+                    "report_id": "r12",
+                    "source": "GDACS",
+                    "source_record_id": "gdacs6",
+                    "hazard_type": "Earthquake",
+                    "latitude": 35.68,
+                    "longitude": 139.69,
+                    "observed_at": "2023-09-16T10:32:00Z"
+                }
+            ]
+        },
+        {
+            "id": "scenario_7",
+            "description": "Hazard mismatch",
+            "candidate": {
+                "incident_id": "c7",
+                "hazard_type": "Earthquake",
+                "centroid_latitude": 18.52,
+                "centroid_longitude": 73.85,
+                "first_observed_at": "2023-09-16T10:32:00Z",
+                "report_ids": ["r13", "r14"]
+            },
+            "reports": [
+                {
+                    "report_id": "r13",
+                    "source": "USGS",
+                    "source_record_id": "usgs7",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z"
+                },
+                {
+                    "report_id": "r14",
+                    "source": "GDACS",
+                    "source_record_id": "gdacs7",
+                    "hazard_type": "Flood",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z"
+                }
+            ]
+        },
+        {
+            "id": "scenario_8",
+            "description": "Missing evidence fields",
+            "candidate": {
+                "incident_id": "c8",
+                "hazard_type": "Earthquake",
+                "report_ids": ["r15", "r16"]
+            },
+            "reports": [
+                {
+                    "report_id": "r15",
+                    "source": "USGS",
+                    "source_record_id": "usgs8",
+                    "hazard_type": "Earthquake"
+                },
+                {
+                    "report_id": "r16",
+                    "source": "GDACS",
+                    "source_record_id": "gdacs8",
+                    "hazard_type": "Earthquake"
+                }
+            ]
+        },
+        {
+            "id": "scenario_9",
+            "description": "Strong cyclone corroboration",
+            "candidate": {
+                "incident_id": "c9",
+                "hazard_type": "Cyclone",
+                "centroid_latitude": 20.0,
+                "centroid_longitude": -80.0,
+                "first_observed_at": "2023-09-16T10:32:00Z",
+                "report_ids": ["r17", "r18"]
+            },
+            "reports": [
+                {
+                    "report_id": "r17",
+                    "source": "NOAA",
+                    "source_record_id": "noaa9",
+                    "hazard_type": "Cyclone",
+                    "latitude": 20.0,
+                    "longitude": -80.0,
+                    "observed_at": "2023-09-16T10:32:00Z"
+                },
+                {
+                    "report_id": "r18",
+                    "source": "GDACS",
+                    "source_record_id": "gdacs9",
+                    "hazard_type": "Cyclone",
+                    "latitude": 21.0,
+                    "longitude": -79.0,
+                    "observed_at": "2023-09-17T10:32:00Z"
+                }
+            ]
+        },
+        {
+            "id": "scenario_10",
+            "description": "Unsupported/unknown source",
+            "candidate": {
+                "incident_id": "c10",
+                "hazard_type": "Earthquake",
+                "centroid_latitude": 18.52,
+                "centroid_longitude": 73.85,
+                "first_observed_at": "2023-09-16T10:32:00Z",
+                "report_ids": ["r19", "r20"]
+            },
+            "reports": [
+                {
+                    "report_id": "r19",
+                    "source": "UNKNOWN_APP",
+                    "source_record_id": "app10",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z"
+                },
+                {
+                    "report_id": "r20",
+                    "source": "SOME_WEBSITE",
+                    "source_record_id": "web10",
+                    "hazard_type": "Earthquake",
+                    "latitude": 18.52,
+                    "longitude": 73.85,
+                    "observed_at": "2023-09-16T10:32:00Z"
+                }
+            ]
+        }
+    ]
+}

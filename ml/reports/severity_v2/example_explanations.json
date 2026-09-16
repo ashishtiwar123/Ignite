@@ -1,0 +1,156 @@
+[
+  {
+    "incident_id": "INC-2025-EQ-TEST",
+    "disaster_type": "Earthquake",
+    "severity_class": 1,
+    "severity_label": "Moderate",
+    "probabilities": {
+      "Low": 0.13906780400879612,
+      "Moderate": 0.5796295849274151,
+      "High": 0.026079383518451398,
+      "Critical": 0.25522322754533744
+    },
+    "top_contributing_features": [
+      {
+        "rank": 1,
+        "feature_name": "country_population",
+        "feature_value": 17000000.0,
+        "contribution": 0.3615,
+        "direction": "positive"
+      },
+      {
+        "rank": 2,
+        "feature_name": "seismic_depth_km",
+        "feature_value": 15.0,
+        "contribution": -0.1756,
+        "direction": "negative"
+      },
+      {
+        "rank": 3,
+        "feature_name": "population_density_sqkm",
+        "feature_value": 60.0,
+        "contribution": -0.1618,
+        "direction": "negative"
+      },
+      {
+        "rank": 4,
+        "feature_name": "seismic_magnitude",
+        "feature_value": 7.8,
+        "contribution": 0.0443,
+        "direction": "positive"
+      },
+      {
+        "rank": 5,
+        "feature_name": "hazard_intensity_index",
+        "feature_value": 7.8,
+        "contribution": 0.0261,
+        "direction": "positive"
+      },
+      {
+        "rank": 6,
+        "feature_name": "disaster_type_code",
+        "feature_value": 0.0,
+        "contribution": 0.0,
+        "direction": "positive"
+      },
+      {
+        "rank": 7,
+        "feature_name": "cyclone_max_wind_knots",
+        "feature_value": null,
+        "contribution": 0.0,
+        "direction": "positive"
+      },
+      {
+        "rank": 8,
+        "feature_name": "cyclone_min_pressure_mb",
+        "feature_value": null,
+        "contribution": 0.0,
+        "direction": "positive"
+      },
+      {
+        "rank": 9,
+        "feature_name": "log_population_exposure",
+        "feature_value": 16.64,
+        "contribution": 0.0,
+        "direction": "positive"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-2025-STORM-TEST",
+    "disaster_type": "Storm",
+    "severity_class": 1,
+    "severity_label": "Moderate",
+    "probabilities": {
+      "Low": 0.32036295857006625,
+      "Moderate": 0.4086177133656204,
+      "High": 0.2105571989000452,
+      "Critical": 0.06046212916426814
+    },
+    "top_contributing_features": [
+      {
+        "rank": 1,
+        "feature_name": "cyclone_max_wind_knots",
+        "feature_value": 140.0,
+        "contribution": -0.0616,
+        "direction": "negative"
+      },
+      {
+        "rank": 2,
+        "feature_name": "population_density_sqkm",
+        "feature_value": 368.0,
+        "contribution": -0.0117,
+        "direction": "negative"
+      },
+      {
+        "rank": 3,
+        "feature_name": "cyclone_min_pressure_mb",
+        "feature_value": 910.0,
+        "contribution": 0.0067,
+        "direction": "positive"
+      },
+      {
+        "rank": 4,
+        "feature_name": "country_population",
+        "feature_value": 110000000.0,
+        "contribution": 0.0065,
+        "direction": "positive"
+      },
+      {
+        "rank": 5,
+        "feature_name": "hazard_intensity_index",
+        "feature_value": 7.0,
+        "contribution": 0.0007,
+        "direction": "positive"
+      },
+      {
+        "rank": 6,
+        "feature_name": "disaster_type_code",
+        "feature_value": 1.0,
+        "contribution": 0.0,
+        "direction": "positive"
+      },
+      {
+        "rank": 7,
+        "feature_name": "seismic_magnitude",
+        "feature_value": null,
+        "contribution": 0.0,
+        "direction": "positive"
+      },
+      {
+        "rank": 8,
+        "feature_name": "seismic_depth_km",
+        "feature_value": null,
+        "contribution": 0.0,
+        "direction": "positive"
+      },
+      {
+        "rank": 9,
+        "feature_name": "log_population_exposure",
+        "feature_value": 18.51,
+        "contribution": 0.0,
+        "direction": "positive"
+      }
+    ]
+  }
+]
