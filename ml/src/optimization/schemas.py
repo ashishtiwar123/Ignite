@@ -24,7 +24,7 @@ class AllocationContext(BaseModel):
     """
     The full state passed to the optimizer.
     """
-    optimization_run_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    optimization_run_id: Optional[str] = None
     incidents: List[PriorityAssessment]
     requirements: List[ResourceRequirement]
     inventory: List[ResourceInventory]
@@ -37,7 +37,7 @@ class ResourceAllocation(BaseModel):
     A single allocation edge from a source to an incident.
     """
     allocation_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    optimization_run_id: str
+    optimization_run_id: Optional[str] = None
     
     verified_incident_id: str
     requirement_id: str
@@ -60,7 +60,7 @@ class AllocationResult(BaseModel):
     """
     The complete result of an optimization run.
     """
-    optimization_run_id: str
+    optimization_run_id: Optional[str] = None
     solver_status: str # OPTIMAL, FEASIBLE, INFEASIBLE, UNKNOWN
     
     allocations: List[ResourceAllocation]

@@ -5,7 +5,7 @@ class AgentState(BaseModel):
     """
     The canonical shared graph state.
     """
-    run_id: str
+    run_id: Optional[str] = None
     
     # Input
     raw_reports: List[str] = Field(default_factory=list)
@@ -17,9 +17,17 @@ class AgentState(BaseModel):
     # Determinstic Engine Outputs
     verification_status: str = "PENDING"
     severity_score: Optional[float] = None
+    severity: Optional[Dict[str, Any]] = None
     trajectory: Optional[str] = None
+    trajectory_status: str = "PENDING"
     needs: List[Dict[str, Any]] = Field(default_factory=list)
+    needs_status: str = "PENDING"
     priority: Optional[Dict[str, Any]] = None
+    priority_status: str = "PENDING"
+    
+    # Unified Assessment
+    assessment_record: Optional[Dict[str, Any]] = None
+    assessment_status: str = "PENDING"
     
     # Optimization & Coordination
     inventory: List[Dict[str, Any]] = Field(default_factory=list)

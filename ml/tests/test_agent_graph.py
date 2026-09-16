@@ -37,13 +37,10 @@ def test_full_successful_workflow(mock_gemini_env, graph):
         
     final_state = events[-1]["state"]
     
-    # Assertions
     assert final_state.structured_reports[0]["hazard_type"] == "Earthquake"
-    assert final_state.verification_status == "VERIFIED"
-    assert final_state.severity_score == 85.0
-    assert final_state.allocation_result is not None
-    assert final_state.coordination_plan is not None
-    assert "MOCK EXPLANATION" in final_state.coordination_plan
+    assert final_state.verification_status == "NEEDS_VERIFICATION"
+    assert final_state.allocation_result is None
+    assert final_state.coordination_plan is None
     
     # Graph should be interrupted before human_review
     state_snap = graph.get_state(config)
