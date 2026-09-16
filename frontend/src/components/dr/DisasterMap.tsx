@@ -75,7 +75,8 @@ export default function DisasterMap({ scenario, mode, layers, onSelectIncident }
   layersRef.current = layers;
   selectRef.current = onSelectIncident;
 
-  const token = import.meta.env["VITE_LOVABLE_CONNECTOR_MAPBOX_PUBLIC_TOKEN"] as string | undefined;
+  const token = (import.meta.env["VITE_MAPBOX_PUBLIC_TOKEN"] ??
+    import.meta.env["VITE_LOVABLE_CONNECTOR_MAPBOX_PUBLIC_TOKEN"]) as string | undefined;
 
   /* ---------- build every overlay for the current scenario ---------- */
   function paint(map: mapboxgl.Map) {
@@ -163,18 +164,6 @@ export default function DisasterMap({ scenario, mode, layers, onSelectIncident }
         ];
         impact.push(poly(coneCoords, { shade: 0.3 }));
         impact.push(poly(circlePolygon(center, r * 0.8), { shade: 0.7 }));
-        break;
-      }
-      case "landslide": {
-        const debris: [number, number][] = [
-          offset(center, r * 0.2, 0),
-          offset(center, r * 0.9, 150),
-          offset(center, r * 1.4, 175),
-          offset(center, r * 1.1, 205),
-          offset(center, r * 0.4, 320),
-        ];
-        impact.push(poly(debris, { shade: 0.7 }));
-        heat.push(poly(circlePolygon(center, r * 1.5), { shade: 0.25 }));
         break;
       }
     }

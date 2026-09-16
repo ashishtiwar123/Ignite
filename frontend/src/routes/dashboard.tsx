@@ -137,9 +137,7 @@ function Dashboard() {
       {/* top bar */}
       <header className="flex h-14 shrink-0 items-center gap-4 border-b border-border bg-card px-4">
         <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-8 w-8 place-items-center rounded-md bg-primary/15 text-primary">
-            <Sparkles className="h-4 w-4" />
-          </span>
+          <img src="/logo.png" alt="ResQAI Logo" className="h-8 w-8 object-contain rounded-md" />
           <span className="hidden leading-tight sm:block">
             <span className="block text-sm font-bold">ResQAI</span>
             <span className="block text-[10px] text-muted-foreground">

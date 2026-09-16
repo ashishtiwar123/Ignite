@@ -3,8 +3,7 @@ export type DisasterType =
   | "fire"
   | "earthquake"
   | "cyclone"
-  | "heavy_rain"
-  | "landslide";
+  | "heavy_rain";
 
 export type Severity = "low" | "moderate" | "high" | "critical";
 
@@ -37,9 +36,8 @@ export const DISASTER_TYPES: { id: DisasterType; label: string; overlay: string 
   { id: "flood", label: "Flood", overlay: "Water inundation overlay" },
   { id: "fire", label: "Fire / Wildfire", overlay: "Fire & heat zone" },
   { id: "earthquake", label: "Earthquake", overlay: "Epicenter + impact rings" },
-  { id: "cyclone", label: "Cyclone", overlay: "Forecast track & cone" },
+  { id: "cyclone", label: "Cyclone", overlay: "Forecast track & storm cloud" },
   { id: "heavy_rain", label: "Heavy Rainfall", overlay: "Rainfall radar overlay" },
-  { id: "landslide", label: "Landslide", overlay: "Terrain & debris field" },
 ];
 
 export const SEVERITIES: { id: Severity; label: string }[] = [
@@ -105,7 +103,6 @@ export const DISASTER_COLOR: Record<DisasterType, string> = {
   earthquake: "#f97316",
   cyclone: "#a78bfa",
   heavy_rain: "#22d3ee",
-  landslide: "#f59e0b",
 };
 
 /* ---------- geo helpers ---------- */

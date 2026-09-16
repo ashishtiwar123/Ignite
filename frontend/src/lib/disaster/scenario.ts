@@ -19,7 +19,6 @@ export const DISASTER_LABELS: Record<DisasterType, string> = {
   earthquake: "Earthquake",
   rain: "Heavy Rainfall",
   cyclone: "Cyclone",
-  landslide: "Landslide",
 };
 
 export const SEVERITY_ORDER: Severity[] = ["low", "moderate", "high", "critical"];
@@ -90,7 +89,6 @@ export function buildScenario(input: ScenarioInput): Scenario {
     earthquake: ["Collapsed structure", "Gas leak reported", "Road fissure", "Trapped residents"],
     rain: ["Flash flood warning", "Tree fall blockage", "Waterlogged junction", "Power line down"],
     cyclone: ["Storm surge risk", "Roof damage cluster", "Coastal evacuation", "Power grid failure"],
-    landslide: ["Debris on highway", "Slope failure", "Village cut off", "Road blocked"],
   };
 
   const incidents: Incident[] = zones.slice(0, 5).map((z, i) => ({

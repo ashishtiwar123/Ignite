@@ -1,7 +1,7 @@
 import type { LayerSpecification } from "mapbox-gl";
 import type { FeatureCollection } from "geojson";
 
-export type DisasterType = "flood" | "fire" | "earthquake" | "rain" | "cyclone" | "landslide";
+export type DisasterType = "flood" | "fire" | "earthquake" | "rain" | "cyclone";
 
 export type Severity = "low" | "moderate" | "high" | "critical";
 

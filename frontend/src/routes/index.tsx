@@ -95,7 +95,11 @@ function Home() {
             <span className="live-dot h-2 w-2 rounded-full bg-destructive" />
             Emergency Operations Centre
           </div>
-          <h1 className="hero-line mt-6 text-4xl font-bold leading-tight md:text-5xl">
+          <div className="hero-line flex items-center gap-3">
+            <img src="/logo.png" alt="ResQAI Logo" className="h-10 w-10 object-contain rounded-lg" />
+            <span className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">ResQAI Command</span>
+          </div>
+          <h1 className="hero-line mt-4 text-4xl font-bold leading-tight md:text-5xl">
             ResQAI
             <span className="block text-primary">Disaster Response System</span>
           </h1>
@@ -106,7 +110,7 @@ function Home() {
           </p>
           <ul className="hero-line mt-8 grid max-w-md gap-3 text-sm text-muted-foreground">
             {[
-              "Accurate overlays per disaster type — flood, fire, quake, cyclone, rain, landslide",
+              "Accurate overlays per disaster type — flood, fire, quake, cyclone, rain",
               "Resource routes with assigned units, receiving zone and ETA",
               "Satellite and 3D map modes with terrain and buildings",
             ].map((t) => (

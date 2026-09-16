@@ -19,7 +19,7 @@ export const hazardLayer: MapLayerModule = {
     const rings: Feature[] = [];
     const heat: Feature[] = [];
 
-    if (type === "flood" || type === "landslide") {
+    if (type === "flood") {
       scenario.zones.forEach((z, i) => {
         areas.push(polygon(blobRing(z.center, z.radiusKm * 1.35, i + 7), { depth: z.waterLevel ?? 1 }));
         areas.push(polygon(blobRing(z.center, z.radiusKm * 0.7, i + 21), { depth: (z.waterLevel ?? 1) + 1 }));
@@ -85,7 +85,6 @@ export const hazardLayer: MapLayerModule = {
       earthquake: { fill: "#f43f5e", strong: "#b91c1c", accent: "#fda4af" },
       rain: { fill: "#22d3ee", strong: "#2563eb", accent: "#a5f3fc" },
       cyclone: { fill: "#60a5fa", strong: "#1e40af", accent: "#e0f2fe" },
-      landslide: { fill: "#a16207", strong: "#78350f", accent: "#fcd34d" },
     };
     const c = palette[type]!;
 

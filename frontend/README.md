@@ -131,15 +131,7 @@ and follow the response flow at a glance.
 
 For your reference I have given which is how ideally it should look like You cannot show blood like the water surf but it's fine the better you could show it is good that's it and make sure these things are developed in layers so that whenever I try to work with them I will be able to justified work on each layer correctly
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2ecfa8ee-8e77-4abc-b1ef-5b1bb9cf6266).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## ResQAI Disaster Response System
 
 ## Development
 
