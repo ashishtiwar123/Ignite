@@ -8,9 +8,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock,
-  CloudRain,
   FileText,
-  Gauge,
   LayoutDashboard,
   Layers,
   Mountain,
@@ -26,7 +24,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Progress } from "@/components/ui/progress";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import type { LayerToggles, MapMode } from "@/components/dr/DisasterMap";
 import {
   DISASTER_TYPES,
@@ -35,7 +32,6 @@ import {
   deploymentsFor,
   facilitiesFor,
   formatClock,
-  heavyRainDetailsFor,
   incidentsFor,
   loadScenario,
   timelineFor,
@@ -43,6 +39,12 @@ import {
   type Incident,
   type Scenario,
 } from "@/lib/scenario";
+
+import IncidentsView from "@/components/dr/views/IncidentsView";
+import ResourcesView from "@/components/dr/views/ResourcesView";
+import AgenciesView from "@/components/dr/views/AgenciesView";
+import ReportsView from "@/components/dr/views/ReportsView";
+import SettingsView from "@/components/dr/views/SettingsView";
 
 const DisasterMap = lazy(() => import("@/components/dr/DisasterMap"));
 
@@ -73,7 +75,6 @@ const NAV = [
   { id: "incidents", label: "Incidents", icon: AlertTriangle },
   { id: "resources", label: "Resources", icon: Truck },
   { id: "agencies", label: "Agencies", icon: Users },
-  { id: "simulation", label: "Simulation", icon: Gauge },
   { id: "reports", label: "Reports", icon: FileText },
   { id: "settings", label: "Settings", icon: Settings },
 ];
@@ -226,6 +227,19 @@ function Dashboard() {
 
         {/* main scrolling content container */}
         <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
+          {activeNav === "incidents" ? (
+            <IncidentsView scenario={scenario} />
+          ) : activeNav === "resources" ? (
+            <ResourcesView />
+          ) : activeNav === "agencies" ? (
+            <AgenciesView />
+          ) : activeNav === "reports" ? (
+            <ReportsView />
+          ) : activeNav === "settings" ? (
+            <SettingsView />
+          ) : (
+            <>
+
           {/* Top Row: Map + Right-Side Key Metrics Panel side-by-side */}
           <div className="flex flex-col gap-3.5 p-3.5 lg:flex-row">
             {/* Map Frame */}
@@ -557,11 +571,12 @@ function Dashboard() {
               </div>
             </div>
           </div>
-        </div>
-
-      </div>
+        </>
+      )}
     </div>
-  );
+  </div>
+</div>
+);
 }
 
 function Stat({
