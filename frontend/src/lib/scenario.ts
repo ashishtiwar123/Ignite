@@ -102,7 +102,7 @@ export const DISASTER_COLOR: Record<DisasterType, string> = {
   fire: "#fb7185",
   earthquake: "#f97316",
   cyclone: "#a78bfa",
-  heavy_rain: "#22d3ee",
+  heavy_rain: "#10b981",
 };
 
 /* ---------- geo helpers ---------- */
@@ -310,6 +310,49 @@ export function aiRecommendation(scenario: Scenario) {
       "Access route currently passable",
     ],
   };
+}
+
+export interface CycloneDetails {
+  name: string;
+  windSpeed: string;
+  category: string;
+  etaHours: number;
+  probability: string;
+}
+
+export function cycloneDetailsFor(scenario: Scenario): CycloneDetails {
+  const map: Record<Severity, { wind: string; cat: string; eta: number; prob: string }> = {
+    low: { wind: "85 km/h", cat: "Category 1", eta: 24, prob: "75% Landfall Probability" },
+    moderate: { wind: "115 km/h", cat: "Category 2", eta: 18, prob: "86% Landfall Probability" },
+    high: { wind: "145 km/h", cat: "Category 3", eta: 12, prob: "94% Landfall Impact" },
+    critical: { wind: "195 km/h", cat: "Category 5", eta: 6, prob: "99% Severe Landfall Impact" },
+  };
+  const d = map[scenario.severity] ?? map.high;
+  return {
+    name: 'Cyclone "Asani"',
+    windSpeed: d.wind,
+    category: d.cat,
+    etaHours: d.eta,
+    probability: d.prob,
+  };
+}
+
+export interface HeavyRainDetails {
+  rate: string;
+  accumulation: string;
+  visibility: string;
+  reflectivity: string;
+  status: string;
+}
+
+export function heavyRainDetailsFor(scenario: Scenario): HeavyRainDetails {
+  const map: Record<Severity, { rate: string; accum: string; vis: string; dbz: string; status: string }> = {
+    low: { rate: "35 mm/h", accum: "50 mm (3h)", vis: "3.5 km", dbz: "38 dBZ (Moderate)", status: "Steady Rainfall" },
+    moderate: { rate: "65 mm/h", accum: "110 mm (3h)", vis: "1.8 km", dbz: "46 dBZ (Heavy)", status: "Downpour Warning" },
+    high: { rate: "125 mm/h", accum: "185 mm (3h)", vis: "0.8 km", dbz: "56 dBZ (Severe)", status: "Torrential Cloudburst" },
+    critical: { rate: "210 mm/h", accum: "310 mm (3h)", vis: "0.2 km", dbz: "65 dBZ (Extreme)", status: "Extreme Flash Deluge" },
+  };
+  return map[scenario.severity] ?? map.high;
 }
 
 export function formatClock(ts: number) {
