@@ -9,9 +9,9 @@ class Settings(BaseSettings):
     PERSISTENCE_BACKEND: str = "inmemory"
     CORS_ORIGINS: list[str] = ["*"]
     
-    # Load from .env if it exists, otherwise use environment variables
+    # Load from .env if it exists, otherwise check root ../.env
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=(".env", "../.env"),
         env_file_encoding="utf-8",
         extra="ignore"
     )

@@ -45,6 +45,7 @@ import ResourcesView from "@/components/dr/views/ResourcesView";
 import AgenciesView from "@/components/dr/views/AgenciesView";
 import ReportsView from "@/components/dr/views/ReportsView";
 import SettingsView from "@/components/dr/views/SettingsView";
+import { ApprovalExecutionPanel } from "@/components/dr/ApprovalExecutionPanel";
 
 const DisasterMap = lazy(() => import("@/components/dr/DisasterMap"));
 
@@ -86,6 +87,9 @@ function Dashboard() {
   const [activeNav, setActiveNav] = useState("dashboard");
   const [showSettings, setShowSettings] = useState(false);
   const [selected, setSelected] = useState<Incident | null>(null);
+  const [backendIncidents, setBackendIncidents] = useState<import("@/lib/api/types").IncidentSummaryResponse[]>([]);
+  const [activeAllocations, setActiveAllocations] = useState<import("@/lib/api/types").AllocationRecord[]>([]);
+  const [activeThreadId, setActiveThreadId] = useState<string>("run-demo-1");
   const [layers, setLayers] = useState<LayerToggles>({
     zones: true,
     routes: true,
@@ -95,8 +99,22 @@ function Dashboard() {
   });
   const shellRef = useRef<HTMLDivElement | null>(null);
 
+  const refreshBackendData = async () => {
+    try {
+      const incs = await import("@/lib/api/incidents").then((m) => m.getIncidents());
+      setBackendIncidents(incs);
+      if (incs.length > 0) {
+        const allocs = await import("@/lib/api/allocations").then((m) => m.getIncidentAllocations(incs[0].incident_id));
+        setActiveAllocations(allocs);
+      }
+    } catch {
+      // Backend polling fallback handling
+    }
+  };
+
   useEffect(() => {
     setScenario(loadScenario());
+    refreshBackendData();
   }, []);
 
   useEffect(() => {
@@ -264,6 +282,7 @@ function Dashboard() {
                       mode={mode}
                       layers={layers}
                       onSelectIncident={setSelected}
+                      backendIncidents={backendIncidents}
                     />
                   </Suspense>
                 </ClientOnly>
@@ -420,13 +439,13 @@ function Dashboard() {
                 </div>
               </div>
 
-              <div className="mt-4 flex flex-col gap-2 border-t border-border/50 pt-3">
-                <Button className="w-full h-9.5 text-xs font-bold" size="default">
-                  Approve &amp; Dispatch Units
-                </Button>
-                <Button variant="outline" className="w-full h-9 text-xs font-semibold" size="default">
-                  View Alternative Routes
-                </Button>
+              <div className="mt-4 border-t border-border/50 pt-3">
+                <ApprovalExecutionPanel
+                  threadId={activeThreadId}
+                  incidentId={backendIncidents[0]?.incident_id || "inc-demo-1"}
+                  allocations={activeAllocations}
+                  onStateChange={refreshBackendData}
+                />
               </div>
             </aside>
           </div>

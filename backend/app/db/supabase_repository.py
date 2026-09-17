@@ -38,7 +38,20 @@ class SupabaseIncidentRepository(BaseIncidentRepository):
             "raw_text": report.raw_text
         }
         try:
-            self.client.table("reports").upsert(data).execute()
+            # Re-use existing report_id if source + source_record_id already exists
+            if report.source and report.source_record_id:
+                try:
+                    res = self.client.table("reports").select("report_id").eq("source", report.source).eq("source_record_id", report.source_record_id).limit(1).execute()
+                    if isinstance(res.data, list) and len(res.data) > 0 and isinstance(res.data[0], dict):
+                        report.report_id = res.data[0]["report_id"]
+                        data["report_id"] = report.report_id
+                except Exception:
+                    pass
+
+            try:
+                self.client.table("reports").upsert(data, on_conflict="source,source_record_id").execute()
+            except Exception:
+                self.client.table("reports").upsert(data).execute()
         except Exception as e:
             logger.error(f"Supabase save_report error: {e}")
             raise RuntimeError(f"Database error saving report: {str(e)}")

@@ -73,7 +73,7 @@ function Home() {
     );
   }
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     saveScenario({
       disasterType,
@@ -84,6 +84,29 @@ function Home() {
       notes,
       startedAt: Date.now(),
     });
+
+    try {
+      const { createReport } = await import("@/lib/api/reports");
+      const { runAgent } = await import("@/lib/api/agents");
+
+      const reportPayload = {
+        source: "HOME_DISPATCH_SIMULATION",
+        source_record_id: `evt-${Date.now()}`,
+        hazard_type: disasterType === "heavy_rain" ? "Flood" : (disasterType.charAt(0).toUpperCase() + disasterType.slice(1)),
+        location_name: zoneId,
+        affected_population: Number(population) || 500,
+        raw_text: notes || `Disaster simulation for ${disasterType} in ${zoneId}`,
+      };
+
+      await createReport(reportPayload);
+      await runAgent({
+        run_id: "run-demo-1",
+        raw_reports: [JSON.stringify(reportPayload)],
+      });
+    } catch {
+      // Graceful fallback if backend server isn't running locally yet
+    }
+
     void navigate({ to: "/dashboard" });
   }
 

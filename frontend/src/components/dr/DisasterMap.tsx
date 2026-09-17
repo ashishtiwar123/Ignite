@@ -28,11 +28,14 @@ export interface LayerToggles {
   incidents: boolean;
 }
 
+import type { IncidentSummaryResponse } from "@/lib/api/types";
+
 interface Props {
   scenario: Scenario;
   mode: MapMode;
   layers: LayerToggles;
   onSelectIncident: (incident: Incident) => void;
+  backendIncidents?: IncidentSummaryResponse[];
 }
 
 const STYLES: Record<MapMode, string> = {
@@ -62,7 +65,26 @@ function line(coords: [number, number][], props: Record<string, unknown> = {}) {
   };
 }
 
-export default function DisasterMap({ scenario, mode, layers, onSelectIncident }: Props) {
+function isValidCoordinate(lat: unknown, lng: unknown): lat is number {
+  return (
+    typeof lat === "number" &&
+    typeof lng === "number" &&
+    !Number.isNaN(lat) &&
+    !Number.isNaN(lng) &&
+    lat >= -90 &&
+    lat <= 90 &&
+    lng >= -180 &&
+    lng <= 180
+  );
+}
+
+export default function DisasterMap({
+  scenario,
+  mode,
+  layers,
+  onSelectIncident,
+  backendIncidents,
+}: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
   const markersRef = useRef<mapboxgl.Marker[]>([]);
@@ -71,11 +93,14 @@ export default function DisasterMap({ scenario, mode, layers, onSelectIncident }
   const layersRef = useRef(layers);
   const modeRef = useRef(mode);
   const selectRef = useRef(onSelectIncident);
+  const backendIncidentsRef = useRef(backendIncidents);
   scenarioRef.current = scenario;
   layersRef.current = layers;
   selectRef.current = onSelectIncident;
+  backendIncidentsRef.current = backendIncidents;
 
   const token = (import.meta.env["VITE_MAPBOX_PUBLIC_TOKEN"] ??
+    import.meta.env["VITE_MAPBOX_TOKEN"] ??
     import.meta.env["VITE_LOVABLE_CONNECTOR_MAPBOX_PUBLIC_TOKEN"]) as string | undefined;
 
   /* ---------- build every overlay for the current scenario ---------- */
@@ -212,7 +237,7 @@ export default function DisasterMap({ scenario, mode, layers, onSelectIncident }
     };
 
     const setPaint = (layerId: string, name: string, value: unknown) => {
-      if (map.getLayer(layerId)) map.setPaintProperty(layerId, name, value as never);
+      if (map.getLayer(layerId)) map.setPaintProperty(layerId, name as never, value as never);
     };
 
     add({
@@ -410,15 +435,46 @@ export default function DisasterMap({ scenario, mode, layers, onSelectIncident }
     }
 
     if (l.incidents) {
-      incidentsFor(s).forEach((inc, i) => {
-        const el = document.createElement("div");
-        el.className = `map-pin map-pin-incident${i === 0 ? " map-pin-primary" : ""}`;
-        el.style.cssText = `width:28px;height:28px;border-radius:50%;background:${i === 0 ? "#ef4444" : "#f97316"};color:#fff;display:grid;place-items:center;font-weight:bold;font-size:14px;border:2px solid #fff;cursor:pointer;box-shadow:0 0 12px ${i === 0 ? "rgba(239,68,68,0.9)" : "rgba(249,115,22,0.7)"};`;
-        el.innerHTML = "<span>!</span>";
-        el.addEventListener("click", () => selectRef.current(inc));
-        const marker = new mapboxgl.Marker({ element: el }).setLngLat(inc.coord).addTo(map);
-        markersRef.current.push(marker);
-      });
+      if (backendIncidentsRef.current !== undefined) {
+        backendIncidentsRef.current.forEach((inc, i) => {
+          const lat = inc.centroid_latitude;
+          const lng = inc.centroid_longitude;
+          if (isValidCoordinate(lat, lng)) {
+            const el = document.createElement("div");
+            el.className = `map-pin map-pin-incident${i === 0 ? " map-pin-primary" : ""}`;
+            el.style.cssText = `width:28px;height:28px;border-radius:50%;background:${i === 0 ? "#ef4444" : "#f97316"};color:#fff;display:grid;place-items:center;font-weight:bold;font-size:14px;border:2px solid #fff;cursor:pointer;box-shadow:0 0 12px ${i === 0 ? "rgba(239,68,68,0.9)" : "rgba(249,115,22,0.7)"};`;
+            el.innerHTML = "<span>!</span>";
+            el.addEventListener("click", () => {
+              selectRef.current({
+                id: inc.incident_id,
+                title: `${inc.hazard_type} Incident`,
+                detail: `Status: ${inc.status} · ID: ${inc.incident_id}`,
+                coord: [lng, lat],
+                severity: "high",
+              });
+            });
+            const marker = new mapboxgl.Marker({ element: el })
+              .setLngLat([lng, lat])
+              .setPopup(
+                new mapboxgl.Popup({ offset: 16 }).setHTML(
+                  `<strong>${inc.hazard_type} Incident</strong><br/>ID: ${inc.incident_id.slice(0, 8)}...<br/>Status: ${inc.status}`
+                )
+              )
+              .addTo(map);
+            markersRef.current.push(marker);
+          }
+        });
+      } else {
+        incidentsFor(s).forEach((inc, i) => {
+          const el = document.createElement("div");
+          el.className = `map-pin map-pin-incident${i === 0 ? " map-pin-primary" : ""}`;
+          el.style.cssText = `width:28px;height:28px;border-radius:50%;background:${i === 0 ? "#ef4444" : "#f97316"};color:#fff;display:grid;place-items:center;font-weight:bold;font-size:14px;border:2px solid #fff;cursor:pointer;box-shadow:0 0 12px ${i === 0 ? "rgba(239,68,68,0.9)" : "rgba(249,115,22,0.7)"};`;
+          el.innerHTML = "<span>!</span>";
+          el.addEventListener("click", () => selectRef.current(inc));
+          const marker = new mapboxgl.Marker({ element: el }).setLngLat(inc.coord).addTo(map);
+          markersRef.current.push(marker);
+        });
+      }
     }
   }
 
@@ -530,6 +586,12 @@ export default function DisasterMap({ scenario, mode, layers, onSelectIncident }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layers]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    placeMarkers(map);
+  }, [backendIncidents]);
 
   if (!token) {
     return (

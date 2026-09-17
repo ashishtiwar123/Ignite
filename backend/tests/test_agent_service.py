@@ -12,18 +12,24 @@ def test_valid_graph_invocation():
     service = AgentService()
     req = AgentRunRequest(run_id="run-1", raw_reports=["earthquake in city"])
     
-    with patch('ml.src.agents.graph.gemini_client.extract_structured_report') as mock_extract:
+    with patch('ml.src.agents.graph.gemini_client.extract_structured_report') as mock_extract, \
+         patch('ml.src.agents.graph.assess_incident') as mock_verify:
         mock_extract.return_value = {
             "hazard_type": "Earthquake",
             "location": "Mock Location",
             "observed_at": "2026-09-16T00:00:00Z",
             "claims": [], "entities": [], "quantitative_facts": [], "uncertainties": [], "conflicts": [], "source_text_summary": ""
         }
+        from ml.src.incident.verification import VerificationAssessment
+        mock_verify.return_value = VerificationAssessment(
+            incident_candidate_id="dummy", verification_status="VERIFIED", confidence_score=0.9
+        )
         res = service.run_agent(req)
         
     assert res.run_id == "run-1"
-    assert res.status in ["COMPLETED", "INTERRUPTED", "REJECTED"]
-    assert res.status == "INTERRUPTED"
+    # Phase 4E: after optimization, graph interrupts at human_review -> PENDING_REVIEW
+    assert res.status in ["COMPLETED", "PENDING_REVIEW", "REJECTED"]
+    assert res.status == "PENDING_REVIEW"  # Must interrupt before human_review
     assert res.human_approval_state == "PENDING"
 
 def test_explicit_run_id_preserved():
@@ -65,17 +71,25 @@ def test_graph_interrupt():
     req = AgentRunRequest(run_id="test-interrupt", raw_reports=["earthquake"])
     
     with patch.object(service.app, 'invoke') as mock_invoke:
+        # When graph is interrupted, LangGraph returns None (not a dict)
+        mock_invoke.return_value = None
+        
         mock_state = MagicMock(
-            run_id="test-interrupt", 
-            verification_status="NEEDS_VERIFICATION", 
-            human_approval_state="PENDING", 
-            errors=[], 
-            allocation_result=None, 
-            coordination_plan=None
+            run_id="test-interrupt",
+            verification_status="VERIFIED",
+            human_approval_state="PENDING",
+            errors=[],
+            allocation_result={"solver_status": "OPTIMAL"},
         )
-        mock_invoke.return_value = {"state": mock_state}
-        res = service.run_agent(req)
-        assert res.status == "INTERRUPTED"
+        mock_snap = MagicMock()
+        mock_snap.values = {"state": mock_state}
+        mock_snap.next = ("human_review",)  # Non-empty means graph is interrupted
+        
+        with patch.object(service.app, 'get_state') as mock_get_state:
+            mock_get_state.return_value = mock_snap
+            res = service.run_agent(req)
+            # Phase 4E: interrupted workflow is PENDING_REVIEW, not INTERRUPTED or FAILED
+            assert res.status == "PENDING_REVIEW"
 
 def test_graph_rejection():
     service = AgentService()

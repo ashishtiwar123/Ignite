@@ -34,6 +34,18 @@ class AgentState(BaseModel):
     allocation_result: Optional[Dict[str, Any]] = None
     coordination_plan: Optional[str] = None
     
+    # Reassessment & Dynamic Reallocation
+    reassessment_requested: bool = False
+    parent_assessment_id: Optional[str] = None
+    current_assessment_id: Optional[str] = None
+    previous_optimization_run_id: Optional[str] = None
+    operational_allocation_baseline_id: Optional[str] = None
+    assessment_diff: Optional[Dict[str, Any]] = None
+    allocation_diff: Optional[Dict[str, Any]] = None
+    reallocation_required: bool = False
+    reallocation_decision_status: str = "PENDING"
+    reassessment_reason: Optional[str] = None
+
     # Human-in-the-loop
     human_approval_state: str = "PENDING" # APPROVE, MODIFY, REJECT, PENDING
     human_feedback: Optional[str] = None
@@ -41,3 +53,4 @@ class AgentState(BaseModel):
     # Workflow
     workflow_status: str = "RUNNING"
     errors: List[str] = Field(default_factory=list)
+

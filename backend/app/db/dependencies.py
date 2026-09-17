@@ -127,3 +127,52 @@ def get_allocation_repository() -> BaseAllocationRepository:
     else:
         raise ValueError(f"Unknown PERSISTENCE_BACKEND: {settings.PERSISTENCE_BACKEND}")
 
+from app.db.approval_repository import InMemoryApprovalRepository, BaseApprovalRepository
+
+_in_memory_approval_repo_instance = InMemoryApprovalRepository()
+
+def get_approval_repository() -> BaseApprovalRepository:
+    settings = get_settings()
+    
+    if settings.PERSISTENCE_BACKEND == "supabase":
+        from app.db.supabase_approval_repository import SupabaseApprovalRepository
+        from app.db.client import get_supabase_client
+        
+        client = get_supabase_client()
+        if not client:
+            logger.error("Supabase backend requested but credentials missing/invalid.")
+            raise RuntimeError("Supabase configuration is invalid or missing.")
+            
+        return SupabaseApprovalRepository(client)
+        
+    elif settings.PERSISTENCE_BACKEND == "inmemory":
+        return _in_memory_approval_repo_instance
+        
+    else:
+        raise ValueError(f"Unknown PERSISTENCE_BACKEND: {settings.PERSISTENCE_BACKEND}")
+
+
+from app.db.action_repository import InMemoryActionRepository, BaseActionRepository
+
+_in_memory_action_repo_instance = InMemoryActionRepository()
+
+def get_action_repository() -> BaseActionRepository:
+    settings = get_settings()
+    
+    if settings.PERSISTENCE_BACKEND == "supabase":
+        from app.db.supabase_action_repository import SupabaseActionRepository
+        from app.db.client import get_supabase_client
+        
+        client = get_supabase_client()
+        if not client:
+            logger.error("Supabase backend requested but credentials missing/invalid.")
+            raise RuntimeError("Supabase configuration is invalid or missing.")
+            
+        return SupabaseActionRepository(client)
+        
+    elif settings.PERSISTENCE_BACKEND == "inmemory":
+        return _in_memory_action_repo_instance
+        
+    else:
+        raise ValueError(f"Unknown PERSISTENCE_BACKEND: {settings.PERSISTENCE_BACKEND}")
+

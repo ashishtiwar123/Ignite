@@ -14,6 +14,8 @@ class SupabaseAssessmentRepository(BaseAssessmentRepository):
         data = {
             "assessment_id": assessment.assessment_id,
             "incident_id": assessment.incident_id,
+            "parent_assessment_id": assessment.parent_assessment_id,
+            "reassessment_reason": assessment.reassessment_reason,
             "idempotency_key": assessment.idempotency_key,
             "verification_status": assessment.verification_status,
             "severity_status": assessment.severity_status,
@@ -31,6 +33,10 @@ class SupabaseAssessmentRepository(BaseAssessmentRepository):
             "created_at": assessment.created_at.isoformat()
         }
         
+        # Ensure any nested datetime in JSONB fields (severity, trajectory) is cleanly serialized
+        import json
+        data = json.loads(json.dumps(data, default=lambda o: o.isoformat() if hasattr(o, 'isoformat') else str(o)))
+
         try:
             # First try to insert to catch uniqueness constraint
             self.client.table("assessments").insert(data).execute()
@@ -50,6 +56,8 @@ class SupabaseAssessmentRepository(BaseAssessmentRepository):
         return AssessmentRecord(
             assessment_id=row["assessment_id"],
             incident_id=row["incident_id"],
+            parent_assessment_id=row.get("parent_assessment_id"),
+            reassessment_reason=row.get("reassessment_reason"),
             idempotency_key=row.get("idempotency_key", ""),
             verification_status=row.get("verification_status"),
             severity_status=row.get("severity_status"),

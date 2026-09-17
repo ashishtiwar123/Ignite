@@ -1,20 +1,21 @@
 import { useState } from "react";
-import { AlertCircle, Camera, CheckCircle2, Clock, MapPin, Radio, Search, ShieldAlert, User, XCircle } from "lucide-react";
+import { AlertCircle, Camera, CheckCircle2, Clock, MapPin, Radio, Search, Send, ShieldAlert, User, XCircle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { createReport } from "@/lib/api/reports";
+import { runAgent } from "@/lib/api/agents";
+import type { ReportResponse, AgentRunResponse } from "@/lib/api/types";
 
 export interface CitizenReport {
   id: string;
-  source: "Citizen Mobile App" | "Field Responder Patrol" | "Drone Radar Sensor" | "Emergency Hotline 112";
+  source: string;
   reporterName: string;
   location: string;
-  coordinates: [number, number];
-  type: "Waterlogging / Flooding" | "Stranded Citizens" | "Fire / Smoke Outbreak" | "Structural Cracks" | "Medical Urgent";
-  urgency: "High" | "Medium" | "Low";
-  status: "Pending Verification" | "Verified Critical" | "Dismissed";
+  type: string;
+  status: string;
   timestamp: string;
   message: string;
-  attachmentsCount: number;
 }
 
 const INITIAL_REPORTS: CitizenReport[] = [
@@ -22,112 +23,104 @@ const INITIAL_REPORTS: CitizenReport[] = [
     id: "RPT-2041",
     source: "Citizen Mobile App",
     reporterName: "Aarav Sharma",
-    location: "Near Sheetla Devi Mandir, LBS Marg, Kurla West",
-    coordinates: [72.8795, 19.0705],
+    location: "Kurla West",
     type: "Waterlogging / Flooding",
-    urgency: "High",
     status: "Pending Verification",
     timestamp: "4 mins ago",
     message: "Water entering ground floor apartments rapidly. Current water depth is above waist height (~3.5 feet). 8 elderly residents trapped.",
-    attachmentsCount: 2,
   },
   {
     id: "RPT-2042",
     source: "Field Responder Patrol",
-    reporterName: "Sub-Inspector V. Deshmukh (Patrol 4)",
-    location: "SCLR Flyover Underpass Junction, BKC Link Road",
-    coordinates: [72.8680, 19.0665],
+    reporterName: "Sub-Inspector V. Deshmukh",
+    location: "BKC Link Road",
     type: "Stranded Citizens",
-    urgency: "High",
     status: "Verified Critical",
     timestamp: "12 mins ago",
     message: "2 BEST buses and 5 private cars stalled in flooded underpass. Passengers standing on bus roofs waiting for inflatable boats.",
-    attachmentsCount: 4,
   },
   {
     id: "RPT-2043",
     source: "Drone Radar Sensor",
     reporterName: "Autonomous UAV Scout-2",
-    location: "Old Industrial Estate, Lower Parel West",
-    coordinates: [72.8310, 18.9982],
+    location: "Lower Parel West",
     type: "Fire / Smoke Outbreak",
-    urgency: "High",
     status: "Verified Critical",
     timestamp: "22 mins ago",
     message: "Thermal imagery detected elevated heat signature (480°C) and thick black smoke plume near chemical storage warehouse.",
-    attachmentsCount: 1,
-  },
-  {
-    id: "RPT-2044",
-    source: "Emergency Hotline 112",
-    reporterName: "Meera Kulkarni",
-    location: "Sion Circle Near Transit Medical Camp",
-    coordinates: [72.8630, 19.0398],
-    type: "Medical Urgent",
-    urgency: "High",
-    status: "Pending Verification",
-    timestamp: "35 mins ago",
-    message: "Pregnant woman in labor needs immediate transport to Sion Hospital. Local roads submerged; normal vehicles cannot pass.",
-    attachmentsCount: 0,
-  },
-  {
-    id: "RPT-2045",
-    source: "Citizen Mobile App",
-    reporterName: "Rahul Patil",
-    location: "Dadar TT Flyover Ramp",
-    coordinates: [72.8450, 19.0190],
-    type: "Structural Cracks",
-    urgency: "Medium",
-    status: "Pending Verification",
-    timestamp: "50 mins ago",
-    message: "Chunk of concrete fell from flyover underside due to heavy rainfall erosion. Traffic slowing down.",
-    attachmentsCount: 3,
-  },
-  {
-    id: "RPT-2046",
-    source: "Citizen Mobile App",
-    reporterName: "Unverified User",
-    location: "Bandra West Promenade",
-    coordinates: [72.8250, 19.0450],
-    type: "Waterlogging / Flooding",
-    urgency: "Low",
-    status: "Dismissed",
-    timestamp: "1 hour ago",
-    message: "Minor sea spray near promenade bench.",
-    attachmentsCount: 0,
   },
 ];
 
 export default function ReportsView() {
   const [reports, setReports] = useState<CitizenReport[]>(INITIAL_REPORTS);
-  const [filterStatus, setFilterStatus] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [reportSuccess, setReportSuccess] = useState<string | null>(null);
+
+  // New report form state
+  const [hazardType, setHazardType] = useState("Flood");
+  const [locationName, setLocationName] = useState("Zone C");
+  const [population, setPopulation] = useState("500");
+  const [rawText, setRawText] = useState("");
+
+  const handleSubmitReport = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!rawText.trim()) return;
+
+    setSubmitting(true);
+    setSubmitError(null);
+    setReportSuccess(null);
+
+    const reportPayload = {
+      source: "FIELD_REPORTER_UI",
+      source_record_id: `rpt-${Date.now()}`,
+      hazard_type: hazardType,
+      location_name: locationName,
+      affected_population: Number(population) || 500,
+      raw_text: rawText,
+    };
+
+    try {
+      const res: ReportResponse = await createReport(reportPayload);
+      
+      // Also trigger backend agent run pipeline
+      const agentRes: AgentRunResponse = await runAgent({
+        run_id: `run-${Date.now()}`,
+        raw_reports: [JSON.stringify(reportPayload)],
+      });
+
+      setReportSuccess(`Report Ingested! Backend Response: ${res.message}. Agent Pipeline Status: ${agentRes.status}`);
+
+      // Add to local UI feed
+      setReports((prev) => [
+        {
+          id: res.report_id.slice(0, 8),
+          source: "Field Reporter UI",
+          reporterName: "Current Dispatcher",
+          location: locationName,
+          type: hazardType,
+          status: "Processing (FastAPI)",
+          timestamp: "Just now",
+          message: rawText,
+        },
+        ...prev,
+      ]);
+      setRawText("");
+    } catch (err: any) {
+      setSubmitError(err.detail || err.message || "Failed to submit report to backend");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const filtered = reports.filter((rpt) => {
-    const matchesStatus =
-      filterStatus === "all" ||
-      (filterStatus === "pending" && rpt.status === "Pending Verification") ||
-      (filterStatus === "verified" && rpt.status === "Verified Critical") ||
-      (filterStatus === "dismissed" && rpt.status === "Dismissed");
-    const matchesSearch =
+    return (
       rpt.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
       rpt.message.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      rpt.reporterName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      rpt.type.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesStatus && matchesSearch;
+      rpt.type.toLowerCase().includes(searchQuery.toLowerCase())
+    );
   });
-
-  const handleVerify = (id: string) => {
-    setReports((prev) =>
-      prev.map((r) => (r.id === id ? { ...r, status: "Verified Critical" as const } : r))
-    );
-  };
-
-  const handleDismiss = (id: string) => {
-    setReports((prev) =>
-      prev.map((r) => (r.id === id ? { ...r, status: "Dismissed" as const } : r))
-    );
-  };
 
   return (
     <div className="space-y-5 p-5">
@@ -140,145 +133,114 @@ export default function ReportsView() {
           <div>
             <h1 className="text-xl font-bold text-foreground">Dynamic Field &amp; Citizen Incident Reports</h1>
             <p className="text-xs font-medium text-muted-foreground">
-              Live incoming SOS reports from citizens, field responders, emergency hotlines &amp; drone sensor feeds.
+              Submit SOS reports directly to FastAPI backend (`POST /reports` &amp; `POST /agents/run`).
             </p>
           </div>
         </div>
-
-        {/* Status Counters */}
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="rounded-xl border border-border bg-amber-500/10 px-3.5 py-2 text-center">
-            <span className="block text-xs font-medium text-amber-400">Pending Verification</span>
-            <span className="text-base font-bold text-amber-400">
-              {reports.filter((r) => r.status === "Pending Verification").length}
-            </span>
-          </div>
-          <div className="rounded-xl border border-border bg-emerald-500/10 px-3.5 py-2 text-center">
-            <span className="block text-xs font-medium text-emerald-400">Verified Critical</span>
-            <span className="text-base font-bold text-emerald-400">
-              {reports.filter((r) => r.status === "Verified Critical").length}
-            </span>
-          </div>
-          <div className="rounded-xl border border-border bg-secondary/80 px-3.5 py-2 text-center">
-            <span className="block text-xs font-medium text-muted-foreground">Total Incoming</span>
-            <span className="text-base font-bold text-foreground">{reports.length}</span>
-          </div>
-        </div>
       </div>
 
-      {/* Filter & Search Controls */}
-      <div className="flex flex-col gap-3 rounded-2xl border border-border/80 bg-card p-3.5 shadow-xs sm:flex-row sm:items-center justify-between">
-        <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input
-            placeholder="Search location, landmark or report details…"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="h-9.5 pl-9 text-xs font-medium"
-          />
-        </div>
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+        {/* Left Column (2 Cols): Feed & Search */}
+        <div className="space-y-4 lg:col-span-2">
+          <div className="relative">
+            <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search reports by location or keyword..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="h-9.5 pl-9 text-xs font-medium"
+            />
+          </div>
 
-        <div className="flex items-center gap-1.5">
-          {[
-            { id: "all", label: "All Reports" },
-            { id: "pending", label: "Pending Verification" },
-            { id: "verified", label: "Verified Critical" },
-            { id: "dismissed", label: "Dismissed" },
-          ].map((st) => (
-            <button
-              key={st.id}
-              onClick={() => setFilterStatus(st.id)}
-              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-colors ${
-                filterStatus === st.id
-                  ? "bg-primary text-primary-foreground shadow-xs"
-                  : "bg-secondary text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {st.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Reports Feed Grid */}
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((rpt) => (
-          <div
-            key={rpt.id}
-            className="flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-5 shadow-sm hover:border-cyan-500/50 transition-all hover:shadow-md"
-          >
-            <div>
-              <div className="flex items-start justify-between gap-3 border-b border-border/50 pb-3">
-                <div>
+          <div className="space-y-3">
+            {filtered.map((rpt) => (
+              <div key={rpt.id} className="rounded-2xl border border-border/80 bg-card p-4 space-y-2">
+                <div className="flex justify-between items-center text-xs">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-muted-foreground">{rpt.id}</span>
-                    <span className="rounded-md bg-secondary px-2 py-0.5 text-[11px] font-bold text-cyan-400">
-                      {rpt.type}
-                    </span>
+                    <span className="font-mono font-bold text-muted-foreground">{rpt.id}</span>
+                    <span className="bg-cyan-500/15 text-cyan-400 font-bold px-2 py-0.5 rounded text-[11px]">{rpt.type}</span>
+                    <span className="text-muted-foreground flex items-center gap-1"><MapPin className="h-3 w-3 text-primary" /> {rpt.location}</span>
                   </div>
-                  <p className="mt-2 text-xs font-bold text-foreground flex items-center gap-1">
-                    <MapPin className="h-3.5 w-3.5 text-primary shrink-0" /> {rpt.location}
-                  </p>
+                  <span className="bg-amber-500/15 text-amber-400 font-bold px-2 py-0.5 rounded text-[10px]">{rpt.status}</span>
                 </div>
-
-                <span
-                  className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
-                    rpt.status === "Verified Critical"
-                      ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
-                      : rpt.status === "Pending Verification"
-                        ? "bg-amber-500/15 text-amber-400 border border-amber-500/30 animate-pulse"
-                        : "bg-muted text-muted-foreground"
-                  }`}
-                >
-                  {rpt.status}
-                </span>
+                <p className="text-xs text-foreground bg-background/60 p-2.5 rounded-lg border border-border/40">"{rpt.message}"</p>
+                <div className="flex justify-between text-[11px] text-muted-foreground pt-1">
+                  <span>Source: {rpt.source} ({rpt.reporterName})</span>
+                  <span>Received: {rpt.timestamp}</span>
+                </div>
               </div>
-
-              <p className="mt-3 text-xs font-medium text-foreground leading-relaxed bg-background/60 p-3 rounded-xl border border-border/60">
-                "{rpt.message}"
-              </p>
-
-              <div className="mt-3.5 space-y-1.5 text-xs text-muted-foreground">
-                <div className="flex justify-between">
-                  <span className="flex items-center gap-1 font-medium">
-                    <User className="h-3.5 w-3.5 text-primary" /> Reporter Source:
-                  </span>
-                  <span className="font-bold text-foreground">{rpt.source} ({rpt.reporterName})</span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span className="flex items-center gap-1 font-medium">
-                    <Clock className="h-3.5 w-3.5 text-muted-foreground" /> Time Received:
-                  </span>
-                  <span className="font-mono font-bold text-foreground">{rpt.timestamp}</span>
-                </div>
-
-                {rpt.attachmentsCount > 0 && (
-                  <div className="flex items-center gap-1.5 pt-1 text-cyan-400 font-semibold">
-                    <Camera className="h-3.5 w-3.5" /> {rpt.attachmentsCount} Photos / Geo-tagged Media Attached
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <div className="mt-5 border-t border-border/50 pt-3 flex gap-2">
-              {rpt.status !== "Verified Critical" ? (
-                <Button onClick={() => handleVerify(rpt.id)} className="flex-1 h-9 text-xs font-bold">
-                  <CheckCircle2 className="h-3.5 w-3.5 mr-1" /> Verify &amp; Dispatch
-                </Button>
-              ) : (
-                <div className="flex-1 rounded-xl bg-emerald-500/10 p-2 text-center text-xs font-bold text-emerald-400 border border-emerald-500/20">
-                  ✓ Verified &amp; Added to Dispatch
-                </div>
-              )}
-              {rpt.status !== "Dismissed" && (
-                <Button onClick={() => handleDismiss(rpt.id)} variant="outline" className="h-9 px-3 text-xs font-semibold text-muted-foreground">
-                  <XCircle className="h-3.5 w-3.5" />
-                </Button>
-              )}
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        {/* Right Column (1 Col): Real Report Submission Form */}
+        <div className="rounded-2xl border border-border/80 bg-card p-5 shadow-sm space-y-4">
+          <div className="border-b border-border/50 pb-3">
+            <h2 className="text-sm font-bold text-foreground">Submit Real Field Report</h2>
+            <p className="text-xs text-muted-foreground mt-0.5">Triggers FastAPI validation and LangGraph incident detection.</p>
+          </div>
+
+          {submitError && (
+            <div className="rounded-lg bg-rose-500/10 border border-rose-500/20 p-3 text-xs text-rose-400">
+              {submitError}
+            </div>
+          )}
+
+          {reportSuccess && (
+            <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-3 text-xs text-emerald-400">
+              {reportSuccess}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmitReport} className="space-y-3 text-xs">
+            <div>
+              <label className="font-semibold text-muted-foreground block mb-1">Hazard Type:</label>
+              <Input
+                value={hazardType}
+                onChange={(e) => setHazardType(e.target.value)}
+                className="h-8.5 text-xs bg-muted/20"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="font-semibold text-muted-foreground block mb-1">Location Name:</label>
+              <Input
+                value={locationName}
+                onChange={(e) => setLocationName(e.target.value)}
+                className="h-8.5 text-xs bg-muted/20"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="font-semibold text-muted-foreground block mb-1">Affected Population:</label>
+              <Input
+                type="number"
+                value={population}
+                onChange={(e) => setPopulation(e.target.value)}
+                className="h-8.5 text-xs bg-muted/20"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="font-semibold text-muted-foreground block mb-1">Raw Report Details:</label>
+              <Textarea
+                placeholder="Describe situation in detail..."
+                value={rawText}
+                onChange={(e) => setRawText(e.target.value)}
+                className="text-xs min-h-[90px] bg-muted/20"
+                required
+              />
+            </div>
+
+            <Button type="submit" disabled={submitting} className="w-full text-xs font-bold bg-primary">
+              {submitting ? <RefreshCw className="h-3.5 w-3.5 animate-spin mr-1" /> : <Send className="h-3.5 w-3.5 mr-1" />}
+              Submit to FastAPI Endpoint (`POST /reports`)
+            </Button>
+          </form>
+        </div>
       </div>
     </div>
   );

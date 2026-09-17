@@ -25,6 +25,7 @@ export default function MapCanvas({ scenario, visibility, flyTo, onSelect }: Pro
 
   useEffect(() => {
     const token = (import.meta.env["VITE_MAPBOX_PUBLIC_TOKEN"] ??
+      import.meta.env["VITE_MAPBOX_TOKEN"] ??
       import.meta.env["VITE_LOVABLE_CONNECTOR_MAPBOX_PUBLIC_TOKEN"]) as string | undefined;
     if (!containerRef.current || !token) return;
     mapboxgl.accessToken = token;

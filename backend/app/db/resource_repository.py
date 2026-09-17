@@ -25,6 +25,16 @@ class BaseResourceRepository(ABC):
         """
         pass
 
+    @abstractmethod
+    def deduct_resources(self, deductions: List[dict]) -> List[dict]:
+        """
+        Atomically deducts resource quantities.
+        deductions is a list of dicts with:
+        {"location_id": str, "resource_type": str, "category": str, "quantity": float}
+        Returns list of deducted item results. Raises ValueError if validation fails, leaving all resources untouched.
+        """
+        pass
+
 class InMemoryResourceRepository(BaseResourceRepository):
     def __init__(self):
         self._resources: dict[str, ResourceRecord] = {}
@@ -50,3 +60,52 @@ class InMemoryResourceRepository(BaseResourceRepository):
 
     def get_by_location(self, location_id: str) -> List[ResourceRecord]:
         return [r for r in self._resources.values() if r.location_id == location_id]
+
+    def deduct_resources(self, deductions: List[dict]) -> List[dict]:
+        import math
+        if not deductions:
+            return []
+
+        # 1. Validation Phase (No mutations allowed until ALL validations pass)
+        validated_items = []
+        for item in deductions:
+            loc = item["location_id"]
+            rtype = item["resource_type"]
+            cat = item.get("category") or ""
+            qty = item["quantity"]
+
+            if qty is None or math.isnan(qty) or math.isinf(qty) or qty <= 0:
+                raise ValueError(f"Invalid deduction quantity '{qty}' for {rtype} at {loc}")
+
+            key = f"{loc}:{rtype}:{cat}"
+            if key not in self._resources:
+                raise ValueError(f"Resource not found for location='{loc}', resource_type='{rtype}', category='{cat}'")
+
+            rec = self._resources[key]
+            if rec.quantity_available < qty:
+                raise ValueError(
+                    f"Insufficient inventory for {rtype} at {loc}. "
+                    f"Requested: {qty}, Available: {rec.quantity_available}"
+                )
+
+            validated_items.append((key, rec, qty))
+
+        # 2. Mutation Phase (Atomic commit)
+        results = []
+        for key, rec, qty in validated_items:
+            prev_qty = rec.quantity_available
+            rec.quantity_available -= qty
+            rec.updated_at = datetime.now(timezone.utc)
+            results.append({
+                "resource_id": rec.resource_id,
+                "location_id": rec.location_id,
+                "resource_type": rec.resource_type,
+                "category": rec.category,
+                "quantity_deducted": qty,
+                "unit": rec.unit,
+                "previous_quantity": prev_qty,
+                "new_quantity": rec.quantity_available
+            })
+
+        return results
+

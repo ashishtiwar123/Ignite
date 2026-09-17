@@ -11,14 +11,26 @@ def validate_report_fields(report_dict: Dict[str, Any]) -> Tuple[Dict[str, Any],
     # Latitude
     lat = report_dict.get('latitude')
     if lat is not None:
-        if not (-90.0 <= lat <= 90.0):
-            errors.append({"field": "latitude", "value": lat, "message": "Latitude must be between -90 and 90"})
+        try:
+            lat = float(lat)
+            report_dict['latitude'] = lat
+            if not (-90.0 <= lat <= 90.0):
+                errors.append({"field": "latitude", "value": lat, "message": "Latitude must be between -90 and 90"})
+        except (ValueError, TypeError):
+            errors.append({"field": "latitude", "value": lat, "message": "Latitude must be a valid float"})
+            report_dict['latitude'] = None
             
     # Longitude
     lon = report_dict.get('longitude')
     if lon is not None:
-        if not (-180.0 <= lon <= 180.0):
-            errors.append({"field": "longitude", "value": lon, "message": "Longitude must be between -180 and 180"})
+        try:
+            lon = float(lon)
+            report_dict['longitude'] = lon
+            if not (-180.0 <= lon <= 180.0):
+                errors.append({"field": "longitude", "value": lon, "message": "Longitude must be between -180 and 180"})
+        except (ValueError, TypeError):
+            errors.append({"field": "longitude", "value": lon, "message": "Longitude must be a valid float"})
+            report_dict['longitude'] = None
             
     # Population
     pop = report_dict.get('affected_population')

@@ -15,6 +15,8 @@ except ImportError:
 class StructuredReportOutput(BaseModel):
     hazard_type: str
     location: str
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
     observed_at: str
     claims: List[str]
     entities: List[str]
@@ -52,8 +54,9 @@ class GeminiAdapter:
         )
         
         try:
+            model_name = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
             response = self.client.models.generate_content(
-                model='gemini-2.5-flash',
+                model=model_name,
                 contents=f"RAW REPORT: {raw_report}",
                 config=types.GenerateContentConfig(
                     system_instruction=system_instruction,
@@ -84,8 +87,9 @@ class GeminiAdapter:
         prompt = f"Priority Summary: {priority_summary}\nAllocation Summary: {allocation_summary}"
         
         try:
+            model_name = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
             response = self.client.models.generate_content(
-                model='gemini-2.5-flash',
+                model=model_name,
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     system_instruction=system_instruction,
@@ -106,6 +110,8 @@ class GeminiAdapter:
         return {
             "hazard_type": hazard,
             "location": "Mock Location",
+            "latitude": None,
+            "longitude": None,
             "observed_at": "2026-09-16T00:00:00Z",
             "claims": ["Mock claim"],
             "entities": ["Mock entity"],

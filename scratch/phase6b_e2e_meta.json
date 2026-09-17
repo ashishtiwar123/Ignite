@@ -1,0 +1,13 @@
+{
+  "incident_id": "2727e0c1-ffce-4e93-b14c-416cd098015e",
+  "initial_assessment_id": "ee74b86e-3673-4c97-ba97-632572a0c2e9",
+  "second_assessment_id": "adc3aa34-b76c-4555-a604-284529fc8901",
+  "approval_1_id": "e8609254-0374-4263-8ace-7ee4a39bf0a9",
+  "approval_2_id": "9f3b764a-5ffe-41ef-bfe9-f3497ad748f5",
+  "execution_1_id": "7fb9e278-fc1a-446d-affa-c9cb2ec19f29",
+  "execution_2_id": "74bc690a-52c4-4720-91c7-e31a841cc7bb",
+  "depot_loc": "LOC-PHASE6B-DEPOT-b9e3c27f",
+  "test_marker": "PHASE6B-SUPABASE-E2E-b9e3c27f",
+  "r1_source_id": "PHASE6B-SUPABASE-E2E-b9e3c27f-USGS",
+  "r2_source_id": "PHASE6B-SUPABASE-E2E-b9e3c27f-GDACS"
+}

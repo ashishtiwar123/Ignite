@@ -34,8 +34,9 @@ class SupabaseNeedsRepository(BaseNeedsRepository):
                 "created_at": n.created_at.isoformat()
             } for n in needs
         ]
-        
         try:
+            import json
+            data = json.loads(json.dumps(data, default=lambda o: o.isoformat() if hasattr(o, "isoformat") else str(o)))
             # We want to prevent duplicate needs for the same assessment
             # We check if they exist already. If so, return idempotently.
             assessment_id = needs[0].assessment_id

@@ -115,7 +115,7 @@ def test_assessment_aggregation(base_state):
 
 def test_persistence_failure_semantics(base_state):
     state_obj = {"state": AgentState(**base_state)}
-    with patch("backend.app.services.assessment_service.AssessmentService.save_complete_assessment", side_effect=Exception("DB down")):
+    with patch("app.services.assessment_service.AssessmentService.save_complete_assessment", side_effect=Exception("DB down")):
         res = situation_assessment_node(state_obj)["state"]
         assert res.assessment_status == "PERSISTENCE_FAILED: DB down"
         assert res.assessment_record is None

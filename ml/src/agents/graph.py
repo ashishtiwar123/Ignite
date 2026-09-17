@@ -47,9 +47,11 @@ def report_intelligence_node(state_obj: GraphState) -> GraphState:
                 
             source = "USER_REPORT"
             source_record_id = str(uuid.uuid4())
+            parsed_raw = {}
             try:
-                parsed_raw = json.loads(raw)
-                if isinstance(parsed_raw, dict):
+                val = json.loads(raw)
+                if isinstance(val, dict):
+                    parsed_raw = val
                     if "source" in parsed_raw:
                         source = parsed_raw["source"]
                     if "source_record_id" in parsed_raw:
@@ -57,7 +59,7 @@ def report_intelligence_node(state_obj: GraphState) -> GraphState:
             except Exception:
                 pass
 
-            hazard_raw = res.get("hazard_type", "UNKNOWN")
+            hazard_raw = parsed_raw.get("hazard_type") or res.get("hazard_type", "UNKNOWN")
             if hazard_raw == "PROMPT_INJECTION_DETECTED":
                 hazard = hazard_raw
             else:
@@ -68,11 +70,16 @@ def report_intelligence_node(state_obj: GraphState) -> GraphState:
                 "source_record_id": source_record_id,
                 "ingested_at": datetime.now(timezone.utc).isoformat(),
                 "hazard_type": hazard,
-                "location_name": res.get("location"),
-                "latitude": res.get("latitude"),
-                "longitude": res.get("longitude"),
-                "magnitude": res.get("magnitude"),
-                "observed_at": res.get("observed_at"),
+                "location_name": parsed_raw.get("location") or res.get("location"),
+                "latitude": parsed_raw.get("latitude") if parsed_raw.get("latitude") is not None else res.get("latitude"),
+                "longitude": parsed_raw.get("longitude") if parsed_raw.get("longitude") is not None else res.get("longitude"),
+                "magnitude": parsed_raw.get("magnitude") if parsed_raw.get("magnitude") is not None else res.get("magnitude"),
+                "wind_speed": parsed_raw.get("wind_speed") if parsed_raw.get("wind_speed") is not None else res.get("wind_speed"),
+                "pressure": parsed_raw.get("pressure") if parsed_raw.get("pressure") is not None else res.get("pressure"),
+                "depth": parsed_raw.get("depth") if parsed_raw.get("depth") is not None else res.get("depth"),
+                "affected_population": parsed_raw.get("affected_population") if parsed_raw.get("affected_population") is not None else res.get("affected_population"),
+                "displaced_population": parsed_raw.get("displaced_population") if parsed_raw.get("displaced_population") is not None else res.get("displaced_population"),
+                "observed_at": parsed_raw.get("observed_at") or res.get("observed_at"),
                 "raw_text": raw,
                 "raw_payload_reference": res
             }
@@ -101,12 +108,36 @@ def incident_detection_node(state_obj: GraphState) -> GraphState:
         reports.append(Report(**validated_dict))
         
     deduped_reports = deduplicate_reports(reports)
+    
+    try:
+        import sys, os
+        backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../backend"))
+        if backend_path not in sys.path:
+            sys.path.insert(0, backend_path)
+        from app.db.dependencies import get_incident_repository
+        inc_repo = get_incident_repository()
+        for r in deduped_reports:
+            inc_repo.save_report(r)
+    except Exception as e:
+        state.errors.append(f"Persistence error saving report: {e}")
+
+    # CORRECTION 10: Associate new evidence with existing incident during reassessment
     candidates = cluster_reports(deduped_reports)
-    
-    # Store candidates and update the state's structured reports with their generated IDs
+    if state.reassessment_requested and state.incident_candidates and candidates:
+        existing_cand = state.incident_candidates[0]
+        existing_inc_id = existing_cand.get("incident_id") if isinstance(existing_cand, dict) else getattr(existing_cand, "incident_id", None)
+        if existing_inc_id:
+            candidates[0].incident_id = existing_inc_id
+        if candidates[0].centroid_latitude is None:
+            existing_lat = existing_cand.get("centroid_latitude") if isinstance(existing_cand, dict) else getattr(existing_cand, "centroid_latitude", None)
+            existing_lon = existing_cand.get("centroid_longitude") if isinstance(existing_cand, dict) else getattr(existing_cand, "centroid_longitude", None)
+            if existing_lat is not None and existing_lon is not None:
+                candidates[0].centroid_latitude = existing_lat
+                candidates[0].centroid_longitude = existing_lon
+                candidates[0].location_precision = "POINT"
     state.incident_candidates = [c.model_dump() for c in candidates]
+        
     state.structured_reports = [r.model_dump() for r in deduped_reports]
-    
     return {"state": state}
 
 def verification_node(state_obj: GraphState) -> GraphState:
@@ -136,6 +167,17 @@ def verification_node(state_obj: GraphState) -> GraphState:
     state.verification_status = assessment.verification_status
     cand_dict["status"] = assessment.verification_status
     state.incident_candidates[0] = cand_dict
+
+    try:
+        import sys, os
+        backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../backend"))
+        if backend_path not in sys.path:
+            sys.path.insert(0, backend_path)
+        from app.db.dependencies import get_incident_repository
+        candidate.status = assessment.verification_status
+        get_incident_repository().save(candidate)
+    except Exception as e:
+        state.errors.append(f"Persistence error saving candidate: {e}")
     
     return {"state": state}
 
@@ -250,19 +292,24 @@ def situation_assessment_node(state_obj: GraphState) -> GraphState:
     if backend_path not in sys.path:
         sys.path.insert(0, backend_path)
         
-    from backend.app.api.schemas.internal import AssessmentRecord
-    from backend.app.db.dependencies import get_assessment_repository, get_needs_repository
-    from backend.app.services.assessment_service import AssessmentService
-    from backend.app.services.needs_service import NeedsService
+    from app.api.schemas.internal import AssessmentRecord
+    from app.db.dependencies import get_assessment_repository, get_needs_repository
+    from app.services.assessment_service import AssessmentService
+    from app.services.needs_service import NeedsService
     
     idempotency_key = state.run_id
     
     assessment_service = AssessmentService(get_assessment_repository())
     needs_service = NeedsService(get_needs_repository())
+
+    prev_latest = get_assessment_repository().get_latest_for_incident(candidate.incident_id)
+    parent_id = prev_latest.assessment_id if prev_latest else state.parent_assessment_id
     
     record = AssessmentRecord(
         incident_id=candidate.incident_id,
         idempotency_key=idempotency_key,
+        parent_assessment_id=parent_id,
+        reassessment_reason=state.reassessment_reason,
         verification_status=state.verification_status,
         severity_status=severity_status,
         severity=severity_res,
@@ -280,6 +327,8 @@ def situation_assessment_node(state_obj: GraphState) -> GraphState:
     try:
         saved_record = assessment_service.save_complete_assessment(record)
         state.assessment_record = saved_record.model_dump()
+        state.current_assessment_id = saved_record.assessment_id
+        state.parent_assessment_id = parent_id
         
         if state.needs:
             needs_service.save_needs_from_assessment(
@@ -299,32 +348,148 @@ def situation_assessment_node(state_obj: GraphState) -> GraphState:
         
     return {"state": state}
 
+def assessment_comparison_node(state_obj: GraphState) -> GraphState:
+    state = state_obj["state"]
+    import sys, os
+    backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../backend"))
+    if backend_path not in sys.path:
+        sys.path.insert(0, backend_path)
+
+    from app.services.reassessment_service import ReassessmentService
+    from app.db.dependencies import (
+        get_assessment_repository,
+        get_needs_repository,
+        get_allocation_repository,
+        get_action_repository
+    )
+
+    svc = ReassessmentService(
+        assessment_repo=get_assessment_repository(),
+        needs_repo=get_needs_repository(),
+        allocation_repo=get_allocation_repository(),
+        action_repo=get_action_repository()
+    )
+
+    cand = state.incident_candidates[0] if state.incident_candidates else None
+    inc_id = cand.get("incident_id") if isinstance(cand, dict) else (getattr(cand, "incident_id", None) if cand else None)
+    
+    if inc_id:
+        assessments = svc.assessment_repo.get_all_for_incident(inc_id)
+        current_ass_id = state.assessment_record.get("assessment_id") if isinstance(state.assessment_record, dict) else getattr(state.assessment_record, "assessment_id", None)
+        previous_assessments = [a for a in assessments if getattr(a, "assessment_id", None) != current_ass_id]
+        prev_record = previous_assessments[-1] if previous_assessments else None
+
+        curr_record_dict = state.assessment_record
+        if curr_record_dict:
+            from backend.app.api.schemas.internal import AssessmentRecord
+            curr_record = curr_record_dict if isinstance(curr_record_dict, AssessmentRecord) else AssessmentRecord(**curr_record_dict)
+            diff = svc.compare_assessments(prev_record, curr_record)
+            state.assessment_diff = diff.model_dump()
+
+            baseline_run_id, executed_allocs = svc.get_operational_allocation_baseline(inc_id)
+            if baseline_run_id:
+                state.operational_allocation_baseline_id = baseline_run_id
+
+    return {"state": state}
+
+def reallocation_decision_node(state_obj: GraphState) -> GraphState:
+    state = state_obj["state"]
+    import sys, os
+    backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../backend"))
+    if backend_path not in sys.path:
+        sys.path.insert(0, backend_path)
+
+    from app.services.reassessment_service import ReassessmentService
+    from app.db.dependencies import (
+        get_assessment_repository,
+        get_needs_repository,
+        get_allocation_repository,
+        get_action_repository
+    )
+    from app.api.schemas.internal import AssessmentDiff, AllocationDiff
+
+    svc = ReassessmentService(
+        assessment_repo=get_assessment_repository(),
+        needs_repo=get_needs_repository(),
+        allocation_repo=get_allocation_repository(),
+        action_repo=get_action_repository()
+    )
+
+    diff = AssessmentDiff(**state.assessment_diff) if isinstance(state.assessment_diff, dict) else state.assessment_diff
+    alloc_diff = AllocationDiff(**state.allocation_diff) if isinstance(state.allocation_diff, dict) else state.allocation_diff
+
+    status_str, is_req = svc.is_reallocation_required(diff, alloc_diff)
+    state.reallocation_decision_status = status_str
+    state.reallocation_required = is_req
+
+    return {"state": state}
+
 def optimization_node(state_obj: GraphState) -> GraphState:
     state = state_obj["state"]
-    if not state.priority:
+    if state.verification_status != "VERIFIED":
         return {"state": state}
         
-    # Convert dicts back to Pydantic for Phase 2I engine
-    req = ResourceRequirement(**state.needs[0])
-    pa = PriorityAssessment(**state.priority)
+    if not state.incident_candidates:
+        return {"state": state}
+        
+    cand_dict = state.incident_candidates[0]
+    incident_id = cand_dict.get("incident_id")
+    if not incident_id:
+        return {"state": state}
+        
+    import sys, os
+    backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../backend"))
+    if backend_path not in sys.path:
+        sys.path.insert(0, backend_path)
+        
+    from app.api.schemas.internal import OptimizationRequest
+    from app.db.dependencies import (
+        get_allocation_repository, 
+        get_needs_repository, 
+        get_resource_repository, 
+        get_assessment_repository
+    )
+    from app.services.allocation_service import AllocationService
     
-    inv = [ResourceInventory(
-        location_id="wh_1",
-        resource_type="Water",
-        category="WATER",
-        quantity_available=500.0,
-        unit="Liters"
-    )]
-    
-    ctx = AllocationContext(
-        optimization_run_id=state.run_id,
-        incidents=[pa],
-        requirements=[req],
-        inventory=inv
+    allocation_service = AllocationService(
+        allocation_repo=get_allocation_repository(),
+        needs_repo=get_needs_repository(),
+        resource_repo=get_resource_repository(),
+        assessment_repo=get_assessment_repository()
     )
     
-    res = optimize_allocation(ctx)
-    state.allocation_result = res.model_dump()
+    req = OptimizationRequest(
+        incident_ids=[incident_id],
+        optimization_run_id=state.run_id
+    )
+    
+    try:
+        res = allocation_service.optimize(req)
+        state.allocation_result = res.model_dump()
+        state.errors.extend([f"Solver Status: {res.solver_status}"])
+
+        from app.services.reassessment_service import ReassessmentService
+        from app.db.dependencies import get_action_repository
+        reassess_svc = ReassessmentService(
+            assessment_repo=get_assessment_repository(),
+            needs_repo=get_needs_repository(),
+            allocation_repo=get_allocation_repository(),
+            action_repo=get_action_repository()
+        )
+        base_run_id, prev_allocs = reassess_svc.get_operational_allocation_baseline(incident_id)
+        alloc_diff = reassess_svc.compare_allocations(
+            prev_allocs=prev_allocs,
+            curr_allocs=res.allocations,
+            baseline_run_id=base_run_id,
+            new_run_id=state.run_id
+        )
+        state.allocation_diff = alloc_diff.model_dump()
+        if base_run_id:
+            state.previous_optimization_run_id = base_run_id
+    except Exception as e:
+        state.allocation_result = None
+        state.errors.append(f"OPTIMIZATION_FAILED: {str(e)}")
+        
     return {"state": state}
 
 def coordination_node(state_obj: GraphState) -> GraphState:
@@ -341,9 +506,55 @@ def coordination_node(state_obj: GraphState) -> GraphState:
     return {"state": state}
 
 def human_review_node(state_obj: GraphState) -> GraphState:
-    # This node acts as a no-op checkpoint where the graph stops.
-    # The state is updated from the outside before resuming.
+    # This node is interrupted before execution.
+    # The human decision (APPROVED, REJECTED, REVISION_REQUESTED) is injected into state.human_approval_state
     return state_obj
+
+def execution_node(state_obj: GraphState) -> GraphState:
+    """
+    Phase 4F Controlled Execution Node.
+    Delegates to backend ExecutionService which independently validates PERSISTED database approval.
+    """
+    state = state_obj["state"]
+    if state.human_approval_state != "APPROVED":
+        return {"state": state}
+
+    import sys, os
+    backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../backend"))
+    if backend_path not in sys.path:
+        sys.path.insert(0, backend_path)
+
+    from app.api.schemas.internal import ExecutionRequest
+    from app.services.execution_service import ExecutionService
+    from app.db.dependencies import (
+        get_approval_repository,
+        get_allocation_repository,
+        get_resource_repository,
+        get_action_repository
+    )
+
+    inc_id = state.incident_candidates[0].get("incident_id") if state.incident_candidates else None
+    req = ExecutionRequest(
+        optimization_run_id=state.run_id,
+        incident_id=inc_id,
+        executor_id="GRAPH_NODE"
+    )
+
+    exec_svc = ExecutionService(
+        approval_repo=get_approval_repository(),
+        allocation_repo=get_allocation_repository(),
+        resource_repo=get_resource_repository(),
+        action_repo=get_action_repository()
+    )
+
+    res = exec_svc.execute_proposal(req)
+    if res.status in ["EXECUTED", "ALREADY_EXECUTED"]:
+        state.workflow_status = "EXECUTED"
+    else:
+        state.workflow_status = f"EXECUTION_FAILED: {res.status}"
+        state.errors.extend(res.errors)
+
+    return {"state": state}
 
 def route_after_verification(state_obj: GraphState) -> str:
     status = state_obj["state"].verification_status
@@ -354,22 +565,26 @@ def route_after_verification(state_obj: GraphState) -> str:
     else:
         return "end"
 
+def route_after_assessment(state_obj: GraphState) -> str:
+    # After situation_assessment, compare assessment with previous if reassessment
+    return "assessment_comparison"
+
+def route_after_reassessment_decision(state_obj: GraphState) -> str:
+    state = state_obj["state"]
+    if state.reallocation_required:
+        return "optimization"
+    return "end"
+
 def route_after_optimization(state_obj: GraphState) -> str:
     res = state_obj["state"].allocation_result
     if not res:
         return "end"
-    if res["solver_status"] == "INFEASIBLE":
-        return "human_review"
-    return "coordination"
+    return "human_review"
 
 def route_after_human(state_obj: GraphState) -> str:
-    decision = state_obj["state"].human_approval_state
-    if decision == "APPROVE":
-        # Resume the workflow logic depending on where we paused.
-        # For simplicity in this demo, if approved, we assume it's resuming coordination.
-        return "end"
-    elif decision == "REJECT":
-        return "end"
+    status = state_obj["state"].human_approval_state
+    if status == "APPROVED":
+        return "execution"
     return "end"
 
 def build_graph() -> StateGraph:
@@ -380,9 +595,12 @@ def build_graph() -> StateGraph:
     workflow.add_node("incident_detection", incident_detection_node)
     workflow.add_node("verification", verification_node)
     workflow.add_node("situation_assessment", situation_assessment_node)
+    workflow.add_node("assessment_comparison", assessment_comparison_node)
+    workflow.add_node("reallocation_decision", reallocation_decision_node)
     workflow.add_node("optimization", optimization_node)
     workflow.add_node("coordination", coordination_node)
     workflow.add_node("human_review", human_review_node)
+    workflow.add_node("execution", execution_node)
     
     # Define edges
     workflow.set_entry_point("report_intelligence")
@@ -399,13 +617,22 @@ def build_graph() -> StateGraph:
         }
     )
     
-    workflow.add_edge("situation_assessment", "optimization")
+    workflow.add_edge("situation_assessment", "assessment_comparison")
+    workflow.add_edge("assessment_comparison", "reallocation_decision")
+
+    workflow.add_conditional_edges(
+        "reallocation_decision",
+        route_after_reassessment_decision,
+        {
+            "optimization": "optimization",
+            "end": END
+        }
+    )
     
     workflow.add_conditional_edges(
         "optimization",
         route_after_optimization,
         {
-            "coordination": "coordination",
             "human_review": "human_review",
             "end": END
         }
@@ -417,9 +644,12 @@ def build_graph() -> StateGraph:
         "human_review",
         route_after_human,
         {
+            "execution": "execution",
             "end": END
         }
     )
+
+    workflow.add_edge("execution", END)
     
     # Setup checkpointer
     memory = MemorySaver()
