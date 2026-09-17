@@ -74,3 +74,11 @@ class SupabaseActionRepository(BaseActionRepository):
         except Exception as e:
             logger.error(f"Supabase get actions by approval_id error: {e}")
             raise RuntimeError(f"Database error fetching actions by approval_id: {str(e)}")
+
+    def get_by_incident(self, incident_id: str) -> List[ActionRecord]:
+        try:
+            res = self.client.table("actions").select("*").eq("incident_id", incident_id).execute()
+            return [self._map_row(r) for r in res.data]
+        except Exception as e:
+            logger.error(f"Supabase get actions by incident_id error: {e}")
+            raise RuntimeError(f"Database error fetching actions by incident_id: {str(e)}")

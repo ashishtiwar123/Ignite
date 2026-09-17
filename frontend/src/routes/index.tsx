@@ -99,8 +99,9 @@ function Home() {
       };
 
       await createReport(reportPayload);
+      const runId = `run-${Date.now()}`;
       await runAgent({
-        run_id: "run-demo-1",
+        run_id: runId,
         raw_reports: [JSON.stringify(reportPayload)],
       });
     } catch {

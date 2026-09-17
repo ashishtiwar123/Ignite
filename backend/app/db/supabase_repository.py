@@ -71,13 +71,13 @@ class SupabaseIncidentRepository(BaseIncidentRepository):
         try:
             self.client.table("incidents").upsert(incident_data).execute()
             
-            # Map reports via incident_evidence
+            # Map reports via incident_evidence (idempotent upsert on unique constraint)
             for report_id in incident.report_ids:
                 evidence_data = {
                     "incident_id": incident.incident_id,
                     "report_id": report_id
                 }
-                self.client.table("incident_evidence").upsert(evidence_data).execute()
+                self.client.table("incident_evidence").upsert(evidence_data, on_conflict="incident_id,report_id").execute()
                 
         except Exception as e:
             logger.error(f"Supabase save incident error: {e}")
@@ -94,6 +94,41 @@ class SupabaseIncidentRepository(BaseIncidentRepository):
             ev_res = self.client.table("incident_evidence").select("report_id").eq("incident_id", incident_id).execute()
             report_ids = [r["report_id"] for r in ev_res.data]
             
+            canonical_attrs = {}
+            conflicts = []
+            if report_ids:
+                try:
+                    rep_res = self.client.table("reports").select("*").in_("report_id", report_ids).execute()
+                    if rep_res.data:
+                        field_values = {}
+                        tracked_fields = [
+                            "affected_population", 
+                            "damage_estimate", 
+                            "magnitude", 
+                            "intensity", 
+                            "depth", 
+                            "wind_speed", 
+                            "pressure"
+                        ]
+                        for rep in rep_res.data:
+                            src = rep.get("source", "UNKNOWN")
+                            for f in tracked_fields:
+                                val = rep.get(f)
+                                if val is not None:
+                                    if f not in field_values:
+                                        field_values[f] = []
+                                    field_values[f].append({"source": src, "value": val})
+                        
+                        for field, values in field_values.items():
+                            unique_vals = {v["value"] for v in values}
+                            if len(unique_vals) > 1:
+                                conflicts.append({"field": field, "values": values})
+                                canonical_attrs[field] = values[0]["value"]
+                            else:
+                                canonical_attrs[field] = values[0]["value"]
+                except Exception as ex:
+                    logger.warning(f"Error fetching report attributes for incident {incident_id}: {ex}")
+
             return IncidentCandidate(
                 incident_id=row["incident_id"],
                 hazard_type=row["hazard_type"],
@@ -103,7 +138,9 @@ class SupabaseIncidentRepository(BaseIncidentRepository):
                 first_observed_at=row.get("first_observed_at"),
                 created_at=row.get("created_at"),
                 updated_at=row.get("updated_at"),
-                report_ids=report_ids
+                report_ids=report_ids,
+                canonical_attributes=canonical_attrs,
+                conflicting_information=conflicts
             )
         except Exception as e:
             logger.error(f"Supabase get incident error: {e}")

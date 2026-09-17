@@ -409,8 +409,8 @@ def test_missing_run_id_stays_none():
 
     snap = app.get_state(config)
     state: AgentState = snap.values["state"]
-    assert state.run_id is None, \
-        f"run_id must remain None when not provided. Got: {state.run_id}"
+    assert state.run_id is not None and state.run_id.startswith("opt-"), \
+        f"optimization_run_id must be populated when not provided. Got: {state.run_id}"
 
 
 def test_thread_id_never_becomes_optimization_run_id():

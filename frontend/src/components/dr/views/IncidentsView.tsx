@@ -4,33 +4,66 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { Scenario } from "@/lib/scenario";
 import { getIncidents, getIncidentAssessment } from "@/lib/api/incidents";
-import type { IncidentSummaryResponse, AssessmentResponse } from "@/lib/api/types";
+import { runAgent, getIncidentGovernance } from "@/lib/api/agents";
+import type { IncidentSummaryResponse, AssessmentResponse, IncidentGovernanceResponse } from "@/lib/api/types";
 import { ReassessmentModal } from "@/components/dr/ReassessmentModal";
 
 interface IncidentsViewProps {
   scenario: Scenario;
   activeThreadId?: string;
+  onAnalysisTriggered?: () => void;
+  selectedIncidentId?: string | null;
+  onSelectIncident?: (id: string) => void;
 }
 
-export default function IncidentsView({ scenario, activeThreadId = "run-demo-1" }: IncidentsViewProps) {
-  const [incidents, setIncidents] = useState<IncidentSummaryResponse[]>([]);
-  const [loading, setLoading] = useState(true);
+import { isDemoMode, DEMO_INCIDENTS, DEMO_ASSESSMENT, DEMO_GOVERNANCE, DEMO_INCIDENT_ID } from "@/lib/demoScenario";
+
+export default function IncidentsView({
+  scenario,
+  activeThreadId = "",
+  onAnalysisTriggered,
+  selectedIncidentId,
+  onSelectIncident,
+}: IncidentsViewProps) {
+  const [incidents, setIncidents] = useState<IncidentSummaryResponse[]>(isDemoMode() ? DEMO_INCIDENTS : []);
+  const [loading, setLoading] = useState(!isDemoMode());
   const [error, setError] = useState<string | null>(null);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [assessment, setAssessment] = useState<AssessmentResponse | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(selectedIncidentId || (isDemoMode() ? DEMO_INCIDENT_ID : null));
+  const [assessment, setAssessment] = useState<AssessmentResponse | null>(isDemoMode() ? DEMO_ASSESSMENT : null);
+  const [governance, setGovernance] = useState<IncidentGovernanceResponse | null>(isDemoMode() ? DEMO_GOVERNANCE : null);
   const [assessmentLoading, setAssessmentLoading] = useState(false);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [analysisError, setAnalysisError] = useState<string | null>(null);
   const [filterSeverity, setFilterSeverity] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [showReassessment, setShowReassessment] = useState(false);
 
+  useEffect(() => {
+    if (selectedIncidentId) {
+      setSelectedId(selectedIncidentId);
+    } else if (isDemoMode() && !selectedId) {
+      setSelectedId(DEMO_INCIDENT_ID);
+    }
+  }, [selectedIncidentId]);
+
   const fetchIncidents = async () => {
+    if (isDemoMode()) {
+      setIncidents(DEMO_INCIDENTS);
+      const activeId = selectedIncidentId || DEMO_INCIDENT_ID;
+      setSelectedId(activeId);
+      onSelectIncident?.(activeId);
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
       const data = await getIncidents();
       setIncidents(data);
       if (data.length > 0 && !selectedId) {
-        setSelectedId(data[0].incident_id);
+        const firstId = selectedIncidentId || data[0].incident_id;
+        setSelectedId(firstId);
+        onSelectIncident?.(firstId);
       }
     } catch (err: any) {
       setError(err.detail || err.message || "Failed to load real incidents from backend");
@@ -46,23 +79,74 @@ export default function IncidentsView({ scenario, activeThreadId = "run-demo-1" 
   useEffect(() => {
     if (!selectedId) {
       setAssessment(null);
+      setGovernance(null);
       return;
     }
-    const fetchAssessment = async () => {
+    if (isDemoMode()) {
+      setAssessment(DEMO_ASSESSMENT);
+      setGovernance(DEMO_GOVERNANCE);
+      setAssessmentLoading(false);
+      return;
+    }
+    const fetchData = async () => {
       setAssessmentLoading(true);
       try {
-        const assData = await getIncidentAssessment(selectedId);
+        const [assData, govData] = await Promise.all([
+          getIncidentAssessment(selectedId).catch(() => null),
+          getIncidentGovernance(selectedId).catch(() => null),
+        ]);
         setAssessment(assData);
-      } catch (err) {
-        setAssessment(null);
+        setGovernance(govData);
       } finally {
         setAssessmentLoading(false);
       }
     };
-    fetchAssessment();
+    fetchData();
   }, [selectedId]);
 
   const selectedIncident = incidents.find((i) => i.incident_id === selectedId) || incidents[0];
+
+  const isVerified = Boolean(
+    (selectedIncident?.status === "VERIFIED") || (assessment?.verification_status === "VERIFIED")
+  );
+  const hasProposal = Boolean(
+    governance?.optimization_run_id && governance.approval_status !== "NONE"
+  );
+
+  const handleAnalyzeIncident = async () => {
+    if (!selectedIncident) return;
+    setAnalyzing(true);
+    setAnalysisError(null);
+
+    if (isDemoMode()) {
+      setTimeout(() => {
+        setAssessment(DEMO_ASSESSMENT);
+        setGovernance(DEMO_GOVERNANCE);
+        setAnalyzing(false);
+        onAnalysisTriggered?.();
+      }, 400);
+      return;
+    }
+
+    try {
+      const res = await runAgent({ incident_id: selectedIncident.incident_id });
+      if (res.status === "FAILED" || res.errors?.length) {
+        setAnalysisError(res.errors.join("; ") || "LangGraph operational workflow failed.");
+      }
+      // Refresh assessment & governance
+      const [assData, govData] = await Promise.all([
+        getIncidentAssessment(selectedIncident.incident_id).catch(() => null),
+        getIncidentGovernance(selectedIncident.incident_id).catch(() => null),
+      ]);
+      if (assData) setAssessment(assData);
+      if (govData) setGovernance(govData);
+      onAnalysisTriggered?.();
+    } catch (err: any) {
+      setAnalysisError(err.detail || err.message || "Failed to trigger operational workflow");
+    } finally {
+      setAnalyzing(false);
+    }
+  };
 
   const filtered = incidents.filter((inc) => {
     const matchesSearch =
@@ -140,7 +224,10 @@ export default function IncidentsView({ scenario, activeThreadId = "run-demo-1" 
                 return (
                   <div
                     key={inc.incident_id}
-                    onClick={() => setSelectedId(inc.incident_id)}
+                    onClick={() => {
+                      setSelectedId(inc.incident_id);
+                      onSelectIncident?.(inc.incident_id);
+                    }}
                     className={`cursor-pointer rounded-2xl border p-4 transition-all ${
                       isSelected
                         ? "border-primary bg-card ring-1 ring-primary/40 shadow-md"
@@ -210,11 +297,26 @@ export default function IncidentsView({ scenario, activeThreadId = "run-demo-1" 
                 </div>
 
                 {/* Severity */}
-                <div className="flex justify-between py-1.5 border-b border-border/40">
-                  <span className="text-muted-foreground font-medium">Severity Score:</span>
-                  <span className="font-mono font-bold text-amber-400">
-                    {assessment.severity?.severity_score ?? (assessment.severity?.message || "UNSUPPORTED")}
-                  </span>
+                <div className="py-1.5 border-b border-border/40 space-y-1">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground font-medium">Severity:</span>
+                    <span className="font-mono font-bold text-amber-400">
+                      {assessment.severity?.severity_class || assessment.severity?.severity || (assessment.severity?.message ? "UNSUPPORTED" : "N/A")}
+                      {assessment.severity?.severity_score !== undefined && ` (${assessment.severity.severity_score} / 10)`}
+                    </span>
+                  </div>
+                  {assessment.severity?.assessment_method && (
+                    <div className="flex justify-between text-[10px] text-muted-foreground">
+                      <span>Method:</span>
+                      <span className="font-semibold">{assessment.severity.assessment_method === "ML" ? `ML Model (${assessment.severity.model_version || "severity_v2"})` : `Policy (${assessment.severity.policy_version || "POLICY"})`}</span>
+                    </div>
+                  )}
+                  {assessment.severity?.evidence_coverage?.available_factors_count !== undefined && (
+                    <div className="flex justify-between text-[10px] text-muted-foreground">
+                      <span>Evidence Coverage:</span>
+                      <span>{assessment.severity.evidence_coverage.available_factors_count} / {assessment.severity.evidence_coverage.total_factors_count} factors available</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Trajectory */}
@@ -247,11 +349,37 @@ export default function IncidentsView({ scenario, activeThreadId = "run-demo-1" 
               </div>
             )}
 
-            {/* Reassessment CTA */}
-            <div className="border-t border-border/50 pt-4">
+            {/* Action Buttons: Operational Workflow CTA + Reassessment */}
+            <div className="border-t border-border/50 pt-4 space-y-2">
+              {!isVerified ? (
+                <Button disabled className="w-full text-xs font-semibold bg-secondary text-muted-foreground cursor-not-allowed">
+                  <AlertTriangle className="h-3.5 w-3.5 mr-1.5 text-amber-400" /> Awaiting Verification
+                </Button>
+              ) : hasProposal ? (
+                <Button disabled className="w-full text-xs font-semibold bg-secondary text-muted-foreground cursor-not-allowed">
+                  <CheckCircle className="h-3.5 w-3.5 mr-1.5 text-emerald-400" /> Optimization proposal already exists.
+                </Button>
+              ) : (
+                <Button
+                  onClick={handleAnalyzeIncident}
+                  disabled={analyzing}
+                  className="w-full text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white"
+                >
+                  <Zap className={`h-3.5 w-3.5 mr-1.5 ${analyzing ? "animate-spin" : ""}`} />
+                  {analyzing ? "Running LangGraph Workflow..." : "Analyze Incident & Generate Proposal"}
+                </Button>
+              )}
+
+              {analysisError && (
+                <div className="p-2 rounded bg-rose-500/10 border border-rose-500/20 text-[11px] text-rose-400">
+                  {analysisError}
+                </div>
+              )}
+
               <Button
                 onClick={() => setShowReassessment(true)}
-                className="w-full text-xs font-semibold bg-sky-600 hover:bg-sky-700"
+                variant="outline"
+                className="w-full text-xs font-semibold"
               >
                 <RefreshCcw className="h-3.5 w-3.5 mr-1.5" /> Reassess Incident (Phase 4G Evidence)
               </Button>

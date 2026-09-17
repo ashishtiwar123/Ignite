@@ -29,6 +29,7 @@ export interface LayerToggles {
 }
 
 import type { IncidentSummaryResponse } from "@/lib/api/types";
+import { isDemoMode, DEMO_MAP_MARKERS } from "@/lib/demoScenario";
 
 interface Props {
   scenario: Scenario;
@@ -380,6 +381,49 @@ export default function DisasterMap({
     const s = scenarioRef.current;
     const l = layersRef.current;
 
+    if (isDemoMode()) {
+      DEMO_MAP_MARKERS.forEach((mkr) => {
+        const el = document.createElement("div");
+        const isCmd = mkr.type === "incident";
+        const color = isCmd
+          ? "#ef4444"
+          : mkr.type === "depot"
+          ? "#0284c7"
+          : mkr.type === "medical"
+          ? "#10b981"
+          : mkr.type === "warehouse"
+          ? "#f59e0b"
+          : "#a855f7";
+
+        el.className = `map-pin map-pin-${mkr.type}`;
+        el.style.cssText = `width:28px;height:28px;border-radius:50%;background:${color};color:#fff;display:grid;place-items:center;font-weight:bold;font-size:12px;border:2px solid #fff;cursor:pointer;box-shadow:0 0 10px ${color};`;
+        el.innerHTML = `<span>${isCmd ? "!" : mkr.name.charAt(0)}</span>`;
+
+        el.addEventListener("click", () => {
+          if (isCmd) {
+            selectRef.current({
+              id: "56862ef4-18f4-4bfc-bcf6-795850362551",
+              title: mkr.name,
+              detail: "Flood - Mumbai Command Area",
+              coord: mkr.coords,
+              severity: "high",
+            });
+          }
+        });
+
+        const marker = new mapboxgl.Marker({ element: el })
+          .setLngLat(mkr.coords)
+          .setPopup(
+            new mapboxgl.Popup({ offset: 16, closeButton: false }).setHTML(
+              `<strong>${mkr.name}</strong><br/>Coords: ${mkr.coords[1]}, ${mkr.coords[0]}`
+            )
+          )
+          .addTo(map);
+        markersRef.current.push(marker);
+      });
+      return;
+    }
+
     if (s.disasterType === "cyclone") {
       const zone = zoneOf(s);
       const center = zone.center;
@@ -489,7 +533,7 @@ export default function DisasterMap({
     const map = new mapboxgl.Map({
       container: containerRef.current,
       style: initialStyle,
-      center: zone.center,
+      center: isDemoMode() ? [72.8792, 19.0701] : zone.center,
       zoom: 13,
       pitch: modeRef.current === "3d" ? 62 : 0,
       bearing: modeRef.current === "3d" ? -22 : 0,

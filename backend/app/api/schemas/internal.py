@@ -90,11 +90,13 @@ class OptimizationResponse(BaseModel):
     generated_at: datetime
 
 class AgentRunRequest(BaseModel):
+    incident_id: Optional[str] = None
     run_id: Optional[str] = None
-    raw_reports: list[str]
+    raw_reports: list[str] = Field(default_factory=list)
 
 class AgentRunResponse(BaseModel):
-    run_id: Optional[str]
+    thread_id: Optional[str] = None
+    run_id: Optional[str] = None
     status: str
     human_approval_state: str
     errors: list[str]
@@ -103,6 +105,7 @@ class ApprovalRecord(BaseModel):
     approval_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     incident_id: str
     optimization_run_id: Optional[str] = None
+    thread_id: Optional[str] = None
     action_id: Optional[str] = None
     status: str = "PENDING"
     reviewer_id: Optional[str] = None

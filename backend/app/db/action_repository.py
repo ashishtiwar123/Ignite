@@ -31,6 +31,11 @@ class BaseActionRepository(ABC):
         """Fetch action records matching approval_id."""
         pass
 
+    @abstractmethod
+    def get_by_incident(self, incident_id: str) -> List[ActionRecord]:
+        """Fetch action records matching incident_id."""
+        pass
+
 
 class InMemoryActionRepository(BaseActionRepository):
     def __init__(self):
@@ -54,3 +59,6 @@ class InMemoryActionRepository(BaseActionRepository):
 
     def get_by_approval_id(self, approval_id: str) -> List[ActionRecord]:
         return [a for a in self._storage.values() if a.approval_id == approval_id]
+
+    def get_by_incident(self, incident_id: str) -> List[ActionRecord]:
+        return [a for a in self._storage.values() if a.incident_id == incident_id]

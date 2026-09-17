@@ -67,8 +67,8 @@ def test_severity_predictor_is_invoked(base_state):
     assert res.severity_score == res.severity["severity_score"]
 
 def test_unsupported_hazard(base_state):
-    base_state["incident_candidates"][0]["hazard_type"] = "WILDFIRE"
-    base_state["structured_reports"][0]["hazard_type"] = "WILDFIRE"
+    base_state["incident_candidates"][0]["hazard_type"] = "VOLCANO"
+    base_state["structured_reports"][0]["hazard_type"] = "VOLCANO"
     state_obj = {"state": AgentState(**base_state)}
     res = situation_assessment_node(state_obj)["state"]
     

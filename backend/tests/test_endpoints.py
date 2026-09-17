@@ -41,7 +41,7 @@ def test_get_incident_assessment_unsupported_hazard():
     rep = client.post("/reports", json={
         "source": "NOAA",
         "source_record_id": "flood1",
-        "hazard_type": "FLOOD"
+        "hazard_type": "VOLCANO"
     })
     incident_id = rep.json()["message"].split()[-1].strip(".")
     

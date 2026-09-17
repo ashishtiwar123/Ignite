@@ -30,6 +30,10 @@ export interface IncidentSummaryResponse {
   incident_id: string;
   hazard_type: string;
   status: string;
+  location_text?: string;
+  verification_status?: string;
+  severity_class?: string;
+  report_count?: number;
   first_observed_at: string;
   centroid_latitude: number | null;
   centroid_longitude: number | null;
@@ -138,12 +142,14 @@ export interface OptimizationResponse {
 }
 
 export interface AgentRunRequest {
+  incident_id?: string | null;
   run_id?: string | null;
-  raw_reports: string[];
+  raw_reports?: string[];
 }
 
 export interface AgentRunResponse {
   run_id?: string | null;
+  thread_id?: string | null;
   status: string;
   human_approval_state: string;
   errors: string[];
@@ -152,6 +158,7 @@ export interface AgentRunResponse {
 export interface ApprovalRecord {
   approval_id: string;
   incident_id: string;
+  thread_id?: string | null;
   optimization_run_id?: string | null;
   action_id?: string | null;
   status: string;
@@ -206,6 +213,18 @@ export interface ExecutionResponse {
   optimization_run_id?: string | null;
   approval_id?: string | null;
   incident_id?: string | null;
+  deducted_resources: DeductedResourceItem[];
+  errors: string[];
+}
+
+export interface IncidentGovernanceResponse {
+  incident_id: string;
+  thread_id?: string | null;
+  optimization_run_id?: string | null;
+  approval_status: string;
+  execution_status: string;
+  execution_id?: string | null;
+  approval_id?: string | null;
   deducted_resources: DeductedResourceItem[];
   errors: string[];
 }

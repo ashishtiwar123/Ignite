@@ -13,13 +13,19 @@ class IncidentService:
         
         self.incident_repo.save_report(report)
         
-        # Simulate basic incident matching/creation
+        canonical_attrs = {}
+        for f in ["affected_population", "damage_estimate", "magnitude", "intensity", "depth", "wind_speed", "pressure"]:
+            val = getattr(report, f, None)
+            if val is not None:
+                canonical_attrs[f] = val
+
         incident = IncidentCandidate(
             hazard_type=report.hazard_type,
             status="CANDIDATE",
             first_observed_at=report.observed_at,
             centroid_latitude=report.latitude,
-            centroid_longitude=report.longitude
+            centroid_longitude=report.longitude,
+            canonical_attributes=canonical_attrs
         )
         incident.report_ids.append(report.report_id)
         

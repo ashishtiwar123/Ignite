@@ -21,20 +21,43 @@ class ApprovalService:
         optimization_run_id: Optional[str],
         decision: str,
         reason: Optional[str] = None,
-        reviewer_id: Optional[str] = None
+        reviewer_id: Optional[str] = None,
+        thread_id: Optional[str] = None
     ) -> ApprovalRecord:
 
         if decision not in VALID_DECISIONS:
             raise ValueError(f"Invalid decision '{decision}'. Must be one of: {VALID_DECISIONS}")
 
-        record = ApprovalRecord(
-            incident_id=incident_id,
-            optimization_run_id=optimization_run_id,
-            status=decision,
-            reason=reason,
-            reviewer_id=reviewer_id,
-            decided_at=datetime.utcnow()
-        )
+        existing = None
+        if optimization_run_id:
+            for a in self.approval_repo.get_by_optimization_run(optimization_run_id):
+                if a.status == "PENDING":
+                    existing = a
+                    break
+        if not existing and incident_id:
+            for a in self.approval_repo.get_by_incident(incident_id):
+                if a.status == "PENDING":
+                    existing = a
+                    break
+
+        if existing:
+            record = existing.model_copy(update={
+                "status": decision,
+                "reason": reason,
+                "reviewer_id": reviewer_id,
+                "decided_at": datetime.utcnow(),
+                "thread_id": thread_id or existing.thread_id
+            })
+        else:
+            record = ApprovalRecord(
+                incident_id=incident_id,
+                optimization_run_id=optimization_run_id,
+                thread_id=thread_id,
+                status=decision,
+                reason=reason,
+                reviewer_id=reviewer_id,
+                decided_at=datetime.utcnow()
+            )
 
         persisted = self.approval_repo.upsert(record)
         self._record_audit_event(persisted)

@@ -40,6 +40,8 @@ import {
   type Scenario,
 } from "@/lib/scenario";
 
+import { isDemoMode, DEMO_INCIDENTS, DEMO_ASSESSMENT, DEMO_GOVERNANCE, DEMO_ALLOCATIONS, DEMO_INCIDENT_ID, DEMO_KPI_STATS } from "@/lib/demoScenario";
+
 import IncidentsView from "@/components/dr/views/IncidentsView";
 import ResourcesView from "@/components/dr/views/ResourcesView";
 import AgenciesView from "@/components/dr/views/AgenciesView";
@@ -86,10 +88,13 @@ function Dashboard() {
   const [mode, setMode] = useState<MapMode>("satellite");
   const [activeNav, setActiveNav] = useState("dashboard");
   const [showSettings, setShowSettings] = useState(false);
-  const [selected, setSelected] = useState<Incident | null>(null);
-  const [backendIncidents, setBackendIncidents] = useState<import("@/lib/api/types").IncidentSummaryResponse[]>([]);
-  const [activeAllocations, setActiveAllocations] = useState<import("@/lib/api/types").AllocationRecord[]>([]);
-  const [activeThreadId, setActiveThreadId] = useState<string>("run-demo-1");
+  const [selectedIncidentId, setSelectedIncidentId] = useState<string | null>(isDemoMode() ? DEMO_INCIDENT_ID : null);
+  const [backendIncidents, setBackendIncidents] = useState<import("@/lib/api/types").IncidentSummaryResponse[]>(isDemoMode() ? DEMO_INCIDENTS : []);
+  const [governanceState, setGovernanceState] = useState<import("@/lib/api/types").GovernanceResponse | null>(isDemoMode() ? DEMO_GOVERNANCE : null);
+  const [assessmentState, setAssessmentState] = useState<import("@/lib/api/types").AssessmentResponse | null>(isDemoMode() ? DEMO_ASSESSMENT : null);
+  const [activeAllocations, setActiveAllocations] = useState<import("@/lib/api/types").AllocationRecord[]>(isDemoMode() ? DEMO_ALLOCATIONS : []);
+  const [loadingBackend, setLoadingBackend] = useState<boolean>(!isDemoMode());
+
   const [layers, setLayers] = useState<LayerToggles>({
     zones: true,
     routes: true,
@@ -100,15 +105,36 @@ function Dashboard() {
   const shellRef = useRef<HTMLDivElement | null>(null);
 
   const refreshBackendData = async () => {
+    if (isDemoMode()) {
+      setBackendIncidents(DEMO_INCIDENTS);
+      const activeId = selectedIncidentId || DEMO_INCIDENT_ID;
+      setSelectedIncidentId(activeId);
+      setGovernanceState((prev) => prev || DEMO_GOVERNANCE);
+      setActiveAllocations((prev) => (prev.length > 0 ? prev : DEMO_ALLOCATIONS));
+      setAssessmentState((prev) => prev || DEMO_ASSESSMENT);
+      setLoadingBackend(false);
+      return;
+    }
+    setLoadingBackend(true);
     try {
       const incs = await import("@/lib/api/incidents").then((m) => m.getIncidents());
       setBackendIncidents(incs);
-      if (incs.length > 0) {
-        const allocs = await import("@/lib/api/allocations").then((m) => m.getIncidentAllocations(incs[0].incident_id));
-        setActiveAllocations(allocs);
+      const activeId = selectedIncidentId || (incs.length > 0 ? incs[0].incident_id : null);
+      if (activeId) {
+        if (!selectedIncidentId) setSelectedIncidentId(activeId);
+        const [gov, allocs, ass] = await Promise.all([
+          import("@/lib/api/agents").then((m) => m.getIncidentGovernance(activeId)).catch(() => null),
+          import("@/lib/api/allocations").then((m) => m.getIncidentAllocations(activeId)).catch(() => []),
+          import("@/lib/api/incidents").then((m) => m.getIncidentAssessment(activeId)).catch(() => null),
+        ]);
+        if (gov) setGovernanceState(gov);
+        if (allocs) setActiveAllocations(allocs);
+        if (ass) setAssessmentState(ass);
       }
     } catch {
-      // Backend polling fallback handling
+      // Backend polling error handling
+    } finally {
+      setLoadingBackend(false);
     }
   };
 
@@ -116,6 +142,30 @@ function Dashboard() {
     setScenario(loadScenario());
     refreshBackendData();
   }, []);
+
+  useEffect(() => {
+    if (!selectedIncidentId) return;
+    if (isDemoMode()) {
+      setGovernanceState((prev) => prev || DEMO_GOVERNANCE);
+      setActiveAllocations((prev) => (prev.length > 0 ? prev : DEMO_ALLOCATIONS));
+      setAssessmentState((prev) => prev || DEMO_ASSESSMENT);
+      return;
+    }
+    let isMounted = true;
+    Promise.all([
+      import("@/lib/api/agents").then((m) => m.getIncidentGovernance(selectedIncidentId)).catch(() => null),
+      import("@/lib/api/allocations").then((m) => m.getIncidentAllocations(selectedIncidentId)).catch(() => []),
+      import("@/lib/api/incidents").then((m) => m.getIncidentAssessment(selectedIncidentId)).catch(() => null),
+    ]).then(([gov, allocs, ass]) => {
+      if (!isMounted) return;
+      if (gov) setGovernanceState(gov);
+      if (allocs) setActiveAllocations(allocs);
+      if (ass) setAssessmentState(ass);
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, [selectedIncidentId]);
 
   useEffect(() => {
     if (!scenario || !shellRef.current) return;
@@ -130,6 +180,26 @@ function Dashboard() {
     }, shellRef);
     return () => ctx.revert();
   }, [scenario]);
+
+  const selectedBackendIncident = useMemo(() => {
+    if (backendIncidents.length === 0) return null;
+    return backendIncidents.find((i) => i.incident_id === selectedIncidentId) || backendIncidents[0];
+  }, [backendIncidents, selectedIncidentId]);
+
+  const activeThreadId = governanceState?.thread_id || "";
+  const activeOptimizationRunId = governanceState?.optimization_run_id || assessmentState?.assessment_record?.optimization_run_id || "";
+
+  const derivedSeverityClass = useMemo(() => {
+    if (!assessmentState?.severity) return "UNASSESSED";
+    const sev = assessmentState.severity;
+    if (sev.status === "unsupported_hazard") return "UNSUPPORTED";
+    if (sev.status === "insufficient_evidence") return "INSUFFICIENT EVIDENCE";
+    return (
+      sev.severity_class ||
+      sev.severity ||
+      (sev.message ? "UNSUPPORTED" : "UNASSESSED")
+    );
+  }, [assessmentState]);
 
   const derived = useMemo(() => {
     if (!scenario) return null;
@@ -152,8 +222,6 @@ function Dashboard() {
     );
   }
 
-  const detail = selected ?? derived.incidents[0]!;
-
   return (
     <div ref={shellRef} className="flex h-screen flex-col overflow-hidden bg-background text-foreground">
       {/* top bar */}
@@ -172,10 +240,16 @@ function Dashboard() {
         </span>
         <div className="min-w-0">
           <h1 className="truncate text-base font-bold text-foreground">
-            {derived.zone.name} · {derived.type.label}
+            {selectedBackendIncident
+              ? `${selectedBackendIncident.location_text || (selectedBackendIncident.centroid_latitude ? `${selectedBackendIncident.centroid_latitude.toFixed(4)}, ${selectedBackendIncident.centroid_longitude.toFixed(4)}` : "Mumbai Zone")} · ${selectedBackendIncident.hazard_type}`
+              : loadingBackend
+              ? "Loading Backend Data..."
+              : "No Active Incidents"}
           </h1>
           <p className="truncate text-xs font-medium text-muted-foreground">
-            {derived.type.overlay} · severity {scenario.severity}
+            {selectedBackendIncident
+              ? `Incident ID: ${selectedBackendIncident.incident_id} · Status: ${selectedBackendIncident.verification_status || "VERIFIED"}`
+              : "Connect backend or select incident"}
           </p>
         </div>
         <div className="ml-auto hidden items-center gap-3 lg:flex">
@@ -246,7 +320,13 @@ function Dashboard() {
         {/* main scrolling content container */}
         <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
           {activeNav === "incidents" ? (
-            <IncidentsView scenario={scenario} />
+            <IncidentsView
+              scenario={scenario}
+              activeThreadId={activeThreadId}
+              onAnalysisTriggered={refreshBackendData}
+              selectedIncidentId={selectedIncidentId}
+              onSelectIncident={(id) => setSelectedIncidentId(id)}
+            />
           ) : activeNav === "resources" ? (
             <ResourcesView />
           ) : activeNav === "agencies" ? (
@@ -281,7 +361,11 @@ function Dashboard() {
                       scenario={scenario}
                       mode={mode}
                       layers={layers}
-                      onSelectIncident={setSelected}
+                      onSelectIncident={(inc: any) => {
+                        if (inc && inc.id) {
+                          setSelectedIncidentId(inc.id);
+                        }
+                      }}
                       backendIncidents={backendIncidents}
                     />
                   </Suspense>
@@ -442,7 +526,7 @@ function Dashboard() {
               <div className="mt-4 border-t border-border/50 pt-3">
                 <ApprovalExecutionPanel
                   threadId={activeThreadId}
-                  incidentId={backendIncidents[0]?.incident_id || "inc-demo-1"}
+                  incidentId={selectedBackendIncident?.incident_id || ""}
                   allocations={activeAllocations}
                   onStateChange={refreshBackendData}
                 />
@@ -457,24 +541,38 @@ function Dashboard() {
               <div className="flex items-center justify-between border-b border-border/50 pb-3">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wider text-primary">Selected Incident Details</p>
-                  <h2 className="text-lg font-bold text-foreground mt-0.5">{detail.title}</h2>
+                  <h2 className="text-lg font-bold text-foreground mt-0.5">
+                    {selectedBackendIncident
+                      ? `${selectedBackendIncident.hazard_type} - ${selectedBackendIncident.location_text || "Mumbai Command Area"}`
+                      : "No Incident Selected"}
+                  </h2>
                 </div>
-                <span className="rounded-lg bg-destructive/15 px-3 py-1 text-xs font-bold text-destructive uppercase">
-                  {detail.severity} severity
-                </span>
+                {selectedBackendIncident && (
+                  <span className="rounded-lg bg-destructive/15 px-3 py-1 text-xs font-bold text-destructive uppercase">
+                    {derivedSeverityClass} severity
+                  </span>
+                )}
               </div>
 
-              <p className="mt-3 text-xs font-medium text-muted-foreground leading-relaxed">{detail.detail}</p>
+              <p className="mt-3 text-xs font-medium text-muted-foreground leading-relaxed">
+                {selectedBackendIncident
+                  ? `Incident UUID: ${selectedBackendIncident.incident_id}. Verified status: ${selectedBackendIncident.verification_status || "VERIFIED"}. Centroid Latitude: ${selectedBackendIncident.centroid_latitude ?? "N/A"}, Longitude: ${selectedBackendIncident.centroid_longitude ?? "N/A"}.`
+                  : "No active backend incident available."}
+              </p>
 
-              <dl className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4 text-xs">
-                <Field label="Disaster Zone" value={derived.zone.name} />
-                <Field label="Severity Rating" value={detail.severity} />
-                <Field label="Footprint Overlay" value={derived.type.overlay} />
-                <Field
-                  label="Affected Population"
-                  value={scenario.affectedPopulation.toLocaleString()}
-                />
-              </dl>
+              {selectedBackendIncident ? (
+                <dl className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4 text-xs">
+                  <Field label="Disaster Type" value={selectedBackendIncident.hazard_type} />
+                  <Field label="Severity Rating" value={derivedSeverityClass} />
+                  <Field label="Verification Status" value={selectedBackendIncident.verification_status || "VERIFIED"} />
+                  <Field
+                    label="Reports Count"
+                    value={String(selectedBackendIncident.report_count || 1)}
+                  />
+                </dl>
+              ) : (
+                <div className="mt-4 text-xs text-muted-foreground italic">No backend data available</div>
+              )}
 
               {scenario.notes && (
                 <div className="mt-3.5 rounded-xl bg-secondary/80 p-3 text-xs leading-relaxed text-muted-foreground border border-border/60">

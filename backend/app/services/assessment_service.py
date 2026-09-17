@@ -1,43 +1,43 @@
-from ml.src.models.severity_v2.predictor_v2 import SeverityPredictorV2
+from ml.src.severity.engine import UnifiedSeverityEngine
 from app.db.assessment_repository import BaseAssessmentRepository
 from app.api.schemas.internal import AssessmentRecord
 
 class AssessmentService:
     def __init__(self, assessment_repo: BaseAssessmentRepository):
         self.assessment_repo = assessment_repo
-        self.severity_predictor = SeverityPredictorV2()
+        self.severity_engine = UnifiedSeverityEngine()
 
     def get_or_calculate_assessment(self, incident, event_features: dict) -> AssessmentRecord:
         """
         Retrieves the latest assessment from DB, or computes and persists a new one if none exists.
+        If existing assessment record has severity_status == 'unsupported_hazard' but the hazard
+        is now supported by UnifiedSeverityEngine (e.g. Flood, Wildfire, Heavy Rainfall), a new assessment
+        record is computed and returned.
         """
         existing = self.assessment_repo.get_latest_for_incident(incident.incident_id)
-        if existing:
-            return existing
+        if existing and existing.severity_status != "unsupported_hazard":
+            sev_dict = existing.severity if isinstance(existing.severity, dict) else {}
+            ev_cov = sev_dict.get("evidence_coverage", {}) if isinstance(sev_dict, dict) else {}
+            avail_cnt = ev_cov.get("available_factors_count", 0) if isinstance(ev_cov, dict) else 0
+            has_new_features = bool(event_features.get("predictor_features_x"))
+            # If previous assessment was evaluated with 0 evidence factors due to empty features bug, re-evaluate
+            if avail_cnt > 0 or not has_new_features:
+                return existing
             
-        # Calculate Severity V2
-        severity_res = self.severity_predictor.predict_severity(event_features)
+        # Compute Unified Severity (ML V2 or Policy V1)
+        severity_res = self.severity_engine.predict_severity(event_features)
         
         is_unsupported = severity_res.get("status") == "unsupported_hazard"
         severity_status = "unsupported_hazard" if is_unsupported else "supported"
         severity_data = None if is_unsupported else severity_res
         
-        # Determine caller provided idempotency
-        # Must be a stable logical identity (run_id or idempotency_key). 
-        # No fallback to timestamp.
         idempotency_key = event_features.get("idempotency_key") or event_features.get("run_id")
+        severity_model_version = severity_res.get("model_version") or severity_res.get("policy_version")
         
-        # Capture precise provenance for the executed components
-        severity_model_version = severity_res.get("model_version")
-        
-        # Verification, Trajectory, Needs, Priority are NOT currently executed by this service flow.
-        # Their provenance is explicitly set to None.
-        
-        # Create AssessmentRecord
         record = AssessmentRecord(
             incident_id=incident.incident_id,
             idempotency_key=idempotency_key,
-            verification_status=incident.status,
+            verification_status=getattr(incident, "status", "VERIFIED"),
             severity_status=severity_status,
             severity=severity_data,
             trajectory_status="not_calculated",
@@ -51,7 +51,6 @@ class AssessmentService:
             priority_policy_version=None
         )
         
-        # Persist
         self.assessment_repo.save(record)
         return record
 

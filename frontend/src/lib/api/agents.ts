@@ -45,3 +45,9 @@ export async function reassessIncident(
     body: JSON.stringify(request),
   });
 }
+
+export async function getIncidentGovernance(
+  incidentId: string
+): Promise<import("./types").IncidentGovernanceResponse> {
+  return apiRequest<import("./types").IncidentGovernanceResponse>(`/incidents/${incidentId}/governance`);
+}

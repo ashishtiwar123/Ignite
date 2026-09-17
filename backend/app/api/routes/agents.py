@@ -26,15 +26,17 @@ def run_agent(
     service: AgentService = Depends(get_agent_service)
 ):
     try:
-        if not request.raw_reports:
-            raise ValueError("Agent run requires at least one raw report.")
+        if not request.raw_reports and not request.incident_id:
+            raise ValueError("Agent run requires at least one raw report or an existing incident_id.")
         
         response = service.run_agent(request)
         return response
     except ValueError as e:
+        if "not found" in str(e).lower():
+            raise HTTPException(status_code=404, detail=str(e))
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Internal server error")
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 @router.post("/review/{thread_id}", response_model=AgentRunResponse)
 def submit_review(

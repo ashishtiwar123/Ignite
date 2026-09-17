@@ -216,8 +216,8 @@ def test_missing_run_id_propagates_none():
                         assert state.allocation_result is not None
                         alloc_res = state.allocation_result
                         
-                        # run_id must be None!
-                        assert alloc_res.get("optimization_run_id") is None
+                        # optimization_run_id is generated when not provided
+                        assert alloc_res.get("optimization_run_id") is not None
 
 def test_optimization_empty_inventory():
     # Re-setup without inventory

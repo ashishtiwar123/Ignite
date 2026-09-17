@@ -33,3 +33,15 @@ class AllocationResultResponse(BaseModel):
     unmet_demand: List[Dict[str, Any]]
     status: str
     message: str
+
+class IncidentGovernanceResponse(BaseModel):
+    incident_id: str
+    optimization_run_id: Optional[str] = None
+    thread_id: Optional[str] = None
+    approval_status: str = "NONE" # NONE, PENDING, APPROVED, REJECTED, REVISION_REQUESTED
+    execution_status: str = "UNEXECUTED" # UNEXECUTED, EXECUTED, ALREADY_EXECUTED, FAILED, NOT_APPROVED
+    execution_id: Optional[str] = None
+    approval_id: Optional[str] = None
+    deducted_resources: List[Dict[str, Any]] = []
+    errors: List[str] = []
+

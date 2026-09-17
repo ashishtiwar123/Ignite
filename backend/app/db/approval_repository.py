@@ -19,6 +19,10 @@ class BaseApprovalRepository(ABC):
         pass
 
     @abstractmethod
+    def get_by_incident(self, incident_id: str) -> List[ApprovalRecord]:
+        pass
+
+    @abstractmethod
     def upsert(self, record: ApprovalRecord) -> ApprovalRecord:
         pass
 
@@ -39,6 +43,9 @@ class InMemoryApprovalRepository(BaseApprovalRepository):
 
     def get_by_optimization_run(self, optimization_run_id: str) -> List[ApprovalRecord]:
         return [r for r in self._storage.values() if r.optimization_run_id == optimization_run_id]
+
+    def get_by_incident(self, incident_id: str) -> List[ApprovalRecord]:
+        return [r for r in self._storage.values() if r.incident_id == incident_id]
 
     def upsert(self, record: ApprovalRecord) -> ApprovalRecord:
         existing = self.get(record.approval_id)

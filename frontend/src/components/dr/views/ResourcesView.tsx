@@ -5,13 +5,83 @@ import { Input } from "@/components/ui/input";
 import { getResources } from "@/lib/api/resources";
 import type { ResourceRecord } from "@/lib/api/types";
 
+import { isDemoMode } from "@/lib/demoScenario";
+
+const DEMO_INVENTORY: ResourceRecord[] = [
+  {
+    resource_id: "res-001",
+    location_id: "Mumbai Central Depot",
+    resource_type: "Portable Water",
+    category: "WATER",
+    quantity_available: 12000,
+    unit: "L",
+    updated_at: new Date().toISOString(),
+    created_at: new Date().toISOString(),
+  },
+  {
+    resource_id: "res-002",
+    location_id: "Mumbai Relief Warehouse",
+    resource_type: "Cereal / Food",
+    category: "FOOD",
+    quantity_available: 0.8,
+    unit: "MT",
+    updated_at: new Date().toISOString(),
+    created_at: new Date().toISOString(),
+  },
+  {
+    resource_id: "res-003",
+    location_id: "Emergency Medical Depot",
+    resource_type: "Medical Kits",
+    category: "MEDICAL",
+    quantity_available: 320,
+    unit: "units",
+    updated_at: new Date().toISOString(),
+    created_at: new Date().toISOString(),
+  },
+  {
+    resource_id: "res-004",
+    location_id: "Shelter Depot",
+    resource_type: "Family Shelter Kits",
+    category: "SHELTER",
+    quantity_available: 300,
+    unit: "units",
+    updated_at: new Date().toISOString(),
+    created_at: new Date().toISOString(),
+  },
+  {
+    resource_id: "res-005",
+    location_id: "Rescue Unit Alpha",
+    resource_type: "Rescue Boats",
+    category: "RESCUE",
+    quantity_available: 8,
+    unit: "units",
+    updated_at: new Date().toISOString(),
+    created_at: new Date().toISOString(),
+  },
+  {
+    resource_id: "res-006",
+    location_id: "Central Transport Hub",
+    resource_type: "Emergency Vehicles",
+    category: "TRANSPORT",
+    quantity_available: 12,
+    unit: "units",
+    updated_at: new Date().toISOString(),
+    created_at: new Date().toISOString(),
+  },
+];
+
 export default function ResourcesView() {
-  const [resources, setResources] = useState<ResourceRecord[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [resources, setResources] = useState<ResourceRecord[]>(isDemoMode() ? DEMO_INVENTORY : []);
+  const [loading, setLoading] = useState(!isDemoMode());
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const fetchInventory = async () => {
+    if (isDemoMode()) {
+      setResources(DEMO_INVENTORY);
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
